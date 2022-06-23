@@ -1,0 +1,25 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 *ngIf="this.currentRole === 'user'">My Accounts</h1>
+      </div>
+      <div class="col-sm-6 text-right">
+        <button type="button" class="btn btn-info" (click)="add()">Add</button>
+      </div>
+    </div>
+  </nb-card-header>
+  <div *ngIf="this.currentRole === 'user'">
+    <ngx-list-accounts></ngx-list-accounts>
+  </div>
+  <div *ngIf="!(this.currentRole === 'user')">
+    <nb-tabset>
+      <nb-tab tabTitle="My Accounts">
+        <ngx-list-accounts pipeLineType="agent"></ngx-list-accounts>
+      </nb-tab>
+      <nb-tab tabTitle="My Teams">
+        <ngx-list-accounts pipeLineType="manager"></ngx-list-accounts>
+      </nb-tab>
+    </nb-tabset>
+  </div>
+</nb-card>

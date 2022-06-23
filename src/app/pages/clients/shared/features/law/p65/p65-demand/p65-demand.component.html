@@ -1,0 +1,1733 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">P65 Demand</h6>
+            </div>
+        </div>
+    </nb-card-header>
+
+    <nb-card-body class="slot" [formGroup]="form">
+        <div class="row">
+            <div class="col-md">
+                <h5 class="text-basic">P65 60 Day</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Client ID:</label>
+                        <input nbInput formControlName="ClientID" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Upload:</label>
+                        <input [nbDatepicker]="datepicker1" formControlName="P65_60Upload" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker1>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">60 Expired Date:</label>
+                        <input [nbDatepicker]="datepicker2" formControlName="P65Plus" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker2>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">60 Withdrawn Date:</label>
+                        <input [nbDatepicker]="datepicker3" formControlName="BKSchedulesDue" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker3>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Tolling Agreement:</label>
+                        <input [nbDatepicker]="datepicker4" formControlName="dbtoffer1" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker4>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Remediation:</label>
+                        <input [nbDatepicker]="datepicker5" formControlName="Settled_20" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker5>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="Con1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc1" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DiscLong1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="Dacc1" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="Daccnumb1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker6" formControlName="InProcess1" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker6>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker7" formControlName="Lconord1" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker7>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus1" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker8" formControlName="SubStatus1" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker8>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step1CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker9" formControlName="Settled1" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker9>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Break inbetween "batchID - Date Purchased" to the next <->  "BatchID - Date Purchased"-->
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="Con2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc2" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DisLong2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="Dacc2" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="Daccnumb2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker10" formControlName="INProcess2" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker10>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker11" formControlName="Lconrecv2" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker11>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus2" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker12" formControlName="SubStatus2" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker12>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step2CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker13" formControlName="Settled2" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker13>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="con3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc3" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DiscLong3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="dacc3" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="daccnumb3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker14" formControlName="InProcess3" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker14>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker15" formControlName="Lconrecv3" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker15>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus3" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker16" formControlName="SubStatus3" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker16>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step3CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker17" formControlName="Settled3" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker17>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt3" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="con4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc4" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DiscLong4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="dacc4" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="daccnumb4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker18" formControlName="InProcess4" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker18>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker19" formControlName="Lconrecv4" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker19>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus4" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker20" formControlName="SubStatus4" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker20>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step4CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker21" formControlName="Settle4" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker21>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt4" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="con5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc5" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DiscLong5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="dacc5" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="daccnumb5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker22" formControlName="InProcess5" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker22>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker23" formControlName="Lconrecv5" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker23>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus5" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker24" formControlName="SubStatus5" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker24>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step5CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker25" formControlName="Settle5" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker25>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt5" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Batch ID:</label>
+                        <input nbInput formControlName="con6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Category:</label>
+                        <nb-select placeholder="" formControlName="Disc6" size="medium" fullWidth status="primary">
+                            <nb-option value="Test">Test</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UPC#:</label>
+                        <input nbInput formControlName="ClientDoc6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Name/Descr.:</label>
+                        <input nbInput formControlName="DiscLong6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Priority Level:</label>
+                        <nb-select placeholder="" formControlName="dacc6" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Acrylamide/Lead">Acrylamide/Lead</nb-option>
+                            <nb-option value="DEPH">DEPH</nb-option>
+                            <nb-option value="Hemp/THC">Hemp/THC</nb-option>
+                            <nb-option value="Mercury">Mercury</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Reformulation Target:</label>
+                        <input nbInput formControlName="daccnumb6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Purchased:</label>
+                        <input [nbDatepicker]="datepicker26" formControlName="InProcess6" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker26>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date Lab Test:</label>
+                        <input [nbDatepicker]="datepicker27" formControlName="Lconrecv6" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker27>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Test Type:</label>
+                        <nb-select placeholder="" formControlName="AsgnSatus6" size="medium" fullWidth status="primary">
+                            <nb-option value="Acrylamide">Acrylamide</nb-option>
+                            <nb-option value="Cadmium">Cadmium</nb-option>
+                            <nb-option value="Lead">Lead</nb-option>
+                            <nb-option value="Phthalate">Phthalate</nb-option>
+                            <nb-option value="THC">THC</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lab Results:</label>
+                        <input nbInput formControlName="StatusDisc6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exp. Analy. DT:</label>
+                        <input [nbDatepicker]="datepicker28" formControlName="SubStatus6" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker28>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Lower:</label>
+                        <input nbInput formControlName="Step6CompletedBy" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">USEPA Upper:</label>
+                        <input nbInput formControlName="SettleType6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Product Purch.:</label>
+                        <input [nbDatepicker]="datepicker29" formControlName="Settle6" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker29>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount RePurch.:</label>
+                        <input nbInput formControlName="SettledAmt6" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Manafacturer:</label>
+                        <input nbInput formControlName="Defendant1Long" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Company:</label>
+                        <input nbInput formControlName="Defendant1Long" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CEO:</label>
+                        <input nbInput formControlName="CEO1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="Party4address" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="Party4city" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party4state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="Party4zip" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Prod # Punch:</label>
+                        <input nbInput formControlName="Cred1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Retailer 1:</label>
+                        <input nbInput formControlName="Party3co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Company:</label>
+                        <input nbInput formControlName="Party3co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CEO:</label>
+                        <input nbInput formControlName="Party3name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="Party3address" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="Party3city" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party3state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="Party3zip" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Prod # Punch:</label>
+                        <input nbInput formControlName="Cred2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Retailer 2:</label>
+                        <input nbInput formControlName="Party5Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Company:</label>
+                        <input nbInput formControlName="Party5Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CEO:</label>
+                        <input nbInput formControlName="Party5name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="Party5Add" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="Party5City" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party5State" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="Party5zip" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>OPC 1:</u></label>
+                        <input nbInput formControlName="Party1Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Contact:</label>
+                        <input nbInput formControlName="Party1Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Direct:</label>
+                        <input nbInput formControlName="Party1phone" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gen. Office:</label>
+                        <input nbInput formControlName="Party1direct" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="Party1email" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Last Contact:</label>
+                        <input [nbDatepicker]="datepicker30" formControlName="PlaintiffPhoneAcquire" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker30>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Next Contact:</label>
+                        <input [nbDatepicker]="datepicker31" formControlName="CRED1PROOF" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker31>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>OPC 2:</u></label>
+                        <input nbInput formControlName="Party2Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Contact:</label>
+                        <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Direct:</label>
+                        <input nbInput formControlName="Party2phone" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gen. Office:</label>
+                        <input nbInput formControlName="Party2direct" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="Party2email" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Last Contact:</label>
+                        <input [nbDatepicker]="datepicker32" formControlName="PMTDeclaration1" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker32>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Next Contact:</label>
+                        <input [nbDatepicker]="datepicker33" formControlName="Cred2Proof" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker33>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Demand Process:</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Set-Up:</label>
+                        <input [nbDatepicker]="datepicker34" formControlName="Step1Completed" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker34>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <nb-select placeholder="" class="select" formControlName="ParaLegal1" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Diana Lopez">Diana Lopez</nb-option>
+                            <nb-option value="Artricia Woods">Artricia Woods</nb-option>
+                            <nb-option value="Bonita Salazar">Bonita Salazar</nb-option>
+                            <nb-option value="Julia Benjamin">Julia Benjamin</nb-option>
+                            <nb-option value="Megan Foss">Megan Foss</nb-option>
+                            <nb-option value="Josh Foss">Josh Foss</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Offender:</label>
+                        <input [nbDatepicker]="datepicker35" formControlName="Step2Completed" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker35>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <nb-select placeholder="" class="select" formControlName="ParaLegal2" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Diana Lopez">Diana Lopez</nb-option>
+                            <nb-option value="Artricia Woods">Artricia Woods</nb-option>
+                            <nb-option value="Bonita Salazar">Bonita Salazar</nb-option>
+                            <nb-option value="Julia Benjamin">Julia Benjamin</nb-option>
+                            <nb-option value="Megan Foss">Megan Foss</nb-option>
+                            <nb-option value="Josh Foss">Josh Foss</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Creation:</label>
+                        <input [nbDatepicker]="datepicker36" formControlName="Step3Completed" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker36>
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Financial Analyst:</label>
+                        <nb-select placeholder="" formControlName="ProcessorName" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Diana Lopez">Diana Lopez</nb-option>
+                            <nb-option value="Artricia Woods">Artricia Woods</nb-option>
+                            <nb-option value="Bonita Salazar">Bonita Salazar</nb-option>
+                            <nb-option value="Julia Benjamin">Julia Benjamin</nb-option>
+                            <nb-option value="Megan Foss">Megan Foss</nb-option>
+                            <nb-option value="Josh Foss">Josh Foss</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Attorney Hold Process</u></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Dispostion:</label>
+                        <nb-select placeholder="" formControlName="StageDisposition1" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Duplicate Claim Client">Duplicate Claim Client</nb-option>
+                            <nb-option value="Duplicate Claim Offender">Duplicate Claim Offender</nb-option>
+                            <nb-option value="Litigation Consideration">Litigation Consideration</nb-option>
+                            <nb-option value="Additional Investigation">Additional Investigation</nb-option>
+                            <nb-option value="Incorrect Template">Incorrect Template</nb-option>
+                            <nb-option value="Pending Class Action">Pending Class Action</nb-option>
+                            <nb-option value="Revise Demand">Revise Demand</nb-option>
+
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Review Date:</label>
+                        <input [nbDatepicker]="datepicker37" formControlName="SalesFollow1" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker37>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Of Counsel #1</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">OPC Link:</label>
+                        <input nbInput formControlName="Party2Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Attorney:</label>
+                        <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Bar#:</label>
+                        <input nbInput formControlName="Party2misc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party2state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Of Counsel #2</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">OPC Link:</label>
+                        <input nbInput formControlName="Party3co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Attorney:</label>
+                        <input nbInput formControlName="Party3Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Bar#:</label>
+                        <input nbInput formControlName="Party3misc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party3state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Demand</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">First Date Violation:</label>
+                        <input [nbDatepicker]="datepicker38" formControlName="TCPAFirstComplaintDate" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker38>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Last Date Violation:</label>
+                        <input [nbDatepicker]="datepicker39" formControlName="TcpaLastComplaintDate" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker39>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"># of Calls/Text Pre-Demand:</label>
+                        <input nbInput formControlName="TCPANumberCalls" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Demand Date:</label>
+                        <input [nbDatepicker]="datepicker40" formControlName="TcpaDemandDate" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker40>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"># of Calls/Text Post-Demand:</label>
+                        <input nbInput formControlName="TCPAPostDemand" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Revocation Date:</label>
+                        <input [nbDatepicker]="datepicker41" formControlName="TCPAREVOCATIONDATE" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker41>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"># of Calls/Text Post-Revocation:</label>
+                        <input nbInput formControlName="TCPAPostRevo" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"># of Calls/Text Post-Settlement:</label>
+                        <input nbInput formControlName="TCPAPostSettle" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Demand Amount:</label>
+                        <input nbInput formControlName="TcpaDemandAmt" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date of Demand:</label>
+                        <input [nbDatepicker]="datepicker42" formControlName="TcpaDemandDate" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker42>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Response</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Response Type 1:</label>
+                        <nb-select placeholder="" formControlName="RegX1" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Response Type 2:</label>
+                        <nb-select placeholder="" formControlName="RegX2" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Response Type 3:</label>
+                        <nb-select placeholder="" formControlName="RegX3" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Response Type 4:</label>
+                        <nb-select placeholder="" formControlName="RegX4" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Offender Phones</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">1 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone1" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">2 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone2" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">3 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone3" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">4 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone4" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">5 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone5" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">6 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone6" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">7 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone7" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">8 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone8" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">9 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone9" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">10 Offender's Phone Numbers:</label>
+                        <input nbInput formControlName="TcpaOffenderPhone10" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </nb-card-body>
+</nb-card>

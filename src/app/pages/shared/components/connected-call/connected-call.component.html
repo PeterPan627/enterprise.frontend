@@ -1,0 +1,76 @@
+<div ngDraggable>
+  <div [class]="isMini() ? 'pad isMini' : 'pad'">
+    <nb-icon
+      *ngIf="!isMini()"
+      (click)="toggle_Minimization()"
+      icon="minus-square-outline"
+      style="position: absolute; color: white; right: 5px; top: 5px;"
+    ></nb-icon>
+    <nb-icon
+      *ngIf="isMini()"
+      (click)="toggle_Minimization()"
+      icon="plus-square"
+      style="position: absolute; color: white; right: 5px; top: 5px;"
+    ></nb-icon>
+    <div class="dial-pad">
+      <div class="contact">
+        <div class="contact-info">
+          <div class="contact-name">{{ this.participant }}</div>
+          <div class="contact-number">
+            place holder
+          </div>
+        </div>
+      </div>
+      <div [class]="isMini() ? 'phoneString isMini' : 'phoneString'">
+        <input type="text" readonly value="{{ this.DialedDigits }}" />
+      </div>
+      <div *ngIf="!isMini()" class="digits">
+        <div (click)="dial('1')" class="dig pound number-dig" name="1">1</div>
+        <div (click)="dial('2')" class="dig number-dig" name="2">
+          2
+          <div class="sub-dig">ABC</div>
+        </div>
+        <div (click)="dial('3')" class="dig number-dig" name="3">
+          3
+          <div class="sub-dig">DEF</div>
+        </div>
+        <div (click)="dial('4')" class="dig number-dig" name="4">
+          4
+          <div class="sub-dig">GHI</div>
+        </div>
+        <div (click)="dial('5')" class="dig number-dig" name="5">
+          5
+          <div class="sub-dig">JKL</div>
+        </div>
+        <div (click)="dial('6')" class="dig number-dig" name="6">
+          6
+          <div class="sub-dig">MNO</div>
+        </div>
+        <div (click)="dial('7')" class="dig number-dig" name="7">
+          7
+          <div class="sub-dig">PQRS</div>
+        </div>
+        <div (click)="dial('8')" class="dig number-dig" name="8">
+          8
+          <div class="sub-dig">TUV</div>
+        </div>
+        <div (click)="dial('9')" class="dig number-dig" name="9">
+          9
+          <div class="sub-dig">WXYZ</div>
+        </div>
+        <div (click)="dial('*')" class="dig number-dig astrisk" name="*">*</div>
+        <div (click)="dial('0')" class="dig number-dig pound" name="0">0</div>
+        <div (click)="dial('#')" class="dig number-dig pound" name="#">#</div>
+      </div>
+      <div class="call action-dig" (click)="hangUp()">
+        <div class="call-end"></div>
+      </div>
+
+      <div
+        *ngIf="hasDigits() && !isMini()"
+        (click)="delete()"
+        class="goBack action-dig"
+      ></div>
+    </div>
+  </div>
+</div>

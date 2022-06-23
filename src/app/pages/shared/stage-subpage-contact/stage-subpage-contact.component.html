@@ -1,0 +1,399 @@
+<nb-card class="card">
+  <nb-card-body class="slot">
+    <div class="row">
+      <div class="col">
+        <p class="text-center">Contact Stage: {{ stages.AStage }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button left"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage8', null)"
+        >
+          {{ this.stages.stage8.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker7"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage8.date
+              ? this.stages.stage8.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker7 (dateChange)="setStage('stage8', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button left"
+          size="tiny"
+          [disabled]="isNotAdmin()"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage7', null)"
+        >
+          {{ this.stages.stage7.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker8"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          [disabled]="isNotAdmin()"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage7.date
+              ? this.stages.stage7.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker8 (dateChange)="setStage('stage7', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage6', null)"
+        >
+          {{ this.stages.stage6.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker9"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage6.date
+              ? this.stages.stage6.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker9 (dateChange)="setStage('stage6', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage5', null)"
+        >
+          {{ this.stages.stage5.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker10"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage5.date
+              ? this.stages.stage5.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker10 (dateChange)="setStage('stage5', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage4', null)"
+        >
+          {{ this.stages.stage4.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker11"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage4.date
+              ? this.stages.stage4.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker11 (dateChange)="setStage('stage4', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage3', null)"
+        >
+          {{ this.stages.stage3.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker12"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage3.date
+              ? this.stages.stage3.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker12 (dateChange)="setStage('stage3', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage2', null)"
+        >
+          {{ this.stages.stage2.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker13"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage2.date
+              ? this.stages.stage2.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker13 (dateChange)="setStage('stage2', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage1', null)"
+        >
+          {{ this.stages.stage1.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker14"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage1.date
+              ? this.stages.stage1.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker14 (dateChange)="setStage('stage1', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stage0', null)"
+        >
+          {{ this.stages.stage0.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker15"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stage0.date
+              ? this.stages.stage0.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker #datepicker15 (dateChange)="setStage('stage0', $event)">
+        </nb-datepicker>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          readonly
+          disabled
+          status="basic"
+          fullWidth
+        >
+          {{ this.stages.stageX.stageName }} Disposition
+        </button>
+      </div>
+      <div class="col">
+        <nb-select
+          class="input"
+          placeholder="select x disposition"
+          size="tiny"
+          status="basic"
+          fullWidth
+          selected="{{ this.stages.stageX.disposition }}"
+          (selectedChange)="setStageXdisposition($event)"
+        >
+          <nb-option value="TMO-Take me OFF List"
+            >TMO-Take me OFF List</nb-option
+          >
+          <nb-option value="Not Interested">Not Interested</nb-option>
+        </nb-select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          class="button"
+          size="tiny"
+          appearance="filled"
+          status="basic"
+          fullWidth
+          (click)="setStage('stageX', null)"
+        >
+          {{ this.stages.stageX.stageName }}
+        </button>
+      </div>
+      <div class="col">
+        <input
+          [nbDatepicker]="datepicker16"
+          nbInput
+          class="input"
+          placeholder=""
+          fieldSize="tiny"
+          shape="rectangle"
+          status="basic"
+          fullWidth
+          value="{{
+            this.stages.stageX.date
+              ? this.stages.stageX.date.toLocaleDateString()
+              : ''
+          }}"
+        />
+        <nb-datepicker
+          #datepicker16
+          (dateChange)="setStage('stageX', $event)"
+        ></nb-datepicker>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <button
+          nbButton
+          appearance="filled"
+          status="success"
+          fullWidth
+          (click)="save()"
+        >
+          Save & Close
+        </button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

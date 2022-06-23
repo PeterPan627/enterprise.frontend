@@ -1,0 +1,32 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  overflow: auto;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+      flex: 1, auto, auto;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  td, th {
+    color: menu-button-text-color;
+}
+
+
+  @include media-breakpoint-down(is) {
+    ngx-traffic-bar {
+      display: none;
+    }
+  }
+}

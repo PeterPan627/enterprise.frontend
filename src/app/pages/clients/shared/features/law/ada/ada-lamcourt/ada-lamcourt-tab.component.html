@@ -1,0 +1,308 @@
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="row">
+      <div class="col-md">
+        <h6 class="text-basic">{{ this.accountName }} Account Details</h6>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="slot" [formGroup]="form">
+    <div class="row">
+      <div class="col-md-2">
+        <!--col 1-->
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Stat Judge:</label>
+            <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              formControlName="statJudge" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Judge:</label>
+            <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+              formControlName="judge" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Court House:</label>
+            <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+              formControlName="courtHouse">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">County:</label>
+            <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+              formControlName="county">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Case Number:</label>
+            <input nbInput fieldSize="medium" fullWidth shape="rectangle" status="primary"
+              formControlName="caseNumber" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="address1" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="state" />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="zip" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Department:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+              formControlName="department" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Phone:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Remove to Fed:</label>
+            <input [nbDatepicker]="dtpkremoveFed" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="removeFed" />
+            <nb-datepicker #dtpkremoveFed> </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic">Deposition Client:</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date:</label>
+            <input [nbDatepicker]="dtpkDate1" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="date" />
+            <nb-datepicker #dtpkDate1> </nb-datepicker>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Assigned to:</label>
+            <nb-select class="text1" placeholder="" size="medium" status="primary" fullWidth formControlName="assigned">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Completed Date:</label>
+            <input [nbDatepicker]="dtpkcompleteddate1" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="completedDate" />
+            <nb-datepicker #dtpkcompleteddate1> </nb-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <!--col 2-->
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Stat Judge:</label>
+            <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              formControlName="statJudge" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Judge:</label>
+            <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+              formControlName="judge" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Court House:</label>
+            <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+              formControlName="courtHouse">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">County:</label>
+            <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+              formControlName="county">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Case Number:</label>
+            <input nbInput fieldSize="medium" fullWidth shape="rectangle" status="primary"
+              formControlName="caseNumber" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="address1" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="state" />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="zip" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Department:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+              formControlName="department" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Phone:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary" formControlName="email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Remove to Fed:</label>
+            <input [nbDatepicker]="dtpkremoveFed2" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="removeFed" />
+            <nb-datepicker #dtpkremoveFed2> </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic">Deposition Defendant:</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date:</label>
+            <input [nbDatepicker]="dtpkDate2" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="date" />
+            <nb-datepicker #dtpkDate2> </nb-datepicker>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Assigned to:</label>
+            <nb-select class="text1" placeholder="" size="medium" status="primary" formControlName="assigned" fullWidth>
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Completed Date:</label>
+            <input [nbDatepicker]="dtpkcompleteddate2" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="completedDate" />
+            <nb-datepicker #dtpkcompleteddate2> </nb-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Hearing Notes:</label>
+            <textarea nbInput formControlName="notes" placeholder="*Big Note Box&lt;----" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" formControlName="notes" fullWidth></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic">Deposition Expert Witness:</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date:</label>
+            <input [nbDatepicker]="dtpkDate3" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="date" />
+            <nb-datepicker #dtpkDate3> </nb-datepicker>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Assigned to:</label>
+            <nb-select class="text1" placeholder="" size="medium" status="primary" formControlName="assigned" fullWidth>
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Completed Date:</label>
+            <input [nbDatepicker]="dtpkcompleteddate3" nbInput class="text1" placeholder="Enter Date" fieldSize="medium"
+              shape="rectangle" status="primary" fullWidth formControlName="completedDate" />
+            <nb-datepicker #dtpkcompleteddate3> </nb-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Tentative Ruling:</label>
+            <textarea nbInput formControlName="notes" placeholder="*Big Note Box&lt;----" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth formControlName="tentativeRuling"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic">Magistrate Judge:</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Judge Name:</label>
+            <nb-select class="text1" placeholder="" size="medium" status="primary" fullWidth
+              formControlName="judgeName">
+              <nb-option value="1">1</nb-option>
+              <nb-option value="2">2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput fullWidth shape="rectangle" status="primary" fieldSize="medium" type="text"
+              formControlName="email" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,78 @@
+:host {
+    display: block;
+    width: 100%;
+  }
+  
+  .space-component {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+  
+  .input {
+    margin: 10px 0 10px 8px;
+    cursor: pointer;
+  }
+  
+  .space-component1 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+  
+  .space-component2 {
+    height: auto;
+    min-height: 2rem;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+  
+  .button {
+    margin: 10px 8px 10px 0;
+  }
+  
+  .space-component3 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-between;
+    overflow: visible;
+  }
+  
+  .text {
+    margin: 8px 8px 0 0;
+  }
+  
+  .select {
+    margin: 8px 0 4px 0;
+  }
+  
+  .space-component4 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: visible;
+  }
+  
+  

@@ -1,0 +1,590 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">Form - (Opportunity) Accounting</h6>
+            </div>
+        </div>
+    </nb-card-header>
+
+    <nb-card-body class="slot" [formGroup]="form">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Trans. Accounting</u></label>
+                        <nb-select fullWidth placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="actTransAcc">
+                            <nb-option value="1">1</nb-option>
+
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Cost</u></label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="ct" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Cost Date</u></label>
+                        <input [nbDatepicker]="datepicker1" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ctDt" />
+                        <nb-datepicker #datepicker1></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="actTransAcc2" class="text1" placeholder="select" fieldSize="medium"
+                            status="primary" formControlName="actTransAcc2">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" class="text1" type="text" shape="rectangle"
+                            status="primary" formControlName="ct2" />
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker2" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="ctDt2" />
+                        <nb-datepicker #datepicker2></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="ct3" />
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Pay Type: </u></label>
+                        <nb-select fullWidth placeholder="select" status="primary" fieldSize="medium"
+                            formControlName="pType">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Paid Date: </u></label>
+                        <input [nbDatepicker]="datepicker3" nbInput fullWidth fieldSize="medium" status="primary"
+                            placeholder="Enter Date" formControlName="pDt" />
+                        <nb-datepicker #datepicker3></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" status="primary" fieldSize="medium"
+                            formControlName="pType2">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker4" class="text1" nbInput fullWidth fieldSize="medium"
+                            status="primary" placeholder="Enter Date" formControlName="pDt2" />
+                        <nb-datepicker #datepicker4></nb-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Closing and Credit notes:</u></label>
+                        <textarea nbInput formControlName="clsCrdNt" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <button nbButton class="text2" status="primary" fullWidth fieldSize="medium">Default
+                            Fees</button>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Check in Date:</label>
+                        <input [nbDatepicker]="datepicker5" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ckInDt" />
+                        <nb-datepicker #datepicker5></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Gross Total Revenue
+                                (GTR):</u></label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="gtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>Cost</u></label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="$0.00" formControlName="ct4" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text2" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="gtr2">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" class="text2" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct5" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Loan Officer:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="lnOffcGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct6" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Admin:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="adminGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct7" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Proc/LC:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="prcLcGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct8" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Appraisal:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="apprsGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct9" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Credit:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="crdtGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct10" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Mkting:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="mktGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="$0.00" class="text2" formControlName="ct11" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Misc:</label>
+                        <nb-select fullWidth class="gtr" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="mscGtr">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct12" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct13" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Pay Type:</u></label>
+                        <nb-select fullWidth class="pType" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="pType3">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Paid Date:</u></label>
+                        <input [nbDatepicker]="datepicker6" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="pDt3" />
+                        <nb-datepicker #datepicker6></nb-datepicker>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="pType4">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker7" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt4" />
+                        <nb-datepicker #datepicker7></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="pType5">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker8" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt5" />
+                        <nb-datepicker #datepicker8></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="pType6">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker9" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt6" />
+                        <nb-datepicker #datepicker9></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="pType7">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker10" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt7" />
+                        <nb-datepicker #datepicker10></nb-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Stage 9 Closed:</u></label>
+                        <input [nbDatepicker]="datepicker11" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="stgeDt" />
+                        <nb-datepicker #datepicker11></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text text-basic label"><u>Stage 9.5 Cancelled:</u></label>
+                        <input [nbDatepicker]="datepicker12" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="stgeDt2" />
+                        <nb-datepicker #datepicker12></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Ops Signed Off:</label>
+                        <input [nbDatepicker]="datepicker13" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="opsSoDt" />
+                        <nb-datepicker #datepicker13></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <button nbButton class="text2" fullWidth status="warning" fieldSize="medium">Print
+                            Screen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CC1:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="..." formControlName="cC" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" class="text2"
+                            status="primary" placeholder=" % " formControlName="cC2" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CC2:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="..." formControlName="cC3" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" type="text" class="text2" shape="rectangle"
+                            status="primary" placeholder=" % " formControlName="cC4" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CC3:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="..." formControlName="cC5" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" type="text" class="text2" shape="rectangle"
+                            status="primary" placeholder="%" formControlName="cC6" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Third Party:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="  " formControlName="thrdPty" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Misc:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="  " formControlName="msc" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Cost:</label>
+                        <nb-select fullWidth class="ct14" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="ct14">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ct15" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00 " formControlName="ct16" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder=" " formControlName="ct17" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00 " formControlName="ct18" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00 " formControlName="ct19" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00 " formControlName="ct20" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Cost Total:</u></label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="$0.00 " formControlName="ctTotal" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Net Company Revenue (NCR):</u></label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="$0.00 " formControlName="ctNcr" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder=" % " formControlName="ctPrcnt" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            class="text2" status="primary" placeholder=" % " formControlName="ctPrcnt2" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder=" % " formControlName="ctPrcnt3" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            class="text2" status="primary" placeholder=" % " formControlName="ctPrcnt4" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder=" % " formControlName="ctPrcnt5" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            class="text2" status="primary" placeholder=" % " formControlName="ctPrcnt6" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Cost Desc.:</u></label>
+                        <nb-select fullWidth placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="ctDesc1">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ctDesc2" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="ctDesc3">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ctDesc4" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <nb-select fullWidth class="text1" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="ctDesc5">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth class="text1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="ctDesc6" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Paid Date:</u></label>
+                        <input [nbDatepicker]="datepicker14" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="pDt8" />
+                        <nb-datepicker #datepicker14></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Payable Comission:</u></label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            placeholder="$0.00" formControlName="pCom1" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Paid Date:</u></label>
+                        <input [nbDatepicker]="datepicker15" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="pDt9" />
+                        <nb-datepicker #datepicker15></nb-datepicker>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker16" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt10" />
+                        <nb-datepicker #datepicker16></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" class="text1" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="pCom2" />
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker17" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt11" />
+                        <nb-datepicker #datepicker17></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker18" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt12" />
+                        <nb-datepicker #datepicker18></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" class="text1" type="text" shape="rectangle"
+                            status="primary" placeholder="$0.00" formControlName="pCom3" />
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker19" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="pDt13" />
+                        <nb-datepicker #datepicker19></nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </nb-card-body>
+
+</nb-card>

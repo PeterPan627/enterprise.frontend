@@ -1,0 +1,103 @@
+:host > .slot {
+  height: 100%
+}
+
+.space-component {
+  height: auto;
+  min-height: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.text {
+  margin: 0 8px 0 0;
+}
+
+
+
+.space-component1 {
+  height: auto;
+  min-height: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.text1 {
+  margin: 7px 0 0 0;
+}
+
+.select {
+  margin: 7px 0 0 0;
+}
+
+.box {
+  margin: 20px 0 0 0;
+}
+
+.space-component2 {
+  height: auto;
+  min-height: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.space-component3 {
+  height: auto;
+  min-height: 2rem;
+  width: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.text2 {
+  margin: 0 0 0 10px;
+}
+
+.space-component4 {
+  height: auto;
+  min-height: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.card {
+  width: 100%;
+}
+
+.space-component5 {
+  height: auto;
+  min-height: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+  overflow: visible;
+}
+
+.space-component6 {
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  overflow: visible;
+}

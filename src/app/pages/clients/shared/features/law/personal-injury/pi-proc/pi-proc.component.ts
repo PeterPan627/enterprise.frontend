@@ -1,0 +1,797 @@
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ContactService } from '../../../../../../../@core/backend/common/services/contact.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { getNullableDateValue, getNullableDataValue } from '../../../../../../../@core/utils/helpers';
+import { OpportunityService } from '../../../../../../../@core/backend/common/services/opportunity.service';
+import { takeUntil } from 'rxjs/operators';
+import { CustomValidator } from '../../../../../../../@core/backend/common/services/validation.service';
+@Component({
+    selector: 'ngx-pi-proc',
+    templateUrl: './pi-proc.component.html',
+    styleUrls: ['./pi-proc.component.scss'],
+})
+export class PiProcTabComponent implements OnInit {
+    protected readonly unsubscribe$ = new Subject<void>();
+    data: Observable<any>;
+    form: FormGroup;
+    private role: string | string[] = [];
+    @Input() service: OpportunityService;
+    @Input() id: string;
+
+    constructor(private fb: FormBuilder) { }
+
+    ngOnInit() {
+        this.form = this.initForm(this.fb);
+        this.data = this.service.getPersonalInjuryProcessing(this.id).pipe(takeUntil(this.unsubscribe$));
+        this.data.subscribe(d => {
+            this.setFormValues(this.form, d, this.service);
+        })
+    }
+
+    private setIntakeFormData(opportunityId: String) {
+        return {
+            CaseSupport1: {
+                table: 'Parties_Involved',
+                column: 'CaseSupport1',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Caseadminbriefupdate: {
+                table: 'Caseadminupdate',
+                column: 'Caseadminbriefupdate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Modifydate: {
+                table: 'Caseadminupdate',
+                column: 'Modifydate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Modifyuser: {
+                table: 'Caseadminupdate',
+                column: 'Modifyuser',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientUpdate: {
+                table: 'ClientUpdate',
+                column: 'ClientUpdate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Createdate: {
+                table: 'ClientUpdate',
+                column: 'Createdate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Createuser: {
+                table: 'ClientUpdate',
+                column: 'Createuser',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            aStatusPI: {
+                table: 'TransTracking',
+                column: 'aStatusPI',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            PolicyLimit3Pper: {
+                table: 'PI',
+                column: 'PolicyLimit3Pper',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            PolicyNumber: {
+                table: 'PI',
+                column: 'PolicyNumber',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            MedPayAmt1: {
+                table: 'PI',
+                column: 'MedPayAmt1',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            PolicyLimit3PAmt: {
+                table: 'PI',
+                column: 'PolicyLimit3PAmt',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            CaseAccepted: {
+                table: 'CaseInfo',
+                column: 'CaseAccepted',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            RetainerDate: {
+                table: 'CaseInfo',
+                column: 'RetainerDate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            SOL: {
+                table: 'PI',
+                column: 'SOL',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ACK1PLTRRecvd: {
+                table: 'PI',
+                column: 'ACK1PLTRRecvd',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ACK3PLTRSent: {
+                table: 'PI',
+                column: 'ACK3PLTRSent',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc1: {
+                table: 'Tracking',
+                column: 'ClientDoc1',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc2: {
+                table: 'Tracking',
+                column: 'ClientDoc2',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc3: {
+                table: 'Tracking',
+                column: 'ClientDoc3',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc4: {
+                table: 'Tracking',
+                column: 'ClientDoc4',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc5: {
+                table: 'Tracking',
+                column: 'ClientDoc5',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc6: {
+                table: 'Tracking',
+                column: 'ClientDoc6',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc7: {
+                table: 'Tracking',
+                column: 'ClientDoc7',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc8: {
+                table: 'Tracking',
+                column: 'ClientDoc8',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc9: {
+                table: 'Tracking',
+                column: 'ClientDoc9',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc10: {
+                table: 'Tracking',
+                column: 'ClientDoc10',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc_11: {
+                table: 'Tracking',
+                column: 'ClientDoc_11',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc_12: {
+                table: 'Tracking',
+                column: 'ClientDoc_12',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientDoc_13: {
+                table: 'Tracking',
+                column: 'ClientDoc_13',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step1CompletedBy: {
+                table: 'Tracking',
+                column: 'Step1CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step2CompletedBy: {
+                table: 'Tracking',
+                column: 'Step2CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step3CompletedBy: {
+                table: 'Tracking',
+                column: 'Step3CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step4CompletedBy: {
+                table: 'Tracking',
+                column: 'Step4CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step5CompletedBy: {
+                table: 'Tracking',
+                column: 'Step5CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step6CompletedBy: {
+                table: 'Tracking',
+                column: 'Step6CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step7CompletedBy: {
+                table: 'Tracking',
+                column: 'Step7CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step8CompletedBy: {
+                table: 'Tracking',
+                column: 'Step8CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step9CompletedBy: {
+                table: 'Tracking',
+                column: 'Step9CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step10CompletedBy: {
+                table: 'Tracking',
+                column: 'Step10CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step11CompletedBy: {
+                table: 'Tracking',
+                column: 'Step11CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step12CompletedBy: {
+                table: 'Tracking',
+                column: 'Step12CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step13CompletedBy: {
+                table: 'Tracking',
+                column: 'Step13CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step14CompletedBy: {
+                table: 'Tracking',
+                column: 'Step14CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step1Completed: {
+                table: 'Tracking',
+                column: 'Step1Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step2Completed: {
+                table: 'Tracking',
+                column: 'Step2Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step3Completed: {
+                table: 'Tracking',
+                column: 'Step3Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step4Completed: {
+                table: 'Tracking',
+                column: 'Step4Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step5Completed: {
+                table: 'Tracking',
+                column: 'Step5Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step6Completed: {
+                table: 'Tracking',
+                column: 'Step6Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step7Completed: {
+                table: 'Tracking',
+                column: 'Step7Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step8Completed: {
+                table: 'Tracking',
+                column: 'Step8Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step9Completed: {
+                table: 'Tracking',
+                column: 'Step9Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step10Completed: {
+                table: 'Tracking',
+                column: 'Step10Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step11Completed: {
+                table: 'Tracking',
+                column: 'Step11Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step12Completed: {
+                table: 'Tracking',
+                column: 'Step12Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step13Completed: {
+                table: 'Tracking',
+                column: 'Step13Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step14Completed: {
+                table: 'Tracking',
+                column: 'Step14Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+
+            TCPAREVOCATIONDATE: {
+                table: 'Law',
+                column: 'TCPAREVOCATIONDATE',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            MedPayCheck5: {
+                table: 'PI',
+                column: 'MedPayCheck5',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Numb1: {
+                table: 'PI',
+                column: 'Numb1',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            LossEarnings: {
+                table: 'PI_Accounting',
+                column: 'LossEarnings',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            GeneralDamages: {
+                table: 'PI_Accounting',
+                column: 'GeneralDamages',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            InitialDemand: {
+                table: 'ADA',
+                column: 'InitialDemand',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step16CompletedBy: {
+                table: 'Tracking',
+                column: 'Step16CompletedBy',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Step16Completed: {
+                table: 'Tracking',
+                column: 'Step16Completed',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            InitialDemandDate: {
+                table: 'ADA',
+                column: 'InitialDemandDate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ProposedSettl: {
+                table: 'ADA',
+                column: 'ProposedSettl',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            PROPOSEDSETTLDATE: {
+                table: 'ADA',
+                column: 'PROPOSEDSETTLDATE',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            CounterSettl: {
+                table: 'ADA',
+                column: 'CounterSettl',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            CounterSettlDate: {
+                table: 'ADA',
+                column: 'CounterSettlDate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            FinalAgreedSettlement: {
+                table: 'ADA',
+                column: 'FinalAgreedSettlement',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            FinalSettlementDate: {
+                table: 'ADA',
+                column: 'FinalSettlementDate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            SettlementDue: {
+                table: 'FeeStructure',
+                column: 'SettlementDue',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            SettlementDueDate: {
+                table: 'FeeStructure',
+                column: 'SettlementDueDate',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientMoPmt9: {
+                table: 'FeeStructure',
+                column: 'ClientMoPmt9',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientMoPmt_10: {
+                table: 'FeeStructure',
+                column: 'ClientMoPmt_10',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientMoPmt_11: {
+                table: 'FeeStructure',
+                column: 'ClientMoPmt_11',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Settled_20: {
+                table: 'Tracking',
+                column: 'Settled_20',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            THirdPartySettle: {
+                table: 'PI_Accounting',
+                column: 'THirdPartySettle',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            UMSettle: {
+                table: 'PI_Accounting',
+                column: 'UMSettle',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            UIMSettle: {
+                table: 'PI_Accounting',
+                column: 'UIMSettle',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            Numb4: {
+                table: 'PI',
+                column: 'Numb4',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            MedPaySettlement: {
+                table: 'PI',
+                column: 'MedPaySettlement',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            FinalAgreedSettle: {
+                table: 'CaseInfo',
+                column: 'FinalAgreedSettle',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            FirmFeesTotal: {
+                table: 'PI_Accounting',
+                column: 'FirmFeesTotal',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ClientCostPdAmt_12: {
+                table: 'FeeStructure',
+                column: 'ClientCostPdAmt_12',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            NetRevTotal: {
+                table: 'FeeStructure',
+                column: 'NetRevTotal',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ProviderAdjTotal: {
+                table: 'PI_Accounting',
+                column: 'ProviderAdjTotal',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ProviderTotal: {
+                table: 'PI_Accounting',
+                column: 'ProviderTotal',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+            ProviderAdjustedTotal: {
+                table: 'PI_Accounting',
+                column: 'ProviderAdjustedTotal',
+                identifier: opportunityId,
+                key: 'OpportunityId',
+            },
+
+
+
+        }
+    }
+
+    initForm(fb: FormBuilder): FormGroup {
+
+        const form = fb.group({
+            Createdate: fb.control(''),
+            Createuser: fb.control(''),
+            CaseSupport1: fb.control(''),
+            Caseadminbriefupdate: fb.control(''),
+            ClientUpdate: fb.control(''),
+            aStatusPI: fb.control(''),
+            PolicyLimit3Pper: fb.control(''),
+            PolicyNumber: fb.control(''),
+            MedPayAmt1: fb.control(''),
+            PolicyLimit3PAmt: fb.control(''),
+            CaseAccepted: fb.control(''),
+            RetainerDate: fb.control(''),
+            SOL: fb.control(''),
+            ACK1PLTRRecvd: fb.control(''),
+            ACK3PLTRSent: fb.control(''),
+            ClientDoc1: fb.control(''),
+            ClientDoc2: fb.control(''),
+            ClientDoc3: fb.control(''),
+            ClientDoc4: fb.control(''),
+            ClientDoc5: fb.control(''),
+            ClientDoc6: fb.control(''),
+            ClientDoc7: fb.control(''),
+            ClientDoc8: fb.control(''),
+            ClientDoc9: fb.control(''),
+            ClientDoc10: fb.control(''),
+            ClientDoc_11: fb.control(''),
+            ClientDoc_12: fb.control(''),
+            ClientDoc_13: fb.control(''),
+            Step1CompletedBy: fb.control(''),
+            Step1Completed: fb.control(''),
+            Step2CompletedBy: fb.control(''),
+            Step2Completed: fb.control(''),
+            Step3CompletedBy: fb.control(''),
+            Step3Completed: fb.control(''),
+            Step4CompletedBy: fb.control(''),
+            Step4Completed: fb.control(''),
+            Step5CompletedBy: fb.control(''),
+            Step5Completed: fb.control(''),
+            Step6CompletedBy: fb.control(''),
+            Step6Completed: fb.control(''),
+            Step7CompletedBy: fb.control(''),
+            Step7Completed: fb.control(''),
+            Step8CompletedBy: fb.control(''),
+            Step8Completed: fb.control(''),
+            Step9CompletedBy: fb.control(''),
+            Step9Completed: fb.control(''),
+            Step10CompletedBy: fb.control(''),
+            Step10Completed: fb.control(''),
+            Step11CompletedBy: fb.control(''),
+            Step11Completed: fb.control(''),
+            Step12CompletedBy: fb.control(''),
+            Step12Completed: fb.control(''),
+            Step13CompletedBy: fb.control(''),
+            Step13Completed: fb.control(''),
+            Step14CompletedBy: fb.control(''),
+            Step14Completed: fb.control(''),
+            TCPAREVOCATIONDATE: fb.control(''),
+            MedPayCheck5: fb.control(''),
+            Numb1: fb.control(''),
+            LossEarnings: fb.control(''),
+            GeneralDamages: fb.control(''),
+            Step16CompletedBy: fb.control(''),
+            Step16Completed: fb.control(''),
+            InitialDemand: fb.control(''),
+            InitialDemandDate: fb.control(''),
+            ProposedSettl: fb.control(''),
+            PROPOSEDSETTLDATE: fb.control(''),
+            CounterSettl: fb.control(''),
+            CounterSettlDate: fb.control(''),
+            FinalAgreedSettlement: fb.control(''),
+            FinalSettlementDate: fb.control(''),
+            SettlementDue: fb.control(''),
+            SettlementDueDate: fb.control(''),
+            ClientMoPmt9: fb.control(''),
+            ClientMoPmt_10: fb.control(''),
+            ClientMoPmt_11: fb.control(''),
+            Settled_20: fb.control(''),
+            ThirdPartySettle: fb.control(''),
+            UMSettle: fb.control(''),
+            UIMSettle: fb.control(''),
+            Numb4: fb.control(''),
+            MedPaySettlement: fb.control(''),
+            FinalAgreedSettle: fb.control(''),
+            FirmFeesTotal: fb.control(''),
+            ClientCostPdAmt_12: fb.control(''),
+            NetRevTotal: fb.control(''),
+            ProviderAdjTotal: fb.control(''),
+            ProviderTotal: fb.control(''),
+            ProviderAdjustedTotal: fb.control(''),
+
+
+        }, { updateOn: 'blur' });
+        return form;
+    }
+
+
+    setFormValues(form: FormGroup, data: any, service: OpportunityService) {
+        form.setValue({
+            CounterSettl: getNullableDataValue(data.CounterSettl, ''),
+            CounterSettlDate: getNullableDataValue(data.CounterSettlDate, ''),
+            Createdate: getNullableDataValue(data.Createdate, ''),
+            Createuser: getNullableDataValue(data.Createuser, ''),
+            CaseSupport1: getNullableDataValue(data.CaseSupport1, 'Case Admin'),
+            Caseadminbriefupdate: getNullableDataValue(data.Caseadminbriefupdate, 'Brief Update Notes'),
+            ClientUpdate: getNullableDataValue(data.ClientUpdate, 'Last Client Com.'),
+            aStatusPI: getNullableDataValue(data.aStatusPI, 'PI Status'),
+            PolicyLimit3Pper: getNullableDataValue(data.PolicyLimit3Pper, 'Estimated Value'),
+            PolicyNumber: getNullableDataValue(data.PolicyNumber, '1 Limit Amount'),
+            MedPayAmt1: getNullableDataValue(data.MedPayAmt1, 'Med Pay Amount'),
+            PolicyLimit3PAmt: getNullableDataValue(data.PolicyLimit3PAmt, '3rd Limit Amount'),
+            CaseAccepted: getNullableDateValue(data.CaseAccepted, ''),
+            RetainerDate: getNullableDateValue(data.RetainerDate, ''),
+            SOL: getNullableDateValue(data.SOL, ''),
+            ACK1PLTRRecvd: getNullableDateValue(data.ACK1PLTRRecvd, ''),
+            ACK3PLTRSent: getNullableDateValue(data.ACK3PLTRSent, ''),
+            ClientDoc1: getNullableDataValue(data.ClientDoc1, 'Intake Form'),
+            ClientDoc2: getNullableDataValue(data.ClientDoc2, 'Police Report/Number'),
+            ClientDoc3: getNullableDataValue(data.ClientDoc3, 'Ambulance Bill'),
+            ClientDoc4: getNullableDataValue(data.ClientDoc4, 'Hospital/UCare Rcrds'),
+            ClientDoc5: getNullableDataValue(data.ClientDoc5, 'Hospital/UCare Bills'),
+            ClientDoc6: getNullableDataValue(data.ClientDoc6, 'Clients Written Stmt'),
+            ClientDoc7: getNullableDataValue(data.ClientDoc7, 'Accident: Pics ALL'),
+            ClientDoc8: getNullableDataValue(data.ClientDoc8, 'Health Insurance Card'),
+            ClientDoc9: getNullableDataValue(data.ClientDoc9, 'Auto Insurance Card'),
+            ClientDoc10: getNullableDataValue(data.ClientDoc10, '3rd Prty Insurance'),
+            ClientDoc_11: getNullableDataValue(data.ClientDoc_11, 'Receipts for ALL Injuries'),
+            ClientDoc_12: getNullableDataValue(data.ClientDoc_12, 'Drivers License'),
+            ClientDoc_13: getNullableDataValue(data.ClientDoc_13, 'Loss of Wages/Pay'),
+            Step1CompletedBy: getNullableDataValue(data.Step1CompletedBy, 'Case Opened'),
+            Step1Completed: getNullableDateValue(data.Step1Completed, ''),
+            Step2CompletedBy: getNullableDataValue(data.Step2CompletedBy, 'Welcome Call Client'),
+            Step2Completed: getNullableDateValue(data.Step2Completed, ''),
+            Step3CompletedBy: getNullableDataValue(data.Step3CompletedBy, 'Intake Form/Doc'),
+            Step3Completed: getNullableDateValue(data.Step3Completed, ''),
+            Step4CompletedBy: getNullableDataValue(data.Step4CompletedBy, 'First Rep Letters'),
+            Step4Completed: getNullableDateValue(data.Step4Completed, ''),
+            Step5CompletedBy: getNullableDataValue(data.Step5CompletedBy, 'Third Rep Letters'),
+            Step5Completed: getNullableDateValue(data.Step5Completed, ''),
+            Step6CompletedBy: getNullableDataValue(data.Step6CompletedBy, 'Notify Medcare/Medcl'),
+            Step6Completed: getNullableDateValue(data.Step6Completed, ''),
+            Step7CompletedBy: getNullableDataValue(data.Step7CompletedBy, 'Treatment Status'),
+            Step7Completed: getNullableDateValue(data.Step7Completed, ''),
+            Step8CompletedBy: getNullableDataValue(data.Step8CompletedBy, 'Incident Report'),
+            Step8Completed: getNullableDateValue(data.Step8Completed, ''),
+            Step9CompletedBy: getNullableDataValue(data.Step9CompletedBy, 'Property Damage'),
+            Step9Completed: getNullableDateValue(data.Step9Completed, ''),
+            Step10CompletedBy: getNullableDataValue(data.Step3CompletedBy, 'Loss of Use/Rental'),
+            Step10Completed: getNullableDateValue(data.Step10Completed, ''),
+            Step11CompletedBy: getNullableDataValue(data.Step3CompletedBy, 'Med Pay'),
+            Step11Completed: getNullableDateValue(data.Step11Completed, ''),
+            Step12CompletedBy: getNullableDataValue(data.Step12CompletedBy, 'Medical Records'),
+            Step12Completed: getNullableDateValue(data.Step12Completed, ''),
+            Step13CompletedBy: getNullableDataValue(data.Step13Completed, 'Medical Billing'),
+            Step13Completed: getNullableDateValue(data.Step13Completed, ''),
+            Step14CompletedBy: getNullableDataValue(data.Step14CompletedBy, 'Demand Letter'),
+            Step14Completed: getNullableDateValue(data.Step14Completed, ''),
+            TCPAREVOCATIONDATE: getNullableDataValue(data.TCPAREVOCATIONDATE, ''),
+            MedPayCheck5: getNullableDataValue(data.MedPayCheck5, ''),
+            Numb1: getNullableDataValue(data.Numb1, ''),
+            LossEarnings: getNullableDataValue(data.LossEarnings, ''),
+            GeneralDamages: getNullableDataValue(data.GeneralDamages, ''),
+            Step16CompletedBy: getNullableDataValue(data.Step16CompletedBy, ''),
+            Step16Completed: getNullableDateValue(data.Step16Completed, ''),
+            InitialDemand: getNullableDataValue(data.InitialDemand, ''),
+            InitialDemandDate: getNullableDateValue(data.InitialDemandDate, ''),
+            ProposedSettl: getNullableDataValue(data.ProposedSettl, ''),
+            PROPOSEDSETTLDATE: getNullableDateValue(data.PROPOSEDSETTLDATE, ''),
+            FinalAgreedSettlement: getNullableDataValue(data.FinalAgreedSettlement, ''),
+            FinalSettlementDate: getNullableDateValue(data.FinalSettlementDate, ''),
+            SettlementDue: getNullableDataValue(data.SettlementDue, ''),
+            SettlementDueDate: getNullableDateValue(data.SettlementDueDate, ''),
+            ClientMoPmt9: getNullableDataValue(data.ClientMoPmt9, ''),
+            ClientMoPmt_10: getNullableDateValue(data.ClientMoPmt_10, ''),
+            ClientMoPmt_11: getNullableDateValue(data.ClientMoPmt_11, ''),
+            Settled_20: getNullableDateValue(data.Settled_20, ''),
+            ThirdPartySettle: getNullableDataValue(data.MedPayCheck5, ''),
+            UMSettle: getNullableDataValue(data.UMSettle, ''),
+            UIMSettle: getNullableDataValue(data.UIMSettle, ''),
+            Numb4: getNullableDataValue(data.Numb4, ''),
+            MedPaySettlement: getNullableDataValue(data.MedPaySettlement, ''),
+            FinalAgreedSettle: getNullableDataValue(data.FinalAgreedSettle, ''),
+            FirmFeesTotal: getNullableDataValue(data.FirmFeesTotal, ''),
+            ClientCostPdAmt_12: getNullableDataValue(data.ClientCostPdAmt_12, ''),
+            NetRevTotal: getNullableDataValue(data.NetRevTotal, ''),
+            ProviderAdjTotal: getNullableDataValue(data.ProviderAdjTotal, ''),
+            ProviderTotal: getNullableDataValue(data.ProviderTotal, ''),
+            ProviderAdjustedTotal: getNullableDataValue(data.ProviderAdjustedTotal, ''),
+
+
+
+
+        });
+        this.pushFormValues(form, data, service);
+    }
+    private pushFormValues(form: FormGroup, data: any, service: OpportunityService) {
+        const intakeFormData = this.setIntakeFormData(data.opportunityId);
+        const controls = form.controls;
+        for (const property in controls) {
+            if (controls.hasOwnProperty(property)) {
+                controls[property].setAsyncValidators(CustomValidator.validate(
+                    service,
+                    data.opportunityId,
+                    intakeFormData[property],
+                ));
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<div class="slot">
+  <div class="space space-component col-md-12 background-transparent">
+    <ngx-contact-detail-header [data]="data" [service]="service"></ngx-contact-detail-header>
+    <nb-card class="card">
+      <div *ngIf="!isMobile()">
+        <nb-tabset>
+          <nb-tab tabTitle="Notes/History">
+            <ngx-notes-history-tab [service]="service" [id]="this.contactId" type="contact"></ngx-notes-history-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Activities">
+            <nb-card-body class="test">Coming Soon</nb-card-body>
+          </nb-tab>
+          <nb-tab tabTitle="Attachments">
+            <ngx-attachments-tab [id]="this.contactId" type="contact"></ngx-attachments-tab>
+          </nb-tab>
+        </nb-tabset>
+      </div>
+      <div *ngIf="isMobile()">
+        <nb-accordion>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Notes/History</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-notes-history-tab [service]="this.service" [id]="this.opportunityId" type="opportunity">
+              </ngx-notes-history-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Activities</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              Coming Soon!
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Attatchments</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-attachments-tab [id]="this.opportunityId" type="opportunity"></ngx-attachments-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+      </div>
+    </nb-card>
+  </div>
+</div>

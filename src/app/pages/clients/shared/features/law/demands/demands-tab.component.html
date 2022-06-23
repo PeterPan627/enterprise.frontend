@@ -1,0 +1,921 @@
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="row">
+      <div class="col-md">
+        <h6 class="text-basic">Demands</h6>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body class="slot" [formGroup]="form">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Type of Barrier:</label>
+            <nb-select placeholder="" formControlName="BarrierType" size="medium" fullWidth status="primary">
+              <nb-option value="Parking">Parking</nb-option>
+              <nb-option value="Routes">Routes, Walkway, Stairs, or Ramp</nb-option>
+              <nb-option value="Bathroom">Bathroom</nb-option>
+              <nb-option value="Doors">Doors, Gates</nb-option>
+              <nb-option value="Other">Other</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Hotel Platform Name:</label>
+            <nb-select placeholder="" formControlName="TypeComplaing" size="medium" fullWidth status="primary">
+              <nb-option value="Slope">Slope / Parking</nb-option>
+              <nb-option value="Bathroom">Bathroom</nb-option>
+              <nb-option value="Wheel Chair">WheelChair</nb-option>
+              <nb-option value="Hotel Platform Name">Hotel Platform Name</nb-option>
+              <nb-option value="Reservations">Reservations</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Travel Start Date:</label>
+            <input [nbDatepicker]="datepicker1" formControlName="TravelStart" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker1>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Travel End Date:</label>
+            <input [nbDatepicker]="datepicker2" formControlName="TravelEnd" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker2>
+            </nb-datepicker>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Client ID:</label>
+            <input nbInput formControlName="ClientID" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date of Visit:</label>
+            <input [nbDatepicker]="datepicker3" formControlName="DateVisited1" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker3>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">2nd Date of Visit:</label>
+            <input [nbDatepicker]="datepicker4" formControlName="DateVisited2" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker4>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">File Month:</label>
+            <input [nbDatepicker]="datepicker5" formControlName="FiledDate" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker5>
+            </nb-datepicker>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Website Visited:</label>
+            <input nbInput formControlName="WebDescription" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Notes:</label>
+            <textarea style="min-height: 165px;" nbInput formControlName="AttorneyStatusNotes" fieldSize="medium"
+              type="text" shape="rectangle" status="primary" fullWidth></textarea>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Complaint Process:</u></b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">File Setup:</label>
+            <input [nbDatepicker]="datepicker6" formControlName="FileSetup" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker6>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Barriers Identified:</label>
+            <input [nbDatepicker]="datepicker7" formControlName="BarriersIdentified" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker7>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Defendant Identified:</label>
+            <input [nbDatepicker]="datepicker8" formControlName="DefendantIdent" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker8>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Additional Recources Created:</label>
+            <input [nbDatepicker]="datepicker9" formControlName="AdditionalResource" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker9>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Complaint Drafted:</label>
+            <input [nbDatepicker]="datepicker10" formControlName="ComplaintDrafted" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker10>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Assessment Needed:</label>
+            <input [nbDatepicker]="datepicker11" formControlName="AssessmentNeed" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker11>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Rule 11 Letter Sent:</label>
+            <input [nbDatepicker]="datepicker12" formControlName="COURTDUEOPEN3" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker12>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Rule 11 Letter Rcvd:</label>
+            <input [nbDatepicker]="datepicker13" formControlName="CourtDueOpen2" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker13>
+            </nb-datepicker>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Completed By:</u></b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp1" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp2" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp3" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp4" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp5" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <nb-select placeholder="" class="select" formControlName="Comp6" size="medium" fullWidth status="primary">
+              <nb-option value="Michael Perri">Michael Perri</nb-option>
+              <nb-option value="Richard Avalos">Richard Avalos</nb-option>
+              <nb-option value="Kayvan Harirchi">Kayvan Harirchi</nb-option>
+              <nb-option value="Madelyn Delucca">Madelyn Delucca</nb-option>
+              <nb-option value="Nicole Mays">Nicole Mays</nb-option>
+              <nb-option value="Sara Barekat">Sara Barekat</nb-option>
+              <nb-option value="Jessica Arredondo">Jessica Arredondo</nb-option>
+
+            </nb-select>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Barriers:</u></b></label>
+            <textarea style="min-height: 480px;" class="box" nbInput formControlName="ABOther" fieldSize="medium"
+              type="text" shape="rectangle" status="primary" fullWidth></textarea>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Filings:</u></b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Filings Forms Drafted:</label>
+            <input [nbDatepicker]="datepicker14" formControlName="SubmittedNPO3" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker14>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">NOI Date:</label>
+            <input [nbDatepicker]="datepicker15" formControlName="ClientRecvd7" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker15>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">REM Notice Sent:</label>
+            <input [nbDatepicker]="datepicker17" formControlName="Settled_11" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker17>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Client Re-Visited:</label>
+            <input [nbDatepicker]="datepicker18" formControlName="Settled_18" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker18>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Remediation Date:</label>
+            <input [nbDatepicker]="datepicker19" formControlName="Settled_20" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker19>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Notice to Cure:</label>
+            <input [nbDatepicker]="datepicker20" formControlName="Step16Completed" fullWidth nbInput placeholder=""
+              fieldSize="medium" shape="rectangle" status="primary">
+            <nb-datepicker #datepicker20>
+            </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Status Barriers:</label>
+            <nb-select placeholder="" formControlName="aStatusPI" size="medium" fullWidth status="primary">
+              <nb-option value="1">1</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Remediation Notes:</u></b></label>
+            <textarea style="min-height: 100px;" class="box" nbInput formControlName="RemediationNotes"
+              fieldSize="medium" type="text" shape="rectangle" status="primary" fullWidth></textarea>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Store Front:</label>
+            <input nbInput formControlName="StoreFront" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="StoreAdd" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="StoreCity" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="StoreST" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="StoreZip" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">Defendant 1:</label>
+            <input nbInput formControlName="Defendant1Long" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Comp:</label>
+            <input nbInput formControlName="Defendant1Long" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Name:</label>
+            <input nbInput formControlName="Party4Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Title:</label>
+            <input nbInput formControlName="Party4Title" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Party4address" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Party4city" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Party4state" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Party4zip" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">InHouse Counsel:</label>
+            <input nbInput formControlName="InHouseCo1" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Short Name:</label>
+            <input nbInput formControlName="Defendant1" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Phone:</label>
+            <input nbInput formControlName="Party4phone" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput formControlName="Party4email" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">Defendant 2:</label>
+            <input nbInput formControlName="Party3misc2" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Comp:</label>
+            <input nbInput formControlName="Party3co" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Name:</label>
+            <input nbInput formControlName="Party3name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Title:</label>
+            <input nbInput formControlName="Party3Title" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Party3address" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Party3city" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Party3state" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Party3zip" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">Defendant 3:</label>
+            <input nbInput formControlName="Def5_1" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Comp:</label>
+            <input nbInput formControlName="Def5_2" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Name:</label>
+            <input nbInput formControlName="Def5_3" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Title:</label>
+            <input nbInput formControlName="Def5_4" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Def5_5" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Def5_7" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Def5_9" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Def5_8" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">Defendant 4:</label>
+            <input nbInput formControlName="Def4_1" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Comp:</label>
+            <input nbInput formControlName="Def4_2" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Offender Name:</label>
+            <input nbInput formControlName="Def4_3" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Title:</label>
+            <input nbInput formControlName="Def4_4" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Def4_5" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Def4_7" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Def4_9" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Def4_8" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Def 1 OPC:</u></b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">OPC Link:</label>
+            <input nbInput formControlName="Party1Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Firm:</label>
+            <input nbInput formControlName="Party1Co" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Attorney:</label>
+            <input nbInput formControlName="Party1Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Direct:</label>
+            <input nbInput formControlName="Party1direct" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Gen. Office:</label>
+            <input nbInput formControlName="Party1phone" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Mobile:</label>
+            <input nbInput formControlName="Party1mobile" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Fax:</label>
+            <input nbInput formControlName="Party1fax" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput formControlName="Party1email" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Party1address" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Party1city" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Party1state" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Party1zip" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Law Firm:</label>
+            <nb-select placeholder="" formControlName="TCPA_State" size="medium" fullWidth status="primary">
+              <nb-option value="Website & App">Website & App</nb-option>
+              <nb-option value="Website">Website</nb-option>
+              <nb-option value="App">App</nb-option>
+              <nb-option value="Website Mobile - App">Website Mobile - App</nb-option>
+              <nb-option value="Website Mobile">Website Mobile</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State Filed:</label>
+            <nb-select placeholder="" formControlName="Trustee1State" size="medium" fullWidth status="primary">
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">OPC #1:</label>
+            <input nbInput formControlName="Party2Co" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Attorney:</label>
+            <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Bar #:</label>
+            <input nbInput formControlName="Party2misc1" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Def 2 OPC:</u></b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">OPC Link:</label>
+            <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Firm:</label>
+            <input nbInput formControlName="Party2Co" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Attorney:</label>
+            <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Direct:</label>
+            <input nbInput formControlName="Party2direct" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Gen. Office:</label>
+            <input nbInput formControlName="Party2phone" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Mobile:</label>
+            <input nbInput formControlName="Party2mobile" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Fax:</label>
+            <input nbInput formControlName="Party2fax" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email:</label>
+            <input nbInput formControlName="Party2email" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address:</label>
+            <input nbInput formControlName="Party2address" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input nbInput formControlName="Party2city" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input nbInput formControlName="Party2state" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input nbInput formControlName="Party2zip" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;">OPC #2:</label>
+            <input nbInput formControlName="Party3co" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Attorney:</label>
+            <input nbInput formControlName="Party3name" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Bar #:</label>
+            <input nbInput formControlName="Party3misc1" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </nb-card-body>
+</nb-card>

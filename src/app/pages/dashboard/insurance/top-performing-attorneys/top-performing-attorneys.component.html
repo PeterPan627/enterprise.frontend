@@ -1,0 +1,40 @@
+<nb-flip-card [showToggleButton]="false" #flipcard>
+  <nb-card-front>
+    <nb-card size="giant">
+      <nb-card-header>
+        <div class="row">
+          <div class="col-6">Top 10 Performing {{ label }}</div>
+          <div class="col-6">
+            <p class="text-right">
+              <button class="btn btn-sm btn-info" (click)="flip()">
+                more
+              </button>
+            </p>
+          </div>
+        </div>
+      </nb-card-header>
+      <ngx-top-performing-attorneys-front
+        [data]="data"
+      ></ngx-top-performing-attorneys-front>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card size="giant">
+      <nb-card-header>
+        <div class="row">
+          <div class="col-6">Top 100 Performing {{ label }}</div>
+          <div class="col-6">
+            <p class="text-right">
+              <button class="btn btn-sm btn-info" (click)="flip()">
+                less
+              </button>
+            </p>
+          </div>
+        </div>
+      </nb-card-header>
+      <ngx-top-performing-attorneys-back
+        [data]="data"
+      ></ngx-top-performing-attorneys-back>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>

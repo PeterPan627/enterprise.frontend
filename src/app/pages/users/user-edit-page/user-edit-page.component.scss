@@ -1,0 +1,122 @@
+/*!
+ * Copyright (c) Akveo 2019. All Rights Reserved.
+ * Licensed under the Single Application / Multi Application License.
+ * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+ */
+
+ @import '~@nebular/theme/styles/core/mixins';
+ @import '../../../@theme/styles/themes';
+ @include nb-install-component() {
+   button[nbButton] {
+     margin: 0.25rem;
+   }
+
+   .card {
+    width: 100%;
+    margin: auto;
+
+   }
+
+
+  .container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+  }
+
+  .cols {
+    padding-bottom: 100%;
+    margin-bottom: -50%;
+    overflow: hidden;
+  }
+  
+  @media(min-width: 992px) {
+    .col-md-4:not(:first-child), 
+    .col-md-6:not(:first-child) {
+      border-left: 1px solid rgb(186, 190, 192);
+    }
+    .col-md-4:not(:last-child),
+    .col-md-6:not(:last-child) {
+      border-right: 1px solid ;
+      margin-right: -1px;
+    }
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+    position: flex;
+  }
+
+  input {
+    width: 20rem;
+  }
+
+  :host {
+    button {
+      @include nb-ltr(margin, 0 0.75rem 0 0);
+      @include nb-rtl(margin, 0 0 0 0.75rem);
+    }
+  }
+}
+
+h6 {
+  position: relative;
+  margin-top: 10px;
+}
+
+.select {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.roleBoxes {
+  margin: auto;
+  padding: 8px;
+  background: rgb(247, 249, 252);
+}
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 10px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3366ff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

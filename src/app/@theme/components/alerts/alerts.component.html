@@ -1,0 +1,80 @@
+<div (click)="showAlerts()">
+  <nb-icon icon="bell-outline"> </nb-icon>
+  <nb-badge
+    *ngIf="hasUnAcknowledgedNotifications()"
+    [text]="getUnAcknowledgedNotificationsSize()"
+    status="danger"
+  ></nb-badge>
+</div>
+<div
+  *ngIf="showAlertsPane && notifications.length > 0"
+  style="
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 350px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid rgba(24, 28, 33, 0.05);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.09);
+  "
+>
+  <div class="bg-primary text-center p-3">
+    <p class="text-white font-weight-bold">
+      {{
+        getUnAcknowledgedNotificationsSize() > 0
+          ? getUnAcknowledgedNotificationsSize() == 1
+            ? "1 New Notification"
+            : getUnAcknowledgedNotificationsSize() + " New Notifications"
+          : "No New Notifications"
+      }}
+    </p>
+  </div>
+  <div class="list-group list-group-flush">
+    <div
+      *ngFor="
+        let notification of notifications.slice().reverse().slice(0, 5);
+        index as i
+      "
+      [class]="
+        'list-group-item list-group-item-action media' +
+        (notification.status && !notification.acknowledged
+          ? 'border border-' + notification.status
+          : '')
+      "
+      (click)="acknowledge(i)"
+    >
+      <div class="d-flex align-items-center flex-row">
+        <nb-icon
+          [icon]="
+            notification.icon ? notification.icon : 'alert-circle-outline'
+          "
+          [status]="notification.status ? notification.status : 'basic'"
+        ></nb-icon>
+        <div class="media-body line-height-condenced ml-3">
+          <div class="text-body">{{ notification.message }}</div>
+        </div>
+        <div *ngIf="!notification.acknowledged">
+          <span class="badge badge-primary badge-pill">New</span>
+        </div>
+      </div>
+      <div
+        class="d-flex align-items-center flex-row"
+        style="justify-content: flex-end;"
+      >
+        <p style="text-align: right; padding-bottom: 0; margin-bottom: auto;">
+          <small class="text-muted">{{
+            notification.date | ngxMomentsAgo
+          }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <a
+    class="d-block text-center text-light small p-2"
+    style="color: #babbbc !important; font-weight: lighter;"
+    href="/pages/notifications"
+  >
+    Show all notifications
+  </a>
+</div>

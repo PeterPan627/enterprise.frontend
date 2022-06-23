@@ -1,0 +1,337 @@
+<div class="slot">
+  <div class="space space-component col-md-12 background-transparent">
+    <ngx-client-detail-header [service]="this.service" [data]="this.data"
+      (transTypeChanged)="this.setTransType($event)"></ngx-client-detail-header>
+    <nb-card class="card">
+      <div *ngIf="!isMobile()">
+        <nb-tabset fullWidth>
+          <nb-tab tabTitle="Prequal" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-prequal></ngx-prequal>
+          </nb-tab>
+          <nb-tab tabTitle="AFG-Pro" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-afg-pro-tab></ngx-afg-pro-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Sales-Com" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-sales-com></ngx-sales-com>
+          </nb-tab>
+          <nb-tab tabTitle="AFG-Processing" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-afg-pro-tab></ngx-afg-pro-tab>
+          </nb-tab>
+          <nb-tab tabTitle="AFG Accounting" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-afg-accounting-tab></ngx-afg-accounting-tab>
+          </nb-tab>
+          <nb-tab tabTitle="AFG Parties" *ngIf="containsFeature(this.features.MORTGAGE)">
+            <ngx-afg-parties-tab></ngx-afg-parties-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Insurance" *ngIf="containsFeature(this.features.INSURANCE)">
+            <ngx-clients-insurance-tab [data]="this.data"></ngx-clients-insurance-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Policy" *ngIf="containsFeature(this.features.INSURANCE)">
+            <ngx-add-policy></ngx-add-policy>
+          </nb-tab>
+
+
+
+          <nb-tab tabTitle="ADA LAM" *ngIf="
+              this.dataloaded &&
+              isTransType([
+                this.transType.Law_Ada_Ab,
+                this.transType.Law_Ada_Other,
+                this.transType.Law_Ada_Web,
+                this.transType.Law_Adar
+              ]) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-app-adafields-tab [service]="this.service" [id]="this.opportunityId"></ngx-app-adafields-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Demands" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Ada_Ab) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-demands-tab [service]="this.service" [id]="this.opportunityId"></ngx-demands-tab>
+          </nb-tab>
+
+          <nb-tab tabTitle="Demands Web" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Ada_Web) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-demands-web [service]="this.service" [id]="this.opportunityId"></ngx-demands-web>
+          </nb-tab>
+
+          <nb-tab tabTitle="Settlement" *ngIf="
+              this.dataloaded &&
+              isTransType([
+                this.transType.Law_Ada_Ab,
+                this.transType.Law_Ada_Other,
+                this.transType.Law_Ada_Web,
+                this.transType.Law_Adar
+              ]) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-settlement-tab [service]="this.service" [id]="this.opportunityId"></ngx-settlement-tab>
+          </nb-tab>
+
+          <nb-tab tabTitle="Court" *ngIf="this.dataloaded && containsFeature(this.features.INSURANCE)">
+            <ngx-law-court [service]="this.service" [id]="this.opportunityId"></ngx-law-court>
+          </nb-tab>
+
+          <nb-tab tabTitle="P65 Demand" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_P65) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-p65-demand [service]="this.service" [id]="this.opportunityId"></ngx-p65-demand>
+          </nb-tab>
+
+          <nb-tab tabTitle="P65 Settlement" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_P65) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-p65-settlement [service]="this.service" [id]="this.opportunityId"></ngx-p65-settlement>
+          </nb-tab>
+
+          <nb-tab tabTitle="P65 Lam" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_P65) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-p65-lam [service]="this.service" [id]="this.opportunityId"></ngx-p65-lam>
+          </nb-tab>
+          <nb-tab tabTitle="Pi Accounting" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-pi-accounting [service]="this.service" [id]="this.opportunityId"></ngx-pi-accounting>
+          </nb-tab>
+          <nb-tab tabTitle="Pi AE Provider" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWPI)
+            ">
+            <ngx-pi-ae-provider></ngx-pi-ae-provider>
+          </nb-tab>
+          <nb-tab tabTitle="Pi AE Insurance" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWPI)
+            ">
+            <ngx-pi-ae-insure></ngx-pi-ae-insure>
+          </nb-tab>
+          <nb-tab tabTitle="Pi LAM" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-pi-lam [service]="this.service" [id]="this.opportunityId"></ngx-pi-lam>
+          </nb-tab>
+          <nb-tab tabTitle="Pi Proc" *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <ngx-pi-proc [service]="this.service" [id]="this.opportunityId"></ngx-pi-proc>
+          </nb-tab>
+          <nb-tab tabTitle="Court" *ngIf="this.dataloaded && containsFeature(this.features.LAW)">
+            <ngx-law-court [service]="this.service" [id]="this.opportunityId"></ngx-law-court>
+          </nb-tab>
+          <nb-tab tabTitle="Accounting" *ngIf="this.dataloaded && containsFeature(this.features.INSURANCE)">
+            <ngx-accounting-tab></ngx-accounting-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Notes/History" *ngIf="this.dataloaded">
+            <ngx-notes-history-tab [service]="this.service" [id]="this.opportunityId" type="opportunity">
+            </ngx-notes-history-tab>
+          </nb-tab>
+          <nb-tab tabTitle="Activities">
+            <nb-card-body class="test">Coming Soon</nb-card-body>
+          </nb-tab>
+          <nb-tab tabTitle="Attachments" *ngIf="this.dataloaded">
+            <ngx-attachments-tab [id]="this.opportunityId" type="opportunity"></ngx-attachments-tab>
+          </nb-tab>
+          <nb-tab lazyLoad="false" tabTitle="Premium Attachments" [nbSpinner]="!this.dataloaded"
+            *ngIf="containsFeature(this.features.PREMIUMATTACHMENTS)">
+            <div *ngIf="this.dataloaded">
+              <ngx-attachments-dropbox [AccountId]="this.accountId" [ContactId]="this.contactId"
+                [OpportunityId]="this.opportunityId">
+              </ngx-attachments-dropbox>
+            </div>
+          </nb-tab>
+        </nb-tabset>
+      </div>
+
+      <div *ngIf="isMobile()">
+        <nb-accordion>
+          <nb-accordion-item *ngIf="containsFeature(this.features.MORTGAGE)">
+            <nb-accordion-item-header>prequal</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-prequal></ngx-prequal>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="containsFeature(this.features.MORTGAGE)">
+            <nb-accordion-item-header>Sales-Com</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-sales-com></ngx-sales-com>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="containsFeature(this.features.MORTGAGE)">
+            <nb-accordion-item-header>AFG-Pro</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-afg-pro-tab></ngx-afg-pro-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="containsFeature(this.features.INSURANCE)">
+            <nb-accordion-item-header>Insurance</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-clients-insurance-tab [data]="this.data"></ngx-clients-insurance-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="containsFeature(this.features.MORTGAGE)">
+            <nb-accordion-item-header>Policy</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-add-policy></ngx-add-policy>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Notes/History</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <div *ngIf="this.dataloaded">
+                <ngx-notes-history-tab [service]="this.service" [id]="this.opportunityId" type="opportunity">
+                </ngx-notes-history-tab>
+              </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Activities</nb-accordion-item-header>
+            <nb-accordion-item-body> Coming Soon! </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item>
+            <nb-accordion-item-header>Attatchments</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <div *ngIf="this.dataloaded">
+                <ngx-attachments-tab [id]="this.opportunityId" type="opportunity"></ngx-attachments-tab>
+              </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item [nbSpinner]="!this.dataloaded" *ngIf="containsFeature(this.features.PREMIUMATTACHMENTS)">
+            <nb-accordion-item-header>Premium Attachments</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <div *ngIf="this.dataloaded">
+                <ngx-attachments-dropbox [AccountId]="this.accountId" [ContactId]="this.contactId"
+                  [OpportunityId]="this.opportunityId">
+                </ngx-attachments-dropbox>
+              </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="containsFeature(this.features.LAW)">
+            <nb-accordion-item-header>Law Court</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-law-court></ngx-law-court>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType([
+                this.transType.Law_Ada_Ab,
+                this.transType.Law_Ada_Other,
+                this.transType.Law_Ada_Web,
+                this.transType.Law_Adar
+              ]) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <nb-accordion-item-header>ADA LAM</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-app-adafields-tab [service]="this.service" [id]="this.opportunityId"></ngx-app-adafields-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType([
+                this.transType.Law_Ada_Ab,
+                this.transType.Law_Ada_Other,
+                this.transType.Law_Ada_Web,
+                this.transType.Law_Adar
+              ]) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <nb-accordion-item-header>Demands</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-demands-tab></ngx-demands-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType([
+                this.transType.Law_Ada_Ab,
+                this.transType.Law_Ada_Other,
+                this.transType.Law_Ada_Web,
+                this.transType.Law_Adar
+              ]) &&
+              containsFeature(this.features.LAWADA)
+            ">
+            <nb-accordion-item-header>Settlement</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-settlement-tab></ngx-settlement-tab>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType([this.transType.Law_P65]) &&
+              containsFeature(this.features.LAWP65)
+            ">
+            <nb-accordion-item-header>P65 Demand</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-p65-demand></ngx-p65-demand>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_P65) &&
+              containsFeature(this.features.LAWP65)
+            ">
+            <nb-accordion-item-header>P65 Settlement</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-p65-settlement></ngx-p65-settlement>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_P65) &&
+              containsFeature(this.features.LAWP65)
+            ">
+            <nb-accordion-item-header>P65 Lam</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-p65-lam></ngx-p65-lam>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWPI)
+            ">
+            <nb-accordion-item-header>Pi LAM</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-pi-lam></ngx-pi-lam>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item *ngIf="
+              this.dataloaded &&
+              isTransType(this.transType.Law_Pi) &&
+              containsFeature(this.features.LAWPI)
+            ">
+            <nb-accordion-item-header>Pi Proc</nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-pi-proc></ngx-pi-proc>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+      </div>
+    </nb-card>
+  </div>
+</div>

@@ -1,0 +1,157 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">Pi Accounting</h6>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body class="slot" [formGroup]="form">
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gross Settlement:</label>
+                        <input nbInput formControlName="DEBTORGROSSINCOME" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Local Fee Pct:</label>
+                        <input nbInput formControlName="DEBTORINCOME" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Legal Fees:</label>
+                        <input nbInput formControlName="DEBTORCOMISSIONS" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Med Bills:</label>
+                        <input nbInput formControlName="DEBTORRENTALINCOME" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Payments:</label>
+                        <input nbInput formControlName="DEBTORCHILDSUPPORT" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Adjustments:</label>
+                        <input nbInput formControlName="DEBTORALIMONY" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Medical Bills:</label>
+                        <input nbInput formControlName="CODEBTORRENTALINCOME" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Gross:</label>
+                        <input nbInput formControlName="CODEBTORGROSSINCOME" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Total Legal Fees:</label>
+                        <input nbInput formControlName="CODEBTORINCOME" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Add Refund (reduction):</label>
+                        <input nbInput formControlName="CODEBTORCOMISSION" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Medical Bills:</label>
+                        <input nbInput formControlName="CODEBTORRENTALINCOME" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Hard Cost:</label>
+                        <input nbInput formControlName="CODEBTORCHILDSUPPORT" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Other Client Deductions:</label>
+                        <input nbInput formControlName="CODEBTORALIMONY" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Less Insurance Subrogation:</label>
+                        <input nbInput formControlName="CODEBTORSOCIALSECURITY" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Due to Client:</label>
+                        <input nbInput formControlName="CODEBTORINCOMETOTAL" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red"><u>Incoming Tracking:</u></label>
+                        <textarea style="min-height: 200px" nbInput fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="Income Tracking Grid" fullWidth></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red"><u>File Expense Tracking:</u></label>
+                        <textarea style="min-height: 200px" nbInput fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" placeholder="File Expense Tracking Grid" fullWidth></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Notes:</u></label>
+                        <textarea style="min-height: 200px" nbInput fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </nb-card-body>
+</nb-card>

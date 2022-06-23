@@ -1,0 +1,18 @@
+<nb-card-body>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Last, First</th>
+        <th>Account</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of tableData">
+        <td>{{ d.name }}</td>
+        <td>{{ d.company }}</td>
+        <td>{{ (d.stat7 * 100 || "0") + "%" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</nb-card-body>

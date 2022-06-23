@@ -1,0 +1,304 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-alert *ngIf="submitted && !success" outline="danger" role="alert">
+    <p class="alert-title"><b>Oh snap!</b></p>
+    <ul class="alert-message-list">
+      <li>Unfortunately, we're having trouble adding this account.</li>
+    </ul>
+  </nb-alert>
+  <nb-alert *ngIf="submitted && success" outline="success" role="alert">
+    <p class="alert-title"><b>Hooray!</b></p>
+    <ul class="alert-message-list">
+      <li>Account was successfully added!</li>
+    </ul>
+  </nb-alert>
+</ng-template>
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="row">
+      <div class="col-md">
+        <h6 class="text-basic">Create New Account</h6>
+      </div>
+    </div>
+  </nb-card-header>
+  <!--Add Picklist for subtype-->
+  <nb-card-body class="slot" [formGroup]="form">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Account:</label>
+            <input
+              formControlName="account"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Division:</label>
+            <input
+              formControlName="division"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Quick Name:</label>
+            <input
+              formControlName="quickName"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Main Phone:</label>
+            <input
+              formControlName="mainPhone"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Fax:</label>
+            <input
+              formControlName="fax"
+              nbInput
+              fullWidth
+              class="select"
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address1:</label>
+            <input
+              formControlName="address1"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address2:</label>
+            <input
+              formControlName="address2"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">County:</label>
+            <input
+              formControlName="county"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">City:</label>
+            <input
+              formControlName="city"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">State:</label>
+            <input
+              formControlName="state"
+              nbInput
+              fullWidth
+              class="select"
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip:</label>
+            <input
+              nbInput
+              formControlName="zip"
+              fullWidth
+              class="select"
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Web:</label>
+            <input
+              formControlName="web"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">UserID:</label>
+            <input
+              formControlName="userId"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Password:</label>
+            <input
+              formControlName="password"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Email Used:</label>
+            <input
+              formControlName="email"
+              nbInput
+              fullWidth
+              class="select"
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Account #:</label>
+            <input
+              formControlName="accountNumber"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Code:</label>
+            <input
+              formControlName="code"
+              nbInput
+              fullWidth
+              placeholder=""
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Monthly Amt:</label>
+            <input
+              formControlName="monthlyAmount"
+              nbInput
+              fullWidth
+              placeholder="Enter Value"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer class="slot">
+    <div class="row">
+      <div class="col">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="submit(dialog)"
+          [disabled]="!form.valid"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

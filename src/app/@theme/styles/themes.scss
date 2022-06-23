@@ -1,0 +1,90 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #f7f9fc,
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), default, default);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #252547,
+  slide-out-shadow-color: 2px 0 3px #29157a,
+  slide-out-shadow-color-rtl: -2px 0 3px #29157a,
+), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), corporate, corporate);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), dark, dark);
+
+$nb-themes: nb-register-theme(( color-primary-100: #FBE3D1, color-primary-200: #F7C1A6, color-primary-300: #E79375, color-primary-400: #D06750, color-primary-500: #B22E20, color-primary-600: #991917, color-primary-700: #801017, color-primary-800: #670A17, color-primary-900: #550618, color-success-100: #EBFAD1, color-success-200: #D2F6A4, color-success-300: #ACE573, color-success-400: #85CC4D, color-success-500: #53AA1D, color-success-600: #3D9215, color-success-700: #2A7A0E, color-success-800: #1B6209, color-success-900: #105105, color-info-100: #C7F8F9, color-info-200: #92ECF3, color-info-300: #58C9DD, color-info-400: #2E9DBB, color-info-500: #00668E, color-info-600: #004F7A, color-info-700: #003B66, color-info-800: #002A52, color-info-900: #001E44, color-warning-100: #FEF5CB, color-warning-200: #FDE997, color-warning-300: #F9D763, color-warning-400: #F4C53D, color-warning-500: #EDA900, color-warning-600: #CB8B00, color-warning-700: #AA6F00, color-warning-800: #895500, color-warning-900: #714300, color-danger-100: #FBD8CF, color-danger-200: #F8AAA1, color-danger-300: #EA716F, color-danger-400: #D54A55, color-danger-500: #BA1835, color-danger-600: #9F1138, color-danger-700: #850C38, color-danger-800: #6B0735, color-danger-900: #590433, header-background-color: #dd4b39, menu-button-text-color: #ffffff, actions-icon-color: #ffffff, background-basic-color-1: #222d32, background-basic-color-2: #1a2226, layout-background-color: #ecf0f5, shadow: 0 0.5rem 1rem 0 #2c0f0b, color-basic-1000: #545454), asg, dark);

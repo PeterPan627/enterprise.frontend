@@ -1,0 +1,44 @@
+<!--
+  ~ Copyright (c) Akveo 2019. All Rights Reserved.
+  ~ Licensed under the Single Application / Multi Application License.
+  ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+  -->
+
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <div class="logoMain" *ngIf="tenant.logoHorizontal; else textWelcome">
+      <a class="logo" href="#" (click)="navigateHome()">
+        <img src="{{ tenant.logoHorizontal }}" style="max-height: 75px" />
+      </a>
+    </div>
+    <ng-template #textWelcome>
+      <a class="logo" href="#" (click)="navigateHome()">{{ companyName }}</a>
+    </ng-template>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="medium" [fullWidth]="true">
+    <nb-action class="control-item">
+      <nb-search type="rotate-layout"></nb-search>
+    </nb-action>
+    <nb-action class="control-item" icon="email-outline"></nb-action>
+    <nb-action class="control-item">
+      <ngx-alerts></ngx-alerts>
+    </nb-action>
+    <nb-action class="user-action" *nbIsGranted="['view', 'current-user']">
+      <nb-user
+        [nbContextMenu]="userMenu"
+        nbContextMenuAdjustment="vertical"
+        [onlyPicture]="userPictureOnly"
+        [name]="getUserName()"
+        [picture]="this.userPhoto"
+        [showInitials]="true"
+      >
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>

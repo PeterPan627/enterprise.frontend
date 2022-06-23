@@ -1,0 +1,439 @@
+<nb-card-body class="slot" [formGroup]="form">
+  <!-- Medical -->
+  <div class="row">
+    <div class="col-md">
+      <h6><u>Medical</u></h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Medications</label>
+      <input nbInput formControlName="medications" placeholder="Enter Medication/'s" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Height </label>
+      <input nbInput formControlName="height" placeholder="Height in Ft" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Weight</label>
+      <input nbInput formControlName="weight" placeholder="Lb" fieldSize="medium" type="text" shape="rectangle"
+        status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Conditions</label>
+      <nb-select placeholder="Select Condition" formControlName="conditions" size="medium" status="primary" fullWidth>
+        <nb-option value="Allergies">Allergies</nb-option>
+        <nb-option value="Anemia">Anemia</nb-option>
+        <nb-option value="Anxiety Disorders">Anxiety Disorders</nb-option>
+        <nb-option value="Arrythmia">Arrythmia</nb-option>
+        <nb-option value="Arthritis">Arthritis</nb-option>
+        <nb-option value="Asthma">Asthma</nb-option>
+        <nb-option value="Back Pain">Back Pain</nb-option>
+        <nb-option value="Bone Tumors ">Bone Tumors </nb-option>
+        <nb-option value="Brain Tumors">Brain Tumors</nb-option>
+        <nb-option value="Breast Cancer">Breast Cancer</nb-option>
+        <nb-option value="Bursitis">Bursitis</nb-option>
+        <nb-option value="Cataracts">Cataracts</nb-option>
+        <nb-option value="Cholesterol">Cholesterol</nb-option>
+        <nb-option value="Colon Cancer">Colon Cancer</nb-option>
+        <nb-option value="Depression">Depression</nb-option>
+        <nb-option value="Diabetes">Diabetes</nb-option>
+        <nb-option value="Digestive Disorders">Digestive Disorders</nb-option>
+        <nb-option value="Ear-Congestion">Ear-Congestion</nb-option>
+        <nb-option value="Ear-Discharge">Ear-Discharge</nb-option>
+        <nb-option value="Ear-Injuries">Ear-Injuries</nb-option>
+        <nb-option value="Ear-Injuries">Ear-Injuries</nb-option>
+        <nb-option value="Ear-Swimmers">Ear-Swimmers</nb-option>
+        <nb-option value="Ear-Infection">Ear-Infection</nb-option>
+        <nb-option value="Earache">Earache</nb-option>
+        <nb-option value="Earwax Buildup">Earwax Buildup</nb-option>
+        <nb-option value="Fatigue">Fatigue</nb-option>
+        <nb-option value="Foot Problems">Foot Problems</nb-option>
+        <nb-option value="Glaucoma">Glaucoma</nb-option>
+        <nb-option value="Hand Pain">Hand Pain</nb-option>
+        <nb-option value="Headache">Headache</nb-option>
+        <nb-option value="Hearing Loss">Hearing Loss</nb-option>
+        <nb-option value="Heart Failure">Heart Failure</nb-option>
+        <nb-option value="Heart Murmurs">Heart Murmurs</nb-option>
+        <nb-option value="Hip Fractures">Hip Fractures</nb-option>
+        <nb-option value="Hip Infection">Hip Infection</nb-option>
+        <nb-option value="Hip Pain">Hip Pain</nb-option>
+        <nb-option value="Hives">Hives</nb-option>
+        <nb-option value="Hypertension">Hypertension</nb-option>
+        <nb-option value="Kidney Disease">Kidney Disease</nb-option>
+        <nb-option value="Kidney Tumors">Kidney Tumors</nb-option>
+        <nb-option value="Knee Pain">Knee Pain</nb-option>
+        <nb-option value="Liver Failure">Liver Failure</nb-option>
+        <nb-option value="Liver Tumors">Liver Tumors</nb-option>
+        <nb-option value="Macular Degeneration">Macular Degeneration</nb-option>
+        <nb-option value="Memory Loss ">Memory Loss </nb-option>
+        <nb-option value="Neck Pain">Neck Pain</nb-option>
+        <nb-option value="Osteoporosis">Osteoporosis</nb-option>
+        <nb-option value="Parkinson's Disease">Parkinson's Disease</nb-option>
+        <nb-option value="Prostate Cancer">Prostate Cancer</nb-option>
+        <nb-option value="Sleep Disorders">Sleep Disorders</nb-option>
+        <nb-option value="Soft Tissue Tumors">Soft Tissue Tumors</nb-option>
+        <nb-option value="Stoke">Stoke</nb-option>
+        <nb-option value="Stomach Pain">Stomach Pain</nb-option>
+        <nb-option value="Stress">Stress</nb-option>
+        <nb-option value="Tendinitis">Tendinitis</nb-option>
+        <nb-option value="Thyroid Disorder">Thyroid Disorder</nb-option>
+        <nb-option value="Urine and Bladder">Urine and Bladder</nb-option>
+      </nb-select>
+    </div>
+    <div class="col-md">
+      <label class="text1 text-basic label">Medical Group</label>
+      <nb-select class="text" formControlName="medical_group" placeholder="Select Group" size="medium" status="primary"
+        fullWidth>
+        <nb-option value="Access Medical Group">Access Medical Group</nb-option>
+        <nb-option value="Accountable Health Care">Accountable Health Care</nb-option>
+        <nb-option value="Advantage Care IPA">Advantage Care IPA</nb-option>
+        <nb-option value="All Care IPA">All Care IPA</nb-option>
+        <nb-option value="Advantage Health Network">Advantage Health Network</nb-option>
+        <nb-option value="Alamitos IPA">Alamitos IPA</nb-option>
+        <nb-option value="Alliance Desert Physicians">Alliance Desert Physicians</nb-option>
+        <nb-option value="Allied Health Care Providers">Allied Health Care Providers</nb-option>
+        <nb-option value="Allied Physicians">Allied Physicians</nb-option>
+        <nb-option value="Allied Health Care Providers">Allied Health Care Providers</nb-option>
+        <nb-option value="Allied Physicians IPA">Allied Physicians IPA</nb-option>
+        <nb-option value="Allied Physicians of California">Allied Physicians of California</nb-option>
+        <nb-option value="AltaMed Health Services">AltaMed Health Services</nb-option>
+        <nb-option value="Anaheim Memorial IPA">Anaheim Memorial IPA</nb-option>
+        <nb-option value="Anchor Medical Group">Anchor Medical Group</nb-option>
+        <nb-option value="Angeles IPA">Angeles IPA</nb-option>
+        <nb-option value="Apple Care MG">Apple Care MG</nb-option>
+        <nb-option value="Arroyo Seco MG">Arroyo Seco MG</nb-option>
+        <nb-option value="Arta Health Netwirk">Arta Health Netwirk</nb-option>
+        <nb-option value="Associated Hispanic Physicians of Southern California">Associated Hispanic Physicians of
+          Southern California</nb-option>
+        <nb-option value="Avante Best Care IPA">Avante Best Care IPA</nb-option>
+        <nb-option value="Axminister MG">Axminister MG</nb-option>
+        <nb-option value="Bakesfield Family Medical Center">Bakesfield Family Medical Center</nb-option>
+        <nb-option value="Balance">Balance</nb-option>
+        <nb-option value="Barstow Family Care MG">Barstow Family Care MG</nb-option>
+        <nb-option value="Beach Physicians MG">Beach Physicians MG</nb-option>
+        <nb-option value="Beaver MG">Beaver MG</nb-option>
+        <nb-option value="Bristol Park MG">Bristol Park MG</nb-option>
+        <nb-option value="Brown & Toland">Brown & Toland</nb-option>
+        <nb-option value="California Care MG">California Care MG</nb-option>
+        <nb-option value="Care1st Direct">Care1st Direct</nb-option>
+        <nb-option value=" Care More Direct Contract">
+          Care More Direct Contract</nb-option>
+        <nb-option value="Castillo Medical Clinic">Castillo Medical Clinic</nb-option>
+        <nb-option value="Centinela Valley IPA">Centinela Valley IPA</nb-option>
+        <nb-option value="Chino MG">Chino MG</nb-option>
+        <nb-option value="Choice Physicians  Network">Choice Physicians Network</nb-option>
+        <nb-option value="Citrus Valley Physicians Group">Citrus Valley Physicians Group</nb-option>
+        <nb-option value="Clinica Medical San Miguel IPA">Clinica Medical San Miguel IPA</nb-option>
+        <nb-option value="Coachella Valley Physicians">Coachella Valley Physicians</nb-option>
+        <nb-option value="Community Family Care IPA">Community Family Care IPA</nb-option>
+        <nb-option value="Crown City Medical Group">Crown City Medical Group</nb-option>
+        <nb-option value="Daehan Prospect">Daehan Prospect</nb-option>
+        <nb-option value="Desert Oasis Healthcare">Desert Oasis Healthcare</nb-option>
+        <nb-option value="Desert Valley MG">Desert Valley MG</nb-option>
+        <nb-option value="ECHIP MSO">ECHIP MSO</nb-option>
+        <nb-option value="Eisenhower Medical Center">Eisenhower Medical Center</nb-option>
+        <nb-option value="Empire Physicians MG">Empire Physicians MG</nb-option>
+        <nb-option value=" Employee Health Systems">
+          Employee Health Systems</nb-option>
+        <nb-option value="Facey Medical Foundation">Facey Medical Foundation</nb-option>
+        <nb-option value="Family Care Specialist IPA">Family Care Specialist IPA</nb-option>
+        <nb-option value="Family Coice MG ">Family Coice MG </nb-option>
+        <nb-option value="Family Health Centers of San Diego Family Practice MG">Family Health Centers of San Diego
+          Family Practice MG</nb-option>
+        <nb-option value="Family Practice MG">Family Practice MG</nb-option>
+        <nb-option value="Family Seniors MG">Family Seniors MG</nb-option>
+        <nb-option value="Family Care Specialist">Family Care Specialist</nb-option>
+        <nb-option value="Future Care Medical Associates ">Future Care Medical Associates
+        </nb-option>
+        <nb-option value="Gateway MG Anaheim Memorial Medical Center Network">Gateway MG Anaheim Memorial Medical Center
+          Network</nb-option>
+        <nb-option value="Genesis Health Care ">Genesis Health Care </nb-option>
+        <nb-option value="Glendale Advantist Medical Center">Glendale Advantist Medical Center
+        </nb-option>
+        <nb-option value="Global Care MG">Global Care MG</nb-option>
+        <nb-option value="Good Faith Family Medical Clinic">Good Faith Family Medical Clinic</nb-option>
+        <nb-option value="Good Samaritan Medical Practice Association ">Good Samaritan Medical Practice Association
+        </nb-option>
+        <nb-option value="Greater Covina Regal Medical Group">Greater Covina Regal Medical Group
+        </nb-option>
+        <nb-option value="Greater Newport Physicians IPA">Greater Newport Physicians IPA</nb-option>
+        <nb-option value="Greater Tri Cities IPA">Greater Tri Cities IPA</nb-option>
+        <nb-option value="Health Care Partners MG">Health Care Partners MG</nb-option>
+        <nb-option value="Healthcare IPA">Healthcare IPA</nb-option>
+        <nb-option value="Hemet Community MG">Hemet Community MG</nb-option>
+        <nb-option value="Heritage Provider Network IPA">Heritage Provider Network IPA</nb-option>
+        <nb-option value="Heritage Victor Valley MG">Heritage Victor Valley MG</nb-option>
+        <nb-option value="High Desert Primary Care MG">High Desert Primary Care MG</nb-option>
+        <nb-option value="Hispanic Physicians IPA">Hispanic Physicians IPA</nb-option>
+        <nb-option value="Imperial Beach Health Center">Imperial Beach Health Center</nb-option>
+        <nb-option value="Individuals Practice Associates">Individuals Practice Associates</nb-option>
+        <nb-option value="Inland Healthcare Group Inc.">Inland Healthcare Group Inc.</nb-option>
+        <nb-option value="Inland Valleys IPA">Inland Valleys IPA</nb-option>
+        <nb-option value="John Muir Physicians Network">John Muir Physicians Network</nb-option>
+        <nb-option value="Korean American MG">Korean American MG</nb-option>
+        <nb-option value="La Maestra Family Clinic">La Maestra Family Clinic</nb-option>
+        <nb-option value="Lakeside MG">Lakeside MG</nb-option>
+        <nb-option value="Lakewood IPA ">Lakewood IPA </nb-option>
+        <nb-option value="Leisure World Managed Care MG">Leisure World Managed Care MG</nb-option>
+        <nb-option value="Loma Linda">Loma Linda</nb-option>
+        <nb-option value="Los Angeles Medical Center">Los Angeles Medical Center</nb-option>
+        <nb-option value="MD Partners IPA">MD Partners IPA</nb-option>
+        <nb-option value="Memorial Care IPA">Memorial Care IPA</nb-option>
+        <nb-option value="Memorial Care Medical Group Fountain Valley">Memorial Care Medical Group Fountain Valley
+        </nb-option>
+        <nb-option value="Menifee Valley Community MG">Menifee Valley Community MG</nb-option>
+        <nb-option value="Mercy Physicians MG">Mercy Physicians MG</nb-option>
+        <nb-option value="Mission Heritage MG">Mission Heritage MG</nb-option>
+        <nb-option value="Mission Hospital Affiliated Physicians">Mission Hospital Affiliated Physicians
+        </nb-option>
+        <nb-option value="Mission Internal MG">Mission Internal MG</nb-option>
+        <nb-option value="Monarch">Monarch</nb-option>
+        <nb-option value="Mountain Health and Community Services">Mountain Health and Community Services
+        </nb-option>
+        <nb-option value="Multicultural Primary Care MG">Multicultural Primary Care MG</nb-option>
+        <nb-option value="My Family MG">My Family MG</nb-option>
+        <nb-option value=" Noble AMA IPA"> Noble AMA IPA</nb-option>
+        <nb-option value="Noble Community Medical Associates OC">Noble Community Medical Associates OC
+        </nb-option>
+        <nb-option value="Nuestra Familia MG">Nuestra Familia MG</nb-option>
+        <nb-option value="Omnicare MG">Omnicare MG</nb-option>
+        <nb-option value="Operation Samahan">Operation Samahan</nb-option>
+        <nb-option value="Orange County Advantage MG">Orange County Advantage MG</nb-option>
+        <nb-option value="Pacific Independent Physicians Association ">Pacific Independent Physicians Association
+        </nb-option>
+        <nb-option value="Physicians Associates of Greater San Gabriel Valley">Physicians Associates of Greater San
+          Gabriel Valley</nb-option>
+        <nb-option value="Pinnacle MG">Pinnacle MG</nb-option>
+        <nb-option value="Pioneer MG">Pioneer MG</nb-option>
+        <nb-option value="Pomona Valley dba PRO MED">Pomona Valley dba PRO MED</nb-option>
+        <nb-option value="Premier Care Health Services">Premier Care Health Services</nb-option>
+        <nb-option value="Premier Physician MG">Premier Physician MG</nb-option>
+        <nb-option value="Primary Care Associated MG">Primary Care Associated MG</nb-option>
+        <nb-option value="Primecare MG">Primecare MG</nb-option>
+        <nb-option value="Prospect MG">Prospect MG</nb-option>
+        <nb-option value="Prudent MG">Prudent MG</nb-option>
+        <nb-option value="Rancho Family MG">Rancho Family MG</nb-option>
+        <nb-option value="Redlands Yucaipa MG">Redlands Yucaipa MG</nb-option>
+        <nb-option value="Regal MG">Regal MG</nb-option>
+        <nb-option value="Riverside Medical Clinic">Riverside Medical Clinic</nb-option>
+        <nb-option value="Riverside Physician Network">Riverside Physician Network</nb-option>
+        <nb-option value="Saigon MG">Saigon MG</nb-option>
+        <nb-option value="San Bernardino MG">San Bernardino MG</nb-option>
+        <nb-option value="San Diego Physicians MG North Coastal">San Diego Physicians MG North Coastal
+        </nb-option>
+        <nb-option value="San Gabriel Valley Regal MG">San Gabriel Valley Regal MG</nb-option>
+        <nb-option value="Santa Clara County IPA">Santa Clara County IPA</nb-option>
+        <nb-option value="Scripps Clinic">Scripps Clinic</nb-option>
+        <nb-option value="Sejong MG">Sejong MG</nb-option>
+        <nb-option value="Seol MG">Seol MG</nb-option>
+        <nb-option value="Serra Community Medical Clinic">Serra Community Medical Clinic</nb-option>
+        <nb-option value="SHARP Community MG">SHARP Community MG</nb-option>
+        <nb-option value="St. Joseph Heritage MG">St. Joseph Heritage MG</nb-option>
+        <nb-option value="St. Joseph Hospital Affiliated Physicians">St. Joseph Hospital Affiliated Physicians
+        </nb-option>
+        <nb-option value="St. Jude Affiliated Physicians">St. Jude Affiliated Physicians</nb-option>
+        <nb-option value="St. Jude Heritage MG">St. Jude Heritage MG</nb-option>
+        <nb-option value="St. Mary IPA">St. Mary IPA</nb-option>
+        <nb-option value="St. Vincent IPA MG">St. Vincent IPA MG</nb-option>
+        <nb-option value="Talbert MG">Talbert MG</nb-option>
+        <nb-option value="Temecula Valley Physicians MG">Temecula Valley Physicians MG</nb-option>
+        <nb-option value="Toorance Hospital IPA Trivalley MG">Toorance Hospital IPA Trivalley MG
+        </nb-option>
+        <nb-option value="UCLA Medical Center ">UCLA Medical Center </nb-option>
+        <nb-option value="UCSD Healthcare Network">UCSD Healthcare Network</nb-option>
+        <nb-option value="United Family Care MG">United Family Care MG</nb-option>
+        <nb-option value="Universal Health Care MG">Universal Health Care MG</nb-option>
+        <nb-option value="Upland MG">Upland MG</nb-option>
+        <nb-option value="Valley physicians Network">Valley physicians Network</nb-option>
+        <nb-option value="Vantage MG">Vantage MG</nb-option>
+        <nb-option value="Vista Community Clinic">Vista Community Clinic</nb-option>
+      </nb-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Medicare Claim Number</label>
+      <input nbInput formControlName="medicare_claim_number" placeholder="Enter Value" fieldSize="medium" type="text"
+        shape="rectangle" status="info" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Medicare Claim Part A</label>
+      <input nbInput formControlName="medicare_claim_part_a" placeholder="Enter Medicare A #" fieldSize="medium"
+        type="text" shape="rectangle" status="info" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Medicare Claim Part B</label>
+      <input nbInput formControlName="medicare_claim_part_b" placeholder="Enter Medicare B #" fieldSize="medium"
+        type="text" shape="rectangle" status="info" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Medicaid Number</label>
+      <input nbInput formControlName="medicaid_number" placeholder="Enter Medicaid #" fieldSize="medium" type="text"
+        shape="rectangle" status="info" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Case Number</label>
+      <input nbInput formControlName="case_number" placeholder="Enter Case #" fieldSize="medium" type="text"
+        shape="rectangle" status="info" fullWidth />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Doctors First Name</label>
+      <input nbInput formControlName="doctors_firstName" placeholder="Enter Dr. First Name" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Doctors Middle Name</label>
+      <input nbInput formControlName="doctors_middleName" placeholder="Enter Doctors Middle Name" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Doctors Last Name</label>
+      <input nbInput formControlName="doctors_lastName" placeholder="Enter Doctors Last Name" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <div class="row">
+        <div class="col-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <nb-checkbox formControlName="smoker" class="checkbox" status="warning">Smoker</nb-checkbox>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="row">
+        <div class="col-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <nb-checkbox formControlName="scope_of_appointment" class="checkbox" status="warning">Scope Of Appointment
+          </nb-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- Financial -->
+  <div class="row">
+    <div class="col-md">
+      <h6><u>Financial</u></h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Occupation</label>
+      <input nbInput formControlName="occupation" placeholder="Job Title" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Income</label>
+      <input nbInput formControlName="income" placeholder="Enter Income " fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Income Type</label>
+      <nb-select formControlName="incomeType" placeholder="Select Income Type" size="medium" status="primary" fullWidth>
+        <nb-option value="Monthly">Monthly</nb-option>
+        <nb-option value="Yearly">Yearly</nb-option>
+      </nb-select>
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">SSN</label>
+      <input nbInput formControlName="ssn" placeholder="***-**-***" fieldSize="medium" type="text" shape="rectangle"
+        status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <div class="row">
+        <div class="col-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <nb-checkbox formControlName="low_income_subsidy" class="text" status="primary">Low Income Subsidy
+          </nb-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- Emergency  Contact Information -->
+  <div class="row">
+    <div class="col-md">
+      <h6><u>
+          Emergency Contact Information
+        </u></h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">First Name</label>
+      <input nbInput formControlName="emergency_firstName" placeholder="Enter First Name" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Middle Name</label>
+      <input nbInput formControlName="emergency_middleName" placeholder="Enter Middle Name" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Last Name</label>
+      <input nbInput formControlName="emergency_lastName" placeholder="Enter Last Name" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Home Phone</label>
+      <input nbInput formControlName="emergency_homePhone" placeholder="Enter Home Phone #" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Mobile Phone</label>
+      <input nbInput formControlName="emergency_mobilePhone" placeholder="Enter Mobile Phone #" fieldSize="medium"
+        type="text" shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Email</label>
+      <input nbInput formControlName="emergency_email" placeholder="Enter Email" fieldSize="medium" type="email"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Address</label>
+      <input nbInput formControlName="emergency_address" placeholder="Enter Address" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">Address2</label>
+      <input nbInput formControlName="emergency_address2" placeholder="Enter Address2" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <label class="text text-basic label">Zip code</label>
+      <input nbInput formControlName="emergency_zipcode" placeholder="*****" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">City</label>
+      <input nbInput formControlName="emergency_city" placeholder="Enter City" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">State</label>
+      <input nbInput formControlName="emergency_state" placeholder="Enter State" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+    <div class="col-md">
+      <label class="text text-basic label">County</label>
+      <input nbInput formControlName="emergency_county" placeholder="Enter County" fieldSize="medium" type="text"
+        shape="rectangle" status="primary" fullWidth />
+    </div>
+  </div>
+  <div class="space space-component3 col-md-12 background-transparent"></div>
+</nb-card-body>

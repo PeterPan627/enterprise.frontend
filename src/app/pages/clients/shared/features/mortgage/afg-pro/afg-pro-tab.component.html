@@ -1,0 +1,607 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">{{ this.accountName }} Processing</h6>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body class="slot" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-2">
+                <!--col 1-->
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" fullWidth>Est. Close:</label>
+                        <input [nbDatepicker]="datepicker1" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth
+                            formControlName="estCloseDt" />
+                        <nb-datepicker #datepicker1> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" fullWidth>COC Request:</label>
+                        <input [nbDatepicker]="datepicker2" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth
+                            formControlName="cocReqDt" />
+                        <nb-datepicker #datepicker2> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lender:</label>
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="lend">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Loan Amount:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="lnAmt" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Loan Program:</label>
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="lnPgrm">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lender Loan #:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="lendLn" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Impounds:</label>
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="impnd">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Locked Date:</label>
+                        <input [nbDatepicker]="datepicker3" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="lockDt" />
+                        <nb-datepicker #datepicker3> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Rate Exp.:</label>
+                        <input [nbDatepicker]="datepicker4" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth formControlName="rtXpDt" />
+                        <nb-datepicker #datepicker4> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Rate / Price:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="rtPrce" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Appraisal Order:</label>
+                        <input [nbDatepicker]="datepicker5" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth
+                            formControlName="apprsOrd" />
+                        <nb-datepicker #datepicker5> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">P.P./Est Value:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="ppEstV" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Appraisal Rcvd:</label>
+                        <input [nbDatepicker]="datepicker6" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth
+                            formControlName="apprsRcvd" />
+                        <nb-datepicker #datepicker6> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Appraisal Value:</label>
+                        <input nbInput fullWidth fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="apprsV" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <!--col 2-->
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Processing Update Notes:</u></label>
+                        <textarea nbInput formControlName="ntProc" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Originators Notes:</u></label>
+                        <textarea nbInput formControlName="ntOrig" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>P.M. /Loan Coordinator Notes:</u></label>
+                        <textarea nbInput formControlName="ntPm" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker7" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ntProcDt" />
+                        <nb-datepicker #datepicker7> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker8" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ntOrigDt" />
+                        <nb-datepicker #datepicker8> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker9" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ntPmDt" />
+                        <nb-datepicker #datepicker9> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Loan Issues Notes:</u></label>
+                        <textarea nbInput formControlName="lnIssNt" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="mgmtSpCb" />
+                        <label for="checkbox">Management Support</label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Submission Notes / Loan Goals:</label>
+                        <textarea nbInput formControlName="sbmnNt" placeholder="..." fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <h6 class="underline text-basic"><u>Conditions:</u></h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>B=Bor. / E=Escrow / T=Title / A=Agent</u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Conditions</u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>P=Pro / L=LO</u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Condition Date</u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><U>Received</U></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Clear</u></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">1.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd1L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker10" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt" />
+                        <nb-datepicker #datepicker10> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker11" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt" />
+                        <nb-datepicker #datepicker11> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">2.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct2">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd2L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker12" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt2" />
+                        <nb-datepicker #datepicker12> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker13" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt2" />
+                        <nb-datepicker #datepicker13> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr2" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">3.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct3">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd3L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker14" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt3" />
+                        <nb-datepicker #datepicker14> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker15" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt3" />
+                        <nb-datepicker #datepicker15> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr3" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">4.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct4">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd4L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker16" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt4" />
+                        <nb-datepicker #datepicker16> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker17" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt4" />
+                        <nb-datepicker #datepicker17> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr4" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">5.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct5">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd5L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker18" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt5" />
+                        <nb-datepicker #datepicker18> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker19" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt5" />
+                        <nb-datepicker #datepicker19> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr5" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">6.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct6">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd6P" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker20" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt6" />
+                        <nb-datepicker #datepicker20> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker21" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt6" />
+                        <nb-datepicker #datepicker21> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr6" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">7.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct7">
+                            <nb-option>1</nb-option>
+                            <nb-option>2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd7L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker22" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt7" />
+                        <nb-datepicker #datepicker22> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker23" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt7" />
+                        <nb-datepicker #datepicker23> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr7" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">8.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct8">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd8L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker24" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndDt8" />
+                        <nb-datepicker #datepicker24> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker25" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth checked status="primary"
+                            formControlName="cndRcvdDt8" />
+                        <nb-datepicker #datepicker25> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr8" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">9.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct9">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd9L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker26" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth checked status="primary"
+                            formControlName="cndDt9" />
+                        <nb-datepicker #datepicker26> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker27" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth checked status="primary"
+                            formControlName="cndRcvdDt9" />
+                        <nb-datepicker #datepicker27> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr9" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">10.</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10B" />
+                        <label class="text1 text-basic label">B</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10E" />
+                        <label class="text1 text-basic label">E</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10T" />
+                        <label class="text1 text-basic label">T</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10A" />
+                        <label class="text1 text-basic label">A</label>
+                    </div>
+                    <div class="col-md">
+                        <nb-select fullWidth class="select" placeholder="select" fieldSize="medium" status="primary"
+                            formControlName="cndSlct10">
+                            <nb-option value="1">1</nb-option>
+                            <nb-option value="2">2</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10P" />
+                        <label class="text1 text-basic label">P</label>
+                        <input type="checkbox" id="checkbox" checked status="primary" formControlName="cnd10L" />
+                        <label class="text1 text-basic label">L</label>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker28" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth status="primary" formControlName="cndDt10" />
+                        <nb-datepicker #datepicker28> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker29" nbInput class="text1" placeholder="Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="cndRcvdDt10" />
+                        <nb-datepicker #datepicker29> </nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" id="checkbox" status="primary" formControlName="clr10" />
+                    </div>
+                </div>
+                <!--comment-->
+
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

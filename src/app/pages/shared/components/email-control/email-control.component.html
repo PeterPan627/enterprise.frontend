@@ -1,0 +1,17 @@
+<ng-template #emailDialog let-data let-ref="dialogRef">
+  <ngx-email-popout style="min-width: 500px" [recipient]="this.recipient" [email]="this.email.value"
+    [identifier]="this.identifier">
+  </ngx-email-popout>
+</ng-template>
+
+<div class="input-group">
+  <input nbInput placeholder="" fieldSize="medium" value="" type="text" [formControl]="control" shape="rectangle"
+    status="primary" fullWidth />
+  <div class="input-group-append">
+    <button nbButton [class]="'btn' + (featureDisabled ? ' disabled' : '')" fieldSize="medium" type="text"
+      shape="rectangle" status="primary" (click)="showEmailPopout(emailDialog)"
+      [disabled]="isValidEmail() ? null : true">
+      <i class="fa fa-envelope" style="font-size: 18px"></i>
+    </button>
+  </div>
+</div>

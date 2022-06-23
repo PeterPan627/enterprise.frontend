@@ -1,0 +1,390 @@
+<nb-card class="card" [formGroup]="form">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md">
+                        <h6 class="text-basic">ENROLLMENT COVER SHEET</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" checked status="primary" fullWidth formControlName="initSubm">
+                        <label class="text1 text-basic label">Initial Submission</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" checked status="primary" fullWidth formControlName="refax">
+                        <label class="text1 text-basic label">Refax</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" checked status="primary" fullWidth formControlName="resendMissPages">
+                        <label class="text1 text-basic label">Resending Missing Pages</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" checked status="primary" fullWidth formControlName="submitDirect">
+                        <label class="text1 text-basic label">Submitted Direct / HRBC Copy</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body class="slot">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date:</label>
+                        <input [nbDatepicker]="dtpkDate" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="date" />
+                        <nb-datepicker #dtpkDate> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Broker Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="brokerName" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Effective Date:</label>
+                        <input [nbDatepicker]="dtpkeffDate" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" shape="rectangle" status="primary" fullWidth
+                            formControlName="effectiveDate" />
+                        <nb-datepicker #dtpkeffDate> </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Members First Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="firstName" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Last Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="lastName" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Carrier:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="carrier" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">County:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="county" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Plan Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="planName" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Medical Group:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="medicalGroup" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">PCP First Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="pcpFirstName" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">PCP Last Name:</label>
+                        <input nbInput fullWidth placeholder="" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" formControlName="pcpLastName" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="existPatient">
+                        <label class="text1 text-basic label">Existing Patient of Doctor</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="newPatient">
+                        <label class="text1 text-basic label">New Patient to Doctor</label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>New to Medicare?</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="existMember">
+                        <label class="text1 text-basic label">Existing Member of Medical Group</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="newMember">
+                        <label class="text1 text-basic label">New Member of Medical Group</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="yes">
+                        <label class="text1 text-basic label">Yes</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="english">
+                        <label class="text1 text-basic label">English</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="spanish">
+                        <label class="text1 text-basic label">Spanish</label>
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="other">
+                        <label class="text1 text-basic label">Other</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="noPlanSwitch">
+                        <label class="text1 text-basic label">No-Plan Switch</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <h6 class="text-basic" fullWidth><u>Lead Source</u></h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>HRBC Lead</u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><U>Medical Group</U></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="inboundCall">
+                        <label class="text1 text-basic label">Inbound Call</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="leadCard">
+                        <label class="text1 text-basic label">Lead Card</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="internet">
+                        <label class="text1 text-basic label">Internet</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="campOut">
+                        <label class="text1 text-basic label">Camp Out</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="bizCard">
+                        <label class="text1 text-basic label">Business Reply Card</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="doctorRefer">
+                        <label class="text1 text-basic label">Doctor Referral</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="walkIn">
+                        <label class="text1 text-basic label">Walk-In</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="inboundCall">
+                        <label class="text1 text-basic label">Inbound Call</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="office">
+                        <label class="text1 text-basic label">Office</label>
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="officeInput" />
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="mgLetter">
+                        <label class="text1 text-basic label">MG Letter</label>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="other">
+                        <label class="text1 text-basic label">Other</label>
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="otherInput" />
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="other">
+                        <label class="text1 text-basic label">Other</label>
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="otherInput" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u><b>Sales Meeting</b></u></label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u><b>Client</b></u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="newsPaper">
+                        <label class="text1 text-basic label">NewsPaper</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="referral">
+                        <label class="text1 text-basic label">Referral</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="postCards">
+                        <label class="text1 text-basic label">Postcards</label>
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">First Name:</label>
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="clientfirstName" />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Last Name:</label>
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="clientlastName" />
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="flyer">
+                        <label class="text1 text-basic label">Flyer</label>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u><b>Misc.</b></u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="hrbcLetter">
+                        <label class="text1 text-basic label">HRBC Letter</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="pharmacy">
+                        <label class="text1 text-basic label">Pharmacy</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="mgLetter">
+                        <label class="text1 text-basic label">MG Letter</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth
+                            formControlName="seniorCenter">
+                        <label class="text1 text-basic label">Senior Center</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="walkIn">
+                        <label class="text1 text-basic label">Walk-In</label>
+                    </div>
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked fullWidth status="primary" formControlName="other">
+                        <label class="text1 text-basic label">Other</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input type="checkbox" class="text" checked status="primary" fullWidth formControlName="other">
+                        <label class="text1 text-basic label">Other</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="otherInput" />
+                    </div>
+                    <div class="col-md">
+                        <input nbInput fullWidth fieldSize="medium" shape="rectangle" status="primary"
+                            formControlName="otherInput" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Prescriptions Currently Taking</label>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+                        <textarea nbInput formControlName="notes" placeholder="*Big Note Box&lt;----"
+                            style="height: 225px;" fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="notes" fullWidth></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Current Specialists Used</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+
+                        <textarea nbInput formControlName="notes" placeholder="*Big Note Box&lt;----"
+                            style="height: 225px;" fieldSize="medium" type="text" shape="rectangle" status="primary"
+                            formControlName="notes" fullWidth></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

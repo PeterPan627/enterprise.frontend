@@ -1,0 +1,10 @@
+@import '../../../@theme/styles/themes';
+
+.col-form-label {
+    text-align: right;
+    font-weight: bold;
+}
+
+table tr th, td {
+    color: nb-theme(color-basic-100);
+}

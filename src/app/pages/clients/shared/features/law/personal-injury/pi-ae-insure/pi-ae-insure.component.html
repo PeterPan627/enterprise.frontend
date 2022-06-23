@@ -1,0 +1,167 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">Insurance</h6>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body class="slot" [formGroup]="form">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Party Type:</label>
+                        <nb-select placeholder="" formControlName="PARTYSUBTYPE" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="insurance P1">Insurance P1</nb-option>
+                            <nb-option value="insurance P2">Insurance P2</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Insurance Name:</label>
+                        <input nbInput formControlName="PARTY1COMPANY" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Adjuster Name:</label>
+                        <input nbInput formControlName="PARTY1FULLNAME" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Phone Number:</label>
+                        <input nbInput formControlName="PARTY1DIRECTPHONE" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Ext.:</label>
+                        <input nbInput formControlName="PARTY1NUMB1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="PARTY1EMAIL" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Fax Number:</label>
+                        <input nbInput formControlName="PARTY1FAX" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="PARTY1ADDRESS" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="PARTY1CITY" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="PARTY1STATE" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="PARTY1ZIP" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">UM/UIM:</label>
+                        <nb-select placeholder="" formControlName="P1UMYES" size="medium" fullWidth status="primary">
+                            <nb-option value="Yes">Yes</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Limit:</label>
+                        <input nbInput formControlName="LIMIT1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Med Pay:</label>
+                        <nb-select placeholder="" formControlName="P1UMYES" size="medium" fullWidth status="primary">
+                            <nb-option value="Yes">Yes</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Limit:</label>
+                        <input nbInput formControlName="LIMIT2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Exhausted:</label>
+                        <nb-select placeholder="" formControlName="P1MEDEXHAUSTED" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Yes">Yes</nb-option>
+                            <nb-option value="No">No</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Insured Name:</label>
+                        <input nbInput formControlName="PARTY1FULLNAME" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Policy Number:</label>
+                        <input nbInput formControlName="PARTYINFO2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Claim Number:</label>
+                        <input nbInput formControlName="PARTYINFO1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Insurance Notes:</label>
+                        <textarea style="min-height: 200px;" nbInput formControlName="" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </nb-card-body>
+</nb-card>

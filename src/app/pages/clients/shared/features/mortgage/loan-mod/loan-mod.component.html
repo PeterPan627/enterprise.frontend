@@ -1,0 +1,387 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">Loan Modification</h6>
+            </div>
+        </div>
+    </nb-card-header>
+
+    <nb-card-body class="slot" [formGroup]="form">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Loan Modification:</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Mortgage Pmt Status:</label>
+                        <nb-select placeholder="" formControlName="mortPmtStat" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">How Many Months Down:</label>
+                        <input nbInput formControlName="monthDown" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Has Client Applied for Mod:</label>
+                        <nb-select placeholder="" formControlName="clientAppliedMod" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Previous Plan Offered</label>
+                        <nb-select placeholder="" formControlName="prevPlanOffer" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Client make any Pmts on Trial:</label>
+                        <nb-select placeholder="" formControlName="clientPmtTrial" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lost Home to Foreclosure:</label>
+                        <nb-select placeholder="" formControlName="homeForeclose" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date First Month Late:</label>
+                        <input nbInput formControlName="dateMonthLate" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Client Rcvd 3day Notice:</label>
+                        <nb-select placeholder="" formControlName="clientRcvdNotice" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Unlawful Detainer(Eviction):</label>
+                        <nb-select placeholder="" formControlName="unlawDetain" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Have you filed BK before?:</label>
+                        <nb-select placeholder="" formControlName="filedBk" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">BK Type Filed:</label>
+                        <nb-select placeholder="" formControlName="typeBkFile" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">When Filed:</label>
+                        <input [nbDatepicker]="datepicker4" formControlName="whenFile" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker1>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">When Discharged:</label>
+                        <input [nbDatepicker]="datepicker2" formControlName="whenDis" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker2>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>PreQual:</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gross Inc 1:</label>
+                        <input nbInput formControlName="grossInc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gross Inc 2:</label>
+                        <input nbInput formControlName="grossInc2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><b>Total</b></label>
+                        <input nbInput formControlName="total" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Monthly Avg Income:</label>
+                        <input nbInput formControlName="monthAvg" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Type of Income:</label>
+                        <nb-select placeholder="" formControlName="typeIncome" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Household Size:</label>
+                        <input nbInput formControlName="householdSize" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Median Income Target:</label>
+                        <input nbInput formControlName="medianTarget" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Difference:</label>
+                        <input nbInput formControlName="diff" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Amount of Debt to discharged:</label>
+                        <input nbInput formControlName="amtDebt" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Numbers of Vehicles:</label>
+                        <input nbInput formControlName="numbVeh" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Estimated Value of Vehicles:</label>
+                        <input nbInput formControlName="estVal" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Loans Against Vehicle:</label>
+                        <input nbInput formControlName="totLoan" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Difference:</label>
+                        <input nbInput formControlName="diff2" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"># of Properties:</label>
+                        <input nbInput formControlName="numbProp" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Value of Stocks/Bonds:</label>
+                        <input nbInput formControlName="stockBond" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Value of other Assets:</label>
+                        <input nbInput formControlName="totValAsset" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Total Asset Worth:</label>
+                        <input nbInput formControlName="totAssetWorth" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Home Rescue Survey</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Active Sale Date:</label>
+                        <input [nbDatepicker]="datepicker3" formControlName="actSaleDt" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker3>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Initial NOS:</label>
+                        <input [nbDatepicker]="datepicker4" formControlName="initNos" fullWidth nbInput placeholder=""
+                            fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker4>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Notice Default:</label>
+                        <input [nbDatepicker]="datepicker5" formControlName="notDefault" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker5>
+                        </nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Lender:</label>
+                        <nb-select placeholder="" formControlName="lender" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Trustee:</label>
+                        <nb-select placeholder="" formControlName="trustee" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Home Owner?:</label>
+                        <nb-select placeholder="" formControlName="homeOwner" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Home Owner | Goals:</label>
+                        <nb-select placeholder="" formControlName="ownerGoals" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Estimated Home Value:</label>
+                        <input nbInput formControlName="estHomeVal" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Occupancy of Property:</label>
+                        <nb-select placeholder="" formControlName="occProperty" size="medium" fullWidth
+                            status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Property Type:</label>
+                        <nb-select placeholder="" formControlName="propType" size="medium" fullWidth status="primary">
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Purch Date:</label>
+                        <input nbInput formControlName="purchDate" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Purch Price:</label>
+                        <input nbInput formControlName="purchPrice" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Loan Taken Date:</label>
+                        <input [nbDatepicker]="datepicker6" formControlName="loanTakeDt" fullWidth nbInput
+                            placeholder="" fieldSize="medium" shape="rectangle" status="primary">
+                        <nb-datepicker #datepicker6>
+                        </nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Hardship</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <textarea nbInput formControlName="hardship" style="min-height: 400px;" placeholder="..."
+                            fieldSize="medium" type="text" shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </nb-card-body>
+</nb-card>

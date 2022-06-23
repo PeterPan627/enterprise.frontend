@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    align-items: center;
+  
+    nb-icon {
+      &::before {
+        font-size: 2.3rem;
+      }
+    }
+
+    nb-badge {
+        margin-left: -10px;
+        right: auto;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,261 @@
+<div class="slot">
+  <div class="space space-component background-transparent">
+    <ng-template #dialog let-data let-ref="dialogRef">
+      <nb-alert *ngIf="submitted && !success" outline="danger" role="alert">
+        <p class="alert-title"><b>Oh snap!</b></p>
+        <ul class="alert-message-list">
+          <li>Unfortunately, we're having trouble adding this client.</li>
+        </ul>
+      </nb-alert>
+      <nb-alert *ngIf="submitted && success" outline="success" role="alert">
+        <p class="alert-title"><b>Hooray!</b></p>
+        <ul class="alert-message-list">
+          <li>Client was successfully added!</li>
+        </ul>
+      </nb-alert>
+    </ng-template>
+
+    <nb-card class="card">
+      <nb-card-header class="slot">
+        <div class="row">
+          <div class="col-md">
+            <h6 class="text-basic">New Client</h6>
+          </div>
+        </div>
+      </nb-card-header>
+
+      <nb-card-body class="slot" [formGroup]="form">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">First Name</label>
+            <input nbInput formControlName="firstName" placeholder="Enter First Name" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Middle Name</label>
+            <input nbInput formControlName="middleName" placeholder="Enter Middle Name" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Last Name</label>
+            <input nbInput formControlName="lastName" placeholder="Enter Last Name" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Email</label>
+            <input nbInput placeholder="Enter Email" fieldSize="medium" type="email" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Home:</label>
+            <input nbInput placeholder="Enter Value" fieldSize="medium" formControlName="homePhone" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text text-basic label">Work:</label>
+            <input nbInput placeholder="Enter Value" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text text-basic label">Mobile:</label>
+            <input nbInput placeholder="Enter Value" formControlName="mobilePhone" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text text-basic label">Fax:</label>
+            <input nbInput placeholder="Enter Value" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date of Birth</label>
+            <input [nbDatepicker]="datepicker2" formControlName="dateOfBirth" nbInput placeholder="Enter Date"
+              fieldSize="medium" shape="rectangle" status="primary" fullWidth />
+            <nb-datepicker #datepicker2> </nb-datepicker>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Native Language</label>
+            <nb-select formControlName="nativeLanguage" placeholder="Select Language" size="medium" status="primary"
+              fullWidth>
+              <nb-option value="English ">English </nb-option>
+              <nb-option value="German">German</nb-option>
+              <nb-option value="Chinese">Chinese</nb-option>
+              <nb-option value="Spanish">Spanish</nb-option>
+              <nb-option value="Armenian">Armenian</nb-option>
+              <nb-option value="Farsi">Farsi</nb-option>
+              <nb-option value="Korean">Korean</nb-option>
+              <nb-option value="Mandarin">Mandarin</nb-option>
+              <nb-option value="Russian">Russian</nb-option>
+              <nb-option value="Tagalo">Tagalo</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Gender</label>
+            <nb-select formControlName="gender" placeholder="Select Gender" size="medium" status="primary" fullWidth>
+              <nb-option value="Male">Male</nb-option>
+              <nb-option value="Female">Female</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md"></div>
+        </div>
+        <div class="space space-component2 background-transparent"></div>
+        <!-- Location -->
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic"><u>Address</u></h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Address</label>
+            <input nbInput formControlName="address" placeholder="Apt. # / Home" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Address 2</label>
+            <input nbInput formControlName="address2" placeholder="Apt. # / Home" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Zip code</label>
+            <input nbInput formControlName="zipcode" placeholder="*****" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">City</label>
+            <input nbInput formControlName="city" placeholder="Enter Value" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">County</label>
+            <input nbInput formControlName="county" placeholder="Enter County" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">State</label>
+            <input nbInput formControlName="state" placeholder="Enter State" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md"></div>
+          <div class="col-md"></div>
+        </div>
+        <div class="space space-component2 background-transparent"></div>
+        <!-- Lead Source -->
+        <div class="row">
+          <div class="col-md">
+            <h6 class="underline text-basic"><u>Lead Source</u></h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Source</label>
+            <nb-select formControlName="source" placeholder="Select Source" size="medium" status="primary" fullWidth>
+              <nb-option value="1800 Health Switch Doctor">1800 Health Switch Doctor</nb-option>
+              <nb-option value="1800Health Facebook Age-in Leads">1800Health Facebook Age-in Leads</nb-option>
+              <nb-option value="1800Health Facebook HCP Age-in Leads">1800Health Facebook HCP Age-in Leads</nb-option>
+              <nb-option value="1800Health Partner Campaign">1800Health Partner Campaign</nb-option>
+              <nb-option value="1800Health Regal CoveredCA">1800Health Regal CoveredCA</nb-option>
+              <nb-option value="1800Health Regal Medi- Cal Age-ins">1800Health Regal Medi- Cal Age-ins</nb-option>
+              <nb-option value="1800Health RMC Medicare Age-in">1800Health RMC Medicare Age-in</nb-option>
+              <nb-option value="BRC Campaign">BRC Campaign</nb-option>
+              <nb-option value="Call Center - BRC in Home Appt">Call Center - BRC in Home Appt</nb-option>
+              <nb-option value="Call Center - Enrollment Covered Ca">Call Center - Enrollment Covered Ca</nb-option>
+              <nb-option value="Call Center- IH Appt Medicare">Call Center- IH Appt Medicare</nb-option>
+              <nb-option value="Call Center - IH Appt Self Medicare">Call Center - IH Appt Self Medicare</nb-option>
+              <nb-option value="Call Center - RSVP Medicare Meeting">Call Center - RSVP Medicare Meeting</nb-option>
+              <nb-option value="Doctor Referral">Doctor Referral</nb-option>
+              <nb-option value="Dr. Castro Campaign">Dr. Castro Campaign</nb-option>
+              <nb-option value="Dr. Office Campout">Dr. Office Campout</nb-option>
+              <nb-option value="Existing Client">Existing Client</nb-option>
+              <nb-option value="Existing Client Referral">Existing Client Referral</nb-option>
+              <nb-option value="Fax MG Lead">Fax MG Lead</nb-option>
+              <nb-option value="Fontana Office Campout">Fontana Office Campout</nb-option>
+              <nb-option value="Fresno FCMG Retention">Fresno FCMG Retention</nb-option>
+              <nb-option value="HRBC Lead">HRBC Lead</nb-option>
+              <nb-option value="HRBC Maller">HRBC Maller</nb-option>
+              <nb-option value="HRBC Walk in- By Office">HRBC Walk in- By Office</nb-option>
+              <nb-option value="IH Medicare">IH Medicare</nb-option>
+              <nb-option value="Inbound Call">Inbound Call</nb-option>
+              <nb-option value="KOVA Campaign">KOVA Campaign</nb-option>
+              <nb-option value="LA Office Campout">LA Office Campout</nb-option>
+              <nb-option value="LA Office Sales Meeting">LA Office Sales Meeting</nb-option>
+              <nb-option value="La Office Walk-in">La Office Walk-in</nb-option>
+              <nb-option value="LA Office Appointment">LA Office Appointment</nb-option>
+              <nb-option value="Lead Card">Lead Card</nb-option>
+              <nb-option value="Lead Unknown">Lead Unknown</nb-option>
+              <nb-option value="Medical Group Generated">Medical Group Generated</nb-option>
+              <nb-option value="My insurance Solutions Inc">My insurance Solutions Inc</nb-option>
+              <nb-option value="News Paper">News Paper</nb-option>
+              <nb-option value="No Lead Source Provided">No Lead Source Provided</nb-option>
+              <nb-option value="NORVAX">NORVAX</nb-option>
+              <nb-option value="NULL">NULL</nb-option>
+              <nb-option value="OMNI Navigators">OMNI Navigators</nb-option>
+              <nb-option value="Online Marketing Campaign">Online Marketing Campaign</nb-option>
+              <nb-option value="Precise Leads">Precise Leads</nb-option>
+              <nb-option value="Referral Program">Referral Program</nb-option>
+              <nb-option value="RMC Winback">RMC Winback</nb-option>
+              <nb-option value="Sales Meeting">Sales Meeting</nb-option>
+              <nb-option value="Self Generated">Self Generated</nb-option>
+              <nb-option value="Senior Center/Apartments">Senior Center/Apartments</nb-option>
+              <nb-option value="Sierra Age in/1800Health">Sierra Age in/1800Health</nb-option>
+              <nb-option value="St. Patty's Member Appreciation Event">St. Patty's Member Appreciation Event</nb-option>
+              <nb-option value="Veterans Initiative">Veterans Initiative</nb-option>
+              <nb-option value="Walk in - Event">Walk in - Event</nb-option>
+              <nb-option value="WellCare Project">WellCare Project</nb-option>
+              <nb-option value="WellPath Partners">WellPath Partners</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Price</label>
+            <input nbInput formControlName="price" placeholder="$0.00" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Campaign ID</label>
+            <input nbInput placeholder="C-ID" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Reference ID</label>
+            <input nbInput placeholder="R-ID" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Tracking ID</label>
+            <input nbInput placeholder="T-ID" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Page</label>
+            <input nbInput formControlName="page" placeholder="" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <label class="text1 text-basic label">Referrer</label>
+            <input nbInput formControlName="referrer" placeholder="" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md"></div>
+        </div>
+        <div class="space space-component2 background-transparent"></div>
+      </nb-card-body>
+
+      <nb-card-footer class="slot">
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" (click)="submit(dialog)" [disabled]="!form.valid">
+              Save
+            </button>
+          </div>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

@@ -1,0 +1,384 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <div [ngSwitch]="getCurrentTransType()">
+    <ngx-stage-subpage-ada
+      [service]="this.service"
+      [opportunityId]="this.client.opportunityId"
+      (close)="refresh(ref)"
+      *ngSwitchCase="this.TransType.Law_Ada"
+    >
+    </ngx-stage-subpage-ada>
+    <ngx-stage-subpage-p65
+      [service]="this.service"
+      [opportunityId]="this.client.opportunityId"
+      (close)="refresh(ref)"
+      *ngSwitchCase="this.TransType.Law_P65"
+    >
+    </ngx-stage-subpage-p65>
+    <ngx-stage-subpage-pi
+      [service]="this.service"
+      [opportunityId]="this.client.opportunityId"
+      (close)="refresh(ref)"
+      *ngSwitchCase="this.TransType.Law_Pi"
+    >
+    </ngx-stage-subpage-pi>
+    <ngx-stage-subpage
+      [service]="this.service"
+      [opportunityId]="this.client.opportunityId"
+      (close)="refresh(ref)"
+      *ngSwitchDefault
+    >
+    </ngx-stage-subpage>
+  </div>
+</ng-template>
+
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="row">
+      <div class="col-md">
+        <h6 class="text-basic">
+          {{ this.client.lastName }}, {{ this.client.firstName }}'s Details
+        </h6>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body class="slot" [formGroup]="this.form">
+    <div class="row">
+      <div class="col-md-6 col-xl-3 border-right1">
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">First Name:</label>
+            <input
+              nbInput
+              placeholder="First Name"
+              formControlName="firstName"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Middle Name:</label>
+            <input
+              nbInput
+              placeholder="Middle Name"
+              formControlName="middleName"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Last Name:</label>
+            <input
+              nbInput
+              placeholder="Last Name"
+              formControlName="lastName"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Mobile:</label>
+            <ngx-phone-control
+              [recipient]="
+                this.firstName.value.concat(' ').concat(this.lastName.value)
+              "
+              formControlName="mobilePhone"
+              [identifier]="this.client.opportunityId"
+              [isMobile]="true"
+            >
+            </ngx-phone-control>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Email:</label>
+            <ngx-email-control
+              [recipient]="
+                this.firstName.value.concat(' ').concat(this.lastName.value)
+              "
+              formControlName="email"
+              [identifier]="this.client.opportunityId"
+            >
+            </ngx-email-control>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Home:</label>
+            <ngx-phone-control
+              [recipient]="
+                this.firstName.value.concat(' ').concat(this.lastName.value)
+              "
+              formControlName="homePhone"
+              [isMobile]="false"
+              [identifier]="this.client.opportunityId"
+            >
+            </ngx-phone-control>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Work:</label>
+            <ngx-phone-control
+              [recipient]="
+                this.firstName.value.concat(' ').concat(this.lastName.value)
+              "
+              formControlName="workPhone"
+              [isMobile]="false"
+              [identifier]="this.client.opportunityId"
+            >
+            </ngx-phone-control>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Fax:</label>
+            <input
+              nbInput
+              placeholder="Fax Number"
+              formControlName="fax"
+              [value]="this.fax.value | ngxPhone"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-3 border-right2">
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Client Stage:</label>
+            <input
+              nbInput
+              placeholder='"1 new Lead"'
+              style="cursor: pointer"
+              [value]="status.value"
+              fieldSize="medium"
+              type="text"
+              readonly
+              shape="rectangle"
+              status="primary"
+              fullWidth
+              (click)="showClientStage(dialog)"
+            />
+          </div>
+        </div>
+        <div class="row" *ngIf="isAdmin()">
+          <div class="col">
+            <label class="text text-basic label">Admin:</label>
+            <select
+              class="select form-control"
+              placeholder="select"
+              size="medium"
+              status="primary"
+              fullWidth
+              formControlName="accountManagerId"
+            >
+              <option *ngFor="let u of users" value="{{ u.contactId }}">
+                {{ u.firstName + " " + u.lastName }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="text text-basic label">Client ID:</label>
+            <input
+              nbInput
+              placeholder=""
+              readonly
+              value="{{ this.client.clientId }}"
+              fieldSize="medium"
+              formControlName="clientId"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row" *ngIf="!isAdmin()">
+          <div class="col">
+            <label class="text text-basic label">Admin:</label>
+            <input
+              nbInput
+              placeholder=""
+              fieldSize="medium"
+              formControlName="accountManager"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+              disabled
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="text text-basic label">Handling Attorney:</label>
+            <input
+              nbInput
+              placeholder=""
+              fieldSize="medium"
+              formControlName="Attorney1Name"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+              disabled
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Opportunity ID:</label>
+            <input
+              nbInput
+              placeholder="Opp. ID"
+              readonly
+              value="{{ this.client.opportunityId }}"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Source Type:</label>
+            <input
+              nbInput
+              placeholder=""
+              formControlName="source1"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">Address:</label>
+            <input
+              nbInput
+              placeholder="Home Address"
+              formControlName="address"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text text-basic label">City:</label>
+            <input
+              nbInput
+              placeholder="Enter City"
+              fieldSize="medium"
+              formControlName="city"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg">
+            <label class="text text-basic label">State:</label>
+            <input
+              nbInput
+              placeholder="Enter State"
+              fieldSize="medium"
+              formControlName="state"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+          <div class="col-lg">
+            <label class="text text-basic label">Zip:</label>
+            <input
+              nbInput
+              placeholder="Enter Zip"
+              fieldSize="medium"
+              formControlName="zipcode"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-xl-6">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label"
+              >TransType:{{ transType.value }}</label
+            >
+            <select
+              fieldSize="medium"
+              formControlName="transType"
+              class="form-control"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+              (change)="onTransTypeChanged($event)"
+            >
+              <option
+                *ngFor="let option of transTypeOptions"
+                [value]="option.value"
+                [selected]="transType.value === option.value"
+              >
+                {{ option.display }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="text text-basic label">Client Notes:</label>
+            <textarea
+              style="min-height: 400px"
+              nbInput
+              formControlName="notes"
+              fieldSize="medium"
+              type="text"
+              shape="rectangle"
+              status="primary"
+              fullWidth
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

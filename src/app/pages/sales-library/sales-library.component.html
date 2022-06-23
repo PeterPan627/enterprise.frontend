@@ -1,0 +1,28 @@
+<!-- Breadcrumb Pagination -->
+<ul class="breadcrumb">
+  <li
+    *ngFor="let element of breadcrumb"
+    (click)="this.changeDirectory(element.path)"
+  >
+    <a> {{ element.name }} </a>
+  </li>
+</ul>
+<nb-card>
+  <nb-card-header>
+    {{ breadcrumb[breadcrumb.length - 1].name }}
+  </nb-card-header>
+  <nb-card-body>
+    <!--The code to display items -->
+    <div class="gallery" *ngFor="let item of data">
+      <div class="selectable-item" (click)="this.select(item)">
+        <div *ngIf="item.type == 'folder'" class="itemIcon">
+          <i class="fa fa-folder"></i>
+        </div>
+        <div *ngIf="item.type == 'file'" class="itemIcon">
+          <i class="fa fa-file"></i>
+        </div>
+        <div class="desc">{{ item.name }}</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

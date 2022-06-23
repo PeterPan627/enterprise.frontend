@@ -1,0 +1,740 @@
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="row">
+      <div class="col-md">
+        <h6 class="text-basic">Pi Processing</h6>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="slot" [formGroup]="form">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Case Admin:</label>
+            <nb-select placeholder="" formControlName="CaseSupport1" size="medium" fullWidth status="primary">
+              <nb-option value="1">1</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red"><u>Brief Update Notes:</u></label>
+            <textarea style="min-height: 120px" nbInput formControlName="Caseadminbriefupdate" fieldSize="medium"
+              type="text" shape="rectangle" status="primary" fullWidth></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Last Client Com.:</label>
+            <nb-select placeholder="" formControlName="ClientUpdate" size="medium" fullWidth status="primary">
+              <nb-option value="1">1</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <input nbInput formControlName="Createdate" class="select" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input nbInput formControlName="Createuser" class="select" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">PI Status:</label>
+            <nb-select placeholder="Select a Pi Status" formControlName="aStatusPI" size="medium" fullWidth
+              status="primary">
+              <nb-option value="1">1</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Estimated Value:</label>
+            <input nbInput type="text" formControlName="PolicyLimit3Pper" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">1 Limit Amount:</label>
+            <input nbInput type="text" formControlName="PolicyNumber" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Med Pay Amount:</label>
+            <input nbInput type="text" formControlName="MedPayAmt1" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">3rd Limit Amount:</label>
+            <input nbInput type="text" formControlName="PolicyLimit3PAmt" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Date of Occurance:</label>
+            <input [nbDatepicker]="datepicker1" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="CaseAccepted" />
+            <nb-datepicker #datepicker1></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Retainer Sign Date:</label>
+            <input [nbDatepicker]="datepicker2" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="RetainerDate" />
+            <nb-datepicker #datepicker2></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Statute of Limitations:</label>
+            <input [nbDatepicker]="datepicker3" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="SOL" />
+            <nb-datepicker #datepicker3></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Gov Claim Limitations:</label>
+            <input [nbDatepicker]="datepicker4" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="ACK1PLTRRecvd" />
+            <nb-datepicker #datepicker4></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Government Claim Sent:</label>
+            <input [nbDatepicker]="datepicker5" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="ACK3PLTRSent" />
+            <nb-datepicker #datepicker5></nb-datepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;"><u>PI Intake</u></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Intake Form:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc1" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Police Report/Number:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc2" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Ambulance Bill:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc3" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Hospital/UCare Records:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc4" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Hospital/UCare Bills:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc5" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Client Written Stmt:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc6" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Accident Pics: ALL</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc7" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Health Insurance Card:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc8" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Auto Insurance Card:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc9" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">3rd Party Insurance:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc10" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Receipts For All Injuries:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc_11" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Drivers License:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc_12" status="success"></nb-checkbox>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md input-group">
+            <label class="text1 text-basic label">Loss of Wages/Pay:</label>
+          </div>
+          <div class="input-group-append">
+            <nb-checkbox class="btn" formControlName="ClientDoc_13" status="success"></nb-checkbox>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label" style="color: red;"><u>PI Process</u></label>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Case Opened:</label>
+                <nb-select placeholder="Select" formControlName="Step1CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker7" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step1Completed" />
+                <nb-datepicker #datepicker7></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Welcome Call Client:</label>
+                <nb-select placeholder="Select" formControlName="Step2CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker8" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step2Completed" />
+                <nb-datepicker #datepicker8></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Intake Form/Doc:</label>
+                <nb-select placeholder="Select" formControlName="Step3CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker9" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step3Completed" />
+                <nb-datepicker #datepicker9></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">First Rep Letters:</label>
+                <nb-select placeholder="Select" formControlName="Step4CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker10" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step4Completed" />
+                <nb-datepicker #datepicker10></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Third Rep Letters:</label>
+                <nb-select placeholder="Select" formControlName="Step5CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker11" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step5Completed" />
+                <nb-datepicker #datepicker11></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Notify Medicare:</label>
+                <nb-select placeholder="Select" formControlName="Step6CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker12" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step6Completed" />
+                <nb-datepicker #datepicker12></nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Treatment Status:</label>
+                <nb-select placeholder="Select" formControlName="Step7CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker13" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step7Completed" />
+                <nb-datepicker #datepicker13> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Incident Report:</label>
+                <nb-select placeholder="Select" formControlName="Step8CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker14" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step8Completed" />
+                <nb-datepicker #datepicker14> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Property Damage:</label>
+                <nb-select placeholder="Select" formControlName="Step9CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker15" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step9Completed" />
+                <nb-datepicker #datepicker15> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Loss of Use/Rental:</label>
+                <nb-select placeholder="Select" formControlName="Step10CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker17" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step10Completed" />
+                <nb-datepicker #datepicker17> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Med Pay:</label>
+                <nb-select placeholder="Select" formControlName="Step11CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker18" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step11Completed" />
+                <nb-datepicker #datepicker18> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Medical Records:</label>
+                <nb-select placeholder="Select" formControlName="Step12CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker19" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step12Completed" />
+                <nb-datepicker #datepicker19> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Medical Billing:</label>
+                <nb-select placeholder="Select" formControlName="Step13CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker20" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step13Completed" />
+                <nb-datepicker #datepicker20> </nb-datepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <label class="text1 text-basic label">Demand Letter:</label>
+                <nb-select placeholder="Select" formControlName="Step14CompletedBy" size="medium" fullWidth
+                  status="primary">
+                  <nb-option value="1">1</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-md">
+                <input [nbDatepicker]="datepicker21" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+                  status="primary" shape="rectangle" fullWidth formControlName="Step14Completed" />
+                <nb-datepicker #datepicker21> </nb-datepicker>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Demand Expiration:</label>
+            <input [nbDatepicker]="datepicker22" nbInput placeholder="Enter Date" fieldSize="medium" status="primary"
+              shape="rectangle" fullWidth formControlName="TCPAREVOCATIONDATE" />
+            <nb-datepicker #datepicker22> </nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Past Med. Specials:</label>
+            <input nbInput formControlName="MedPayCheck5" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Future Med. Specials:</label>
+            <input nbInput formControlName="Numb1" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Loss of Earnings:</label>
+            <input nbInput formControlName="LossEarnings" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Genral Damages:</label>
+            <input nbInput formControlName="GeneralDamages" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Demand Amount:</label>
+            <input nbInput formControlName="InitialDemand" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Lien Proposal:</label>
+            <nb-select placeholder="Select" formControlName="Step16CompletedBy" size="medium" fullWidth
+              status="primary">
+              <nb-option value="1">1</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md">
+            <input [nbDatepicker]="datepicker23" class="select" nbInput placeholder="Enter Date" fieldSize="medium"
+              status="primary" shape="rectangle" fullWidth formControlName="Step16Completed" />
+            <nb-datepicker #datepicker23> </nb-datepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="text1 text-basic label" style="color: red"><u>Demand Info:</u></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Initial Demand:</label>
+            <input nbInput formControlName="InitialDemand" fieldSize="medium" type="number" placeholder="$0.00"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker24" formControlName="InitialDemandDate" nbInput
+              placeholder="Enter Date" fieldSize="medium" class="select" status="primary" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker24></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">OPC Counter:</label>
+            <input nbInput formControlName="ProposedSettl" fieldSize="medium" type="number" placeholder="$0.00"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker25" nbInput placeholder="Enter Date" fieldSize="medium"
+              formControlName="PROPOSEDSETTLDATE" status="primary" class="select" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker25></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Plantiff Counter:</label>
+            <input nbInput formControlName="CounterSettl" fieldSize="medium" type="number" placeholder="$0.00"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker26" formControlName="CounterSettlDate" nbInput
+              placeholder="Enter Date" fieldSize="medium" class="select" status="primary" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker26></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Final Agreed Settlement</label>
+            <input nbInput formControlName="FinalAgreedSettlement" fieldSize="medium" type="number" placeholder="$0.00"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker27" nbInput placeholder="Enter Date"
+              formControlName="FinalSettlementDate" fieldSize="medium" class="select" status="primary" fullWidth
+              shape="rectangle" />
+            <nb-datepicker #datepicker27></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Settlement Funds Due:</label>
+            <input nbInput formControName="SettlementDue" fieldSize="medium" type="number" shape="rectangle"
+              placeholder="$0.00" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker28" nbInput placeholder="Enter Date"
+              formControlName="SettlementDueDate" fieldSize="medium" class="select" status="primary" fullWidth
+              shape="rectangle" />
+            <nb-datepicker #datepicker28></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Rule 68/988 Offer:</label>
+            <input nbInput formControlName="ClientMoPmt9" fieldSize="medium" type="number" shape="rectangle"
+              placeholder="$0.00" status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input class="text2" [nbDatepicker]="datepicker29" nbInput placeholder="Enter Date"
+              formControlName="ClientMoPmt_10" fieldSize="medium" class="select" status="primary" fullWidth
+              shape="rectangle" />
+            <nb-datepicker #datepicker29></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">68/998 Response Due:</label>
+            <input [nbDatepicker]="datepicker30" formControlName="ClientMoPmt_11" nbInput placeholder="Enter Date"
+              fieldSize="medium" status="primary" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker30></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Remediation Date:</label>
+            <input [nbDatepicker]="datepicker31" formControlName="Settled_20" nbInput placeholder="Enter Date"
+              fieldSize="medium" status="primary" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker31></nb-datepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Notice to Cure Date:</label>
+            <input [nbDatepicker]="datepicker32" formControlName="Step16Completed" nbInput placeholder="Enter Date"
+              fieldSize="medium" status="primary" fullWidth shape="rectangle" />
+            <nb-datepicker #datepicker32></nb-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Third Party Settlement:</label>
+            <input nbInput formControlName="ThirdPartySettle" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">UM Settlement:</label>
+            <input nbInput formControlName="UMSettle" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">UIM Settlemt:</label>
+            <input nbInput formControlName="UIMSettle" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Medical Payment:</label>
+            <input nbInput formControlName="Numb4" fieldSize="medium" type="text" shape="rectangle" status="primary"
+              fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Total Settle Funds Rcvd:</label>
+            <input nbInput formControlName="MedPaySettlement" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Attorney Fees of Settlement:</label>
+            <input nbInput formControlName="FinalAgreedSettle" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+          <div class="col-md">
+            <input nbInput formControlName="FirmFeesTotal" class="select" fieldSize="medium" type="text"
+              shape="rectangle" status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Firm Expenses:</label>
+            <input nbInput formControlName="ClientCostPdAmt_12" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">MLO Attn Fees and Total Expenses:</label>
+            <input nbInput formControlName="NetRevTotal" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Firm Expenses:</label>
+            <input nbInput formControlName="ClientCostPdAmt_12" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Settlement Recovery Client:</label>
+            <input nbInput formControlName="ProviderAdjTotal" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Payment for your Med Treatment:</label>
+            <input nbInput formControlName="ProviderTotal" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label class="text1 text-basic label">Amt. Paid to Client:</label>
+            <input nbInput formControlName="ProviderAdjustedTotal" fieldSize="medium" type="text" shape="rectangle"
+              status="primary" fullWidth />
+          </div>
+        </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+  </nb-card-body>
+</nb-card>

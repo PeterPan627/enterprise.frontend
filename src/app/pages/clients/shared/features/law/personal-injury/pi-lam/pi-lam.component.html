@@ -1,0 +1,855 @@
+<nb-card class="card">
+    <nb-card-header class="slot">
+        <div class="row">
+            <div class="col-md">
+                <h6 class="text-basic">PI LAM</h6>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body class="slot" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Complaint Drafted:</label>
+                        <input [nbDatepicker]="datepicker1" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Interview1" />
+                        <nb-datepicker #datepicker1></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Received D1:</label>
+                        <input [nbDatepicker]="datepicker2" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_16" />
+                        <nb-datepicker #datepicker2></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Complaint Filed:</label>
+                        <input [nbDatepicker]="datepicker3" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ConOrder1" />
+                        <nb-datepicker #datepicker3></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response Due DEF1:</label>
+                        <input [nbDatepicker]="datepicker4" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_17" />
+                        <nb-datepicker #datepicker4></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Complaint Sent For Service:</label>
+                        <input [nbDatepicker]="datepicker5" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ConOrder2" />
+                        <nb-datepicker #datepicker5></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Response Served D1:</label>
+                        <input [nbDatepicker]="datepicker6" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Step3Completed" />
+                        <nb-datepicker #datepicker6></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Complaint Served:</label>
+                        <input [nbDatepicker]="datepicker7" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ComplaintServed" />
+                        <nb-datepicker #datepicker7></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Service Type:</label>
+                        <nb-select placeholder="" formControlName="ServiceType4" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Personal">Personal</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Substitute">Substitute</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Answer Deadline:</label>
+                        <input [nbDatepicker]="datepicker8" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="AnswerDeadline" />
+                        <nb-datepicker #datepicker8></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-basic label">Discovery Received D2:</label>
+                        <input [nbDatepicker]="datepicker9" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_18" />
+                        <nb-datepicker #datepicker9></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Answer Deadline 2:</label>
+                        <input [nbDatepicker]="datepicker10" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="AnswerD2" />
+                        <nb-datepicker #datepicker10></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response Due DEF2:</label>
+                        <input [nbDatepicker]="datepicker11" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_19" />
+                        <nb-datepicker #datepicker11></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response 1 Filed:</label>
+                        <input [nbDatepicker]="datepicker12" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ConOrder3" />
+                        <nb-datepicker #datepicker12></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Response Served D2:</label>
+                        <input [nbDatepicker]="datepicker13" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Step4Completed" />
+                        <nb-datepicker #datepicker13></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Type of Response:</label>
+                        <nb-select placeholder="" formControlName="TypeServe1" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Answer">Answer</nb-option>
+                            <nb-option value="Application to Stay">Application to Stay</nb-option>
+                            <nb-option value="Demurrer">Demurrer</nb-option>
+                            <nb-option value="Motion to Dismiss">Motion to Dismiss</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Service Type:</label>
+                        <nb-select placeholder="" formControlName="ServiceType3" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Personal">Personal</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Substitute">Substitute</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response 2 Filed:</label>
+                        <input [nbDatepicker]="datepicker14" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ClientRecvd10" />
+                        <nb-datepicker #datepicker14></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Propound Discovery:</label>
+                        <input [nbDatepicker]="datepicker15" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_10" />
+                        <nb-datepicker #datepicker15></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Type of Response:</label>
+                        <nb-select placeholder="" formControlName="TypeServe2" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Answer">Answer</nb-option>
+                            <nb-option value="Application to Stay">Application to Stay</nb-option>
+                            <nb-option value="Demurrer">Demurrer</nb-option>
+                            <nb-option value="Motion to Dismiss">Motion to Dismiss</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Propounded D1:</label>
+                        <input [nbDatepicker]="datepicker16" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_11" />
+                        <nb-datepicker #datepicker16></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">IME Date:</label>
+                        <input [nbDatepicker]="datepicker17" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="ProceedDefault" />
+                        <nb-datepicker #datepicker17></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response Due DEF1:</label>
+                        <input [nbDatepicker]="datepicker18" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_13" />
+                        <nb-datepicker #datepicker18></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">IME Conformation:</label>
+                        <nb-select placeholder="" formControlName="PTRTask5" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Completed">Completed</nb-option>
+                            <nb-option value="Confirmed">Confirmed</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Sent">Sent</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Rcvd D1:</label>
+                        <input [nbDatepicker]="datepicker19" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Step1Completed" />
+                        <nb-datepicker #datepicker19></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MSC Date:</label>
+                        <input [nbDatepicker]="datepicker20" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="PMTProof1" />
+                        <nb-datepicker #datepicker20></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Service Type:</label>
+                        <nb-select placeholder="" formControlName="ServiceType2" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Personal">Personal</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Substitute">Substitute</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MSC Conformation:</label>
+                        <nb-select placeholder="" formControlName="MSCConfirmType" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Completed">Completed</nb-option>
+                            <nb-option value="Confirmed">Confirmed</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Sent">Sent</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Supp Disc Resp Rcvd D1:</label>
+                        <input [nbDatepicker]="datepicker21" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conreceived16" />
+                        <nb-datepicker #datepicker21></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MIC Date:</label>
+                        <input [nbDatepicker]="datepicker22" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="PreInterview6" />
+                        <nb-datepicker #datepicker22></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MTC:</label>
+                        <nb-select placeholder="" formControlName="Conreceived17" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MIC Status:</label>
+                        <nb-select placeholder="" formControlName="ClientApprovalResponse" fieldSize="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Approved">Approved</nb-option>
+                            <nb-option value="Completed">Completed</nb-option>
+                            <nb-option value="Pending">Pending</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Discovery Propounded D2:</label>
+                        <input [nbDatepicker]="datepicker23" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_14" />
+                        <nb-datepicker #datepicker23></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Response Due DEF2:</label>
+                        <input [nbDatepicker]="datepicker24" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conord_15" />
+                        <nb-datepicker #datepicker24></nb-datepicker>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">Supp. Disc Resp Rcvd D2:</label>
+                        <input [nbDatepicker]="datepicker25" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Step2Completed" />
+                        <nb-datepicker #datepicker25></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text1 text-basic label">MTC:</label>
+                        <input [nbDatepicker]="datepicker26" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conreceived18" />
+                        <nb-datepicker #datepicker26></nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CMS Due:</label>
+                        <input [nbDatepicker]="datepicker27" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="CMSDue" />
+                        <nb-datepicker #datepicker27></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CMS Sent:</label>
+                        <input [nbDatepicker]="datepicker28" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Conf_15" />
+                        <nb-datepicker #datepicker28></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">CMS Filed:</label>
+                        <input [nbDatepicker]="datepicker29" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="CMSHearing" />
+                        <nb-datepicker #datepicker29></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">OSC Scheduled:</label>
+                        <input [nbDatepicker]="datepicker30" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="OSCHearingDate" />
+                        <nb-datepicker #datepicker30></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">OSC re: Dismissal:</label>
+                        <input [nbDatepicker]="datepicker31" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="RegXrecvd1" />
+                        <nb-datepicker #datepicker31></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Confedential Mediation Brief:</label>
+                        <input [nbDatepicker]="datepicker32" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Brief1" />
+                        <nb-datepicker #datepicker32></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Motion Cutoff:</label>
+                        <input [nbDatepicker]="datepicker33" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="RegXrecvd2" />
+                        <nb-datepicker #datepicker33></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Deadline to Amend:</label>
+                        <input [nbDatepicker]="datepicker34" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="SubStatus65" />
+                        <nb-datepicker #datepicker34></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Discovery Cutoff</label>
+                        <input [nbDatepicker]="datepicker35" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="Step9Completed" />
+                        <nb-datepicker #datepicker35></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Deadline to Dismiss:</label>
+                        <input [nbDatepicker]="datepicker61" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="DispoMotionCutoff" />
+                        <nb-datepicker #datepicker61></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Final Pre Trial Confrence</label>
+                        <input [nbDatepicker]="datepicker62" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="FinalPreTrial" />
+                        <nb-datepicker #datepicker62></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Trial Date:</label>
+                        <input [nbDatepicker]="datepicker63" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="HearingDate" />
+                        <nb-datepicker #datepicker63></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Notice of Settlement:</label>
+                        <nb-select placeholder="" formControlName="NoticeSettleB" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Conditional 45 Days">Conditional 45 Days</nb-option>
+                            <nb-option value="Conditional 60 Days">Conditional 60 Days</nb-option>
+                            <nb-option value="Conditional 90 Days">Conditional 90 Days</nb-option>
+                            <nb-option value="Federal Notice">Federal Notice</nb-option>
+                            <nb-option value="Joint Federal Notice">Joint Federal Notice</nb-option>
+                            <nb-option value="Joint Stip-with Prejudice">Joint Stip-with Prejudice</nb-option>
+                            <nb-option value="Unconditional">Unconditional</nb-option>
+                            <nb-option value="Voluntary Dismissal with Prejudice">Voluntary Dismissal with Prejudice
+                            </nb-option>
+                            <nb-option value="With Prejudice">With Prejudice</nb-option>
+                            <nb-option value="Without Prejudice">Without Prejudice</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Notice of Settlement Filed:</label>
+                        <input [nbDatepicker]="datepicker64" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="NoticeSettleDate" />
+                        <nb-datepicker #datepicker64></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Dispositive Motion Cutoff:</label>
+                        <input [nbDatepicker]="datepicker65" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="SalesFollow3" />
+                        <nb-datepicker #datepicker65></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Request for Dismissal:</label>
+                        <nb-select placeholder="" formControlName="DismissalNotice" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Conditional 45 Days">Conditional 45 Days</nb-option>
+                            <nb-option value="Conditional 60 Days">Conditional 60 Days</nb-option>
+                            <nb-option value="Conditional 90 Days">Conditional 90 Days</nb-option>
+                            <nb-option value="Federal Notice">Federal Notice</nb-option>
+                            <nb-option value="Joint Federal Notice">Joint Federal Notice</nb-option>
+                            <nb-option value="Joint Stip-with Prejudice">Joint Stip-with Prejudice</nb-option>
+                            <nb-option value="Unconditional">Unconditional</nb-option>
+                            <nb-option value="Voluntary Dismissal with Prejudice">Voluntary Dismissal with Prejudice
+                            </nb-option>
+                            <nb-option value="With Prejudice">With Prejudice</nb-option>
+                            <nb-option value="Without Prejudice">Without Prejudice</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Request For Dismissal Filed:</label>
+                        <input [nbDatepicker]="datepicker67" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DismissalNoticeDate" />
+                        <nb-datepicker #datepicker67></nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Def 1 OPC:</u></b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;">OPC Link:</label>
+                        <input nbInput formControlName="Party1misc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Firm:</label>
+                        <input nbInput formControlName="Party1Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Attorney:</label>
+                        <input nbInput formControlName="Party1Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Direct:</label>
+                        <input nbInput formControlName="Party1direct" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gen. Office:</label>
+                        <input nbInput formControlName="Party1phone" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Mobile:</label>
+                        <input nbInput formControlName="Party1mobile" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Fax:</label>
+                        <input nbInput formControlName="Party1fax" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="Party1email" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="Party1address" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="Party1city" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party1state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="Party1zip" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="font-size: 15px;"><b><u>Def 2 OPC:</u></b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;">OPC Link:</label>
+                        <input nbInput formControlName="Party2misc1" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Firm:</label>
+                        <input nbInput formControlName="Party2Co" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Attorney:</label>
+                        <input nbInput formControlName="Party2Name" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Direct:</label>
+                        <input nbInput formControlName="Party2direct" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Gen. Office:</label>
+                        <input nbInput formControlName="Party2phone" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Mobile:</label>
+                        <input nbInput formControlName="Party2mobile" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Fax:</label>
+                        <input nbInput formControlName="Party2fax" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="Party2email" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Address:</label>
+                        <input nbInput formControlName="Party2address" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">City:</label>
+                        <input nbInput formControlName="Party2city" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">State:</label>
+                        <input nbInput formControlName="Party2state" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Zip:</label>
+                        <input nbInput formControlName="Party2zip" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label" style="color: red;"><u>State Case info.</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Judge Link:</label>
+                        <input nbInput formControlName="FedJudge" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Judge:</label>
+                        <input nbInput formControlName="CourtJudgeName" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Court House:</label>
+                        <input nbInput formControlName="CourtName" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Case Number:</label>
+                        <input nbInput formControlName="CourtCaseNumber" fieldSize="medium" type="text"
+                            shape="rectangle" status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Department:</label>
+                        <input nbInput formControlName="CaseDivision" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Phone:</label>
+                        <input nbInput formControlName="CourtPhone" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Email:</label>
+                        <input nbInput formControlName="JudgeEmail" fieldSize="medium" type="text" shape="rectangle"
+                            status="primary" fullWidth />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Remove to Fed</label>
+                        <input [nbDatepicker]="datepicker68" nbInput placeholder="Enter Date" fieldSize="medium"
+                            shape="rectangle" status="primary" fullWidth formControlName="RemovedToFedCourt" />
+                        <nb-datepicker #datepicker68></nb-datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Depostion Client</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date:</label>
+                        <input [nbDatepicker]="datepicker69" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DepoDate" />
+                        <nb-datepicker #datepicker69></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Assigned to:</label>
+                        <nb-select placeholder="" formControlName="DepoAssignedTo" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="1">1</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Status:</label>
+                        <nb-select placeholder="" formControlName="DepoAssigned5" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Completed">Completed</nb-option>
+                            <nb-option value="Confirmed">Confirmed</nb-option>
+                            <nb-option value="Received">Received</nb-option>
+                            <nb-option value="Reschedule">Reschedule</nb-option>
+                            <nb-option value="Sent">Sent</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Notes:</label>
+                        <textarea style="min-height: 190px;" nbInput formControlName="AttorneyStatusNotes"
+                            fieldSize="medium" type="text" shape="rectangle" status="primary" fullWidth></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Depostion Defendant</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date:</label>
+                        <input [nbDatepicker]="datepicker70" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DepoDate2" />
+                        <nb-datepicker #datepicker70></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Assigned To:</label>
+                        <nb-select placeholder="" formControlName="DepoAssigned2" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Bobby Hashemi">Bobby Hashemi</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Completed:</label>
+                        <input [nbDatepicker]="datepicker71" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DepoCompleted2" />
+                        <nb-datepicker #datepicker71></nb-datepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+
+                        <input [nbDatepicker]="datepicker72" class="text1" nbInput placeholder="Enter Date"
+                            fieldSize="medium" status="primary" shape="rectangle" fullWidth
+                            formControlName="DepoDate3" />
+                        <nb-datepicker #datepicker72></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <nb-select placeholder="" formControlName="DepoAssigned3" class="text1" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Bobby Hashemi">Bobby Hashemi</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <input [nbDatepicker]="datepicker73" nbInput class="text1" placeholder="Enter Date"
+                            fieldSize="medium" status="primary" shape="rectangle" fullWidth
+                            formControlName="DepoCompleted3" />
+                        <nb-datepicker #datepicker73></nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label"><u>Depostion Expert Witness</u></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Date:</label>
+                        <input [nbDatepicker]="datepicker74" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DepoDate4" />
+                        <nb-datepicker #datepicker74></nb-datepicker>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Assigned To:</label>
+                        <nb-select placeholder="" formControlName="DepoAssigned4" size="medium" fullWidth
+                            status="primary">
+                            <nb-option value="Bobby Hashemi">Bobby Hashemi</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="col-md">
+                        <label class="text1 text-basic label">Completed:</label>
+                        <input [nbDatepicker]="datepicker75" nbInput placeholder="Enter Date" fieldSize="medium"
+                            status="primary" shape="rectangle" fullWidth formControlName="DepoCompleted4" />
+                        <nb-datepicker #datepicker75></nb-datepicker>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <hr>
+        <div class="row">
+            <div class="col-md">
+                <label class="text1 text-basic label">Hearing Notes</label>
+                <textarea style="min-height: 120px;" nbInput formControlName="HearingNotes" fieldSize="medium"
+                    type="text" shape="rectangle" status="primary" fullWidth></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <label class="text1 text-basic label">Tentative Ruling</label>
+                <textarea style="min-height: 120px;" nbInput formControlName="TentativeNotes" fieldSize="medium"
+                    type="text" shape="rectangle" status="primary" fullWidth></textarea>
+            </div>
+        </div>
+
+
+
+
+
+    </nb-card-body>
+
+
+</nb-card>
