@@ -40,3 +40,5 @@ export default config["juno-uni"];
 
 export const contractAddress =
   "juno1d307yr77etr30g0las6l537a0du566ax58vv23txa4nvh2wccccqzqxe5f";
+
+export const API_URL = "http://localhost:4000/api/";

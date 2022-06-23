@@ -61,11 +61,11 @@ export class NgxLoginComponent implements OnInit {
       ? JSON.parse(storedObjectString)
       : null;
     if (storedObject) {
-      this.connectWallet(storedObject);
+      this.connectKeplr(storedObject);
     }
   }
 
-  async connectWallet(accountInfo?: AccountInfo): Promise<void> {
+  async connectKeplr(accountInfo?: AccountInfo): Promise<AccountInfo> {
     let storeObject: AccountInfo;
     if (validateAccountInfo(accountInfo)) {
       storeObject = accountInfo;
@@ -84,6 +84,20 @@ export class NgxLoginComponent implements OnInit {
     }
     window.localStorage.setItem("account-info", JSON.stringify(storeObject));
 
+    const queryResult = await this.keplrService.runQuery(contractAddress, {
+      get_state_info: {},
+    });
+    window.localStorage.setItem("mint-info", JSON.stringify(queryResult));
+    this.isAdmin = queryResult.owner === this.account;
+    window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
+
+    return storeObject;
+  }
+
+  async connectWallet(accountInfo?: AccountInfo): Promise<void> {
+    const storeObject = await this.connectKeplr(accountInfo);
+    console.log("storedObject", storeObject);
+
     this.userService
       .getUserBoard(storeObject.address, storeObject.hash)
       .subscribe({
@@ -91,20 +105,14 @@ export class NgxLoginComponent implements OnInit {
           const result = JSON.parse(data);
           const users = result?.users;
           if (!users || users.length == 0) {
-            this.router.navigate(["/register"]);
+            this.router.navigate(["/auth/register"]);
           } else {
-            this.router.navigate(["/mint"]);
+            console.log("here");
+            this.router.navigate(["/pages"]);
           }
         },
         error: (err) => {},
       });
-
-    const queryResult = await this.keplrService.runQuery(contractAddress, {
-      get_state_info: {},
-    });
-    window.localStorage.setItem("mint-info", JSON.stringify(queryResult));
-    this.isAdmin = queryResult.owner === this.account;
-    window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
   }
 
   disconnectWallet() {

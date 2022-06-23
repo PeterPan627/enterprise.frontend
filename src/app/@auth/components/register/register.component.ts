@@ -1,28 +1,47 @@
-
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NB_AUTH_OPTIONS, NbAuthSocialLink, NbAuthService, NbAuthResult } from '@nebular/auth';
-import { getDeepFromObject } from '../../helpers';
-import { EMAIL_PATTERN } from '../constants';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+} from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import {
+  NB_AUTH_OPTIONS,
+  NbAuthSocialLink,
+  NbAuthService,
+  NbAuthResult,
+} from "@nebular/auth";
+import { AuthService } from "../../../@services/auth.service";
+import { getDeepFromObject } from "../../helpers";
+import { EMAIL_PATTERN } from "../constants";
 
 @Component({
-  selector: 'ngx-register',
-  styleUrls: ['./register.component.scss'],
-  templateUrl: './register.component.html',
+  selector: "ngx-register",
+  styleUrls: ["./register.component.scss"],
+  templateUrl: "./register.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxRegisterComponent implements OnInit {
-
-  minLength: number = this.getConfigValue('forms.validation.password.minLength');
-  maxLength: number = this.getConfigValue('forms.validation.password.maxLength');
-  isFullNameRequired: boolean = this.getConfigValue('forms.validation.fullName.required');
-  isEmailRequired: boolean = this.getConfigValue('forms.validation.email.required');
-  isPasswordRequired: boolean = this.getConfigValue('forms.validation.password.required');
-  redirectDelay: number = this.getConfigValue('forms.register.redirectDelay');
-  showMessages: any = this.getConfigValue('forms.register.showMessages');
-  strategy: string = this.getConfigValue('forms.register.strategy');
-  socialLinks: NbAuthSocialLink[] = this.getConfigValue('forms.login.socialLinks');
+  isFirstNameRequired: boolean = this.getConfigValue(
+    "forms.validation.firstName.required"
+  );
+  isLastNameRequired: boolean = this.getConfigValue(
+    "forms.validation.lastName.required"
+  );
+  isEmailRequired: boolean = this.getConfigValue(
+    "forms.validation.email.required"
+  );
+  isEntityIdRequired: boolean = this.getConfigValue(
+    "forms.validation.entityId.required"
+  );
+  redirectDelay: number = this.getConfigValue("forms.register.redirectDelay");
+  showMessages: any = this.getConfigValue("forms.register.showMessages");
+  strategy: string = this.getConfigValue("forms.register.strategy");
+  socialLinks: NbAuthSocialLink[] = this.getConfigValue(
+    "forms.login.socialLinks"
+  );
 
   submitted = false;
   errors: string[] = [];
@@ -30,40 +49,46 @@ export class NgxRegisterComponent implements OnInit {
   user: any = {};
 
   registerForm: FormGroup;
-  constructor(protected service: NbAuthService,
+  constructor(
+    protected service: NbAuthService,
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
     private fb: FormBuilder,
-    protected router: Router) { }
+    private authService: AuthService,
+    protected router: Router
+  ) {}
 
-  get fullName() { return this.registerForm.get('fullName'); }
-  get email() { return this.registerForm.get('email'); }
-  get password() { return this.registerForm.get('password'); }
-  get confirmPassword() { return this.registerForm.get('confirmPassword'); }
-  get terms() { return this.registerForm.get('terms'); }
+  get firstName() {
+    return this.registerForm.get("firstName");
+  }
+  get lastName() {
+    return this.registerForm.get("lastName");
+  }
+  get email() {
+    return this.registerForm.get("email");
+  }
+  get entityId() {
+    return this.registerForm.get("entityId");
+  }
 
   ngOnInit(): void {
-    const fullNameValidators = [
-    ];
-    this.isFullNameRequired && fullNameValidators.push(Validators.required);
+    const firstNameValidators = [];
+    this.isFirstNameRequired && firstNameValidators.push(Validators.required);
 
-    const emailValidators = [
-      Validators.pattern(EMAIL_PATTERN),
-    ];
+    const lastNameValidators = [];
+    this.isLastNameRequired && lastNameValidators.push(Validators.required);
+
+    const emailValidators = [Validators.pattern(EMAIL_PATTERN)];
     this.isEmailRequired && emailValidators.push(Validators.required);
 
-    const passwordValidators = [
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength),
-    ];
-    this.isPasswordRequired && passwordValidators.push(Validators.required);
+    const entityIdValidators = [];
+    this.isEntityIdRequired && entityIdValidators.push(Validators.required);
 
     this.registerForm = this.fb.group({
-      fullName: this.fb.control('', [...fullNameValidators]),
-      email: this.fb.control('', [...emailValidators]),
-      password: this.fb.control('', [...passwordValidators]),
-      confirmPassword: this.fb.control('', [...passwordValidators]),
-      terms: this.fb.control(''),
+      firstName: this.fb.control("", [...firstNameValidators]),
+      lastName: this.fb.control("", [...lastNameValidators]),
+      email: this.fb.control("", [...emailValidators]),
+      entityId: this.fb.control("", [...entityIdValidators]),
     });
   }
 
@@ -72,22 +97,30 @@ export class NgxRegisterComponent implements OnInit {
     this.errors = this.messages = [];
     this.submitted = true;
 
-    this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
-      this.submitted = false;
-      if (result.isSuccess()) {
-        this.messages = result.getMessages();
-      } else {
-        this.errors = result.getErrors();
-      }
+    const { firstName, lastName, email, entityId } = this.user;
+    const storedObjectString = window.localStorage.getItem("account-info");
+    const storedObject = storedObjectString
+      ? JSON.parse(storedObjectString)
+      : null;
 
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
-      this.cd.detectChanges();
-    });
+    this.authService
+      .register(
+        firstName,
+        lastName,
+        email,
+        entityId,
+        storedObject.address,
+        storedObject.hash
+      )
+      .subscribe({
+        next: (data) => {
+          console.log("success", data);
+          this.router.navigate(["/mint"]);
+        },
+        error: (err) => {
+          console.log("fail", err);
+        },
+      });
   }
 
   getConfigValue(key: string): any {
