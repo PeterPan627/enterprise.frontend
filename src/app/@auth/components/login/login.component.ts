@@ -41,9 +41,11 @@ export const validateAccountInfo = (accountInfo: AccountInfo): boolean => {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxLoginComponent implements OnInit {
+  public tenant: Tenant;
   isAdmin = false;
   username?: string;
   account: any;
+  strategy: string = this.getConfigValue("forms.login.strategy");
 
   constructor(
     protected service: NbAuthService,
@@ -54,8 +56,11 @@ export class NgxLoginComponent implements OnInit {
     protected initUserService: InitUserService,
     private userService: UserService,
     private appService: AppService,
+    private configuration: ConfigurationService,
     private keplrService: KeplrService
-  ) {}
+  ) {
+    this.tenant = this.configuration.configuration.tenant;
+  }
 
   ngOnInit(): void {
     const storedObjectString = window.localStorage.getItem("account-info");
@@ -121,5 +126,9 @@ export class NgxLoginComponent implements OnInit {
     this.account = "";
     this.isAdmin = false;
     window.localStorage.clear();
+  }
+
+  getConfigValue(key: string): any {
+    return getDeepFromObject(this.options, key, null);
   }
 }

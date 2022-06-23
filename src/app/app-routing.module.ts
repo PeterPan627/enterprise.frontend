@@ -1,21 +1,20 @@
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { AuthGuard } from './@auth/guards/auth.guard';
+import { ExtraOptions, RouterModule, Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { AuthGuard } from "./@auth/guards/auth.guard";
 
 const routes: Routes = [
   {
-    path: 'pages',
+    path: "pages",
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
+    loadChildren: () =>
+      import("./pages/pages.module").then((m) => m.PagesModule),
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./@auth/auth.module')
-      .then(m => m.AuthModule),
+    path: "auth",
+    loadChildren: () => import("./@auth/auth.module").then((m) => m.AuthModule),
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: "", redirectTo: "pages", pathMatch: "full" },
+  { path: "**", redirectTo: "pages" },
 ];
 
 const config: ExtraOptions = {
@@ -26,5 +25,4 @@ const config: ExtraOptions = {
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

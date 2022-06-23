@@ -1,37 +1,42 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { takeWhile } from 'rxjs/operators';
-import { NbTokenService } from '@nebular/auth';
-import { NbMenuItem, NbIconLibraries } from '@nebular/theme';
-import { PagesMenu } from './pages-menu';
-import { UsersService } from '../@core/backend/common/services/users.service';
-import { PhoneDeviceService } from '../@services/phone-device.service';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { takeWhile } from "rxjs/operators";
+import { NbTokenService } from "@nebular/auth";
+import { NbMenuItem, NbIconLibraries } from "@nebular/theme";
+import { PagesMenu } from "./pages-menu";
+import { UsersService } from "../@core/backend/common/services/users.service";
+import { PhoneDeviceService } from "../@services/phone-device.service";
 
 @Component({
-  selector: 'ngx-pages',
-  styleUrls: ['pages.component.scss'],
-  templateUrl: './pages.component.html',
+  selector: "ngx-pages",
+  styleUrls: ["pages.component.scss"],
+  templateUrl: "./pages.component.html",
 })
 export class PagesComponent implements OnDestroy, OnInit {
-
   ngOnInit(): void {
+    console.log("init page component");
     this.initMenu();
 
-    this.phoneDeviceService.init({
-    });
+    this.phoneDeviceService.init({});
   }
 
   menu: NbMenuItem[];
   alive: boolean = true;
 
-  constructor(private pagesMenu: PagesMenu,
+  constructor(
+    private pagesMenu: PagesMenu,
     private tokenService: NbTokenService,
     private iconsLibrary: NbIconLibraries,
     protected initUserService: UsersService,
-    private phoneDeviceService: PhoneDeviceService,
+    private phoneDeviceService: PhoneDeviceService
   ) {
-    this.iconsLibrary.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
+    console.log("constructor page component");
+    this.iconsLibrary.registerFontPack("fa", {
+      packClass: "fa",
+      iconClassPrefix: "fa",
+    });
     this.initMenu();
-    this.tokenService.tokenChange()
+    this.tokenService
+      .tokenChange()
       .pipe(takeWhile(() => this.alive))
       .subscribe(() => {
         this.initMenu();
@@ -39,9 +44,10 @@ export class PagesComponent implements OnDestroy, OnInit {
   }
 
   initMenu() {
-    this.pagesMenu.getMenu()
+    this.pagesMenu
+      .getMenu()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(menu => {
+      .subscribe((menu) => {
         this.menu = menu;
       });
   }
