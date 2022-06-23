@@ -115,7 +115,7 @@ export class NgxRegisterComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log("success", data);
-          this.router.navigate(["/mint"]);
+          this.router.navigate(["/pages"]);
         },
         error: (err) => {
           console.log("fail", err);

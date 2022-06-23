@@ -21,6 +21,7 @@ import { ConfigurationService } from "../../../@services/configuration.service";
 import { KeplrService } from "../../../@services/keplr.service";
 import { UserService } from "../../../@services/user.service";
 import { contractAddress } from "../../../../environments/config";
+import { AppService } from "../../../@services/app.service";
 
 export interface AccountInfo {
   address: string;
@@ -52,6 +53,7 @@ export class NgxLoginComponent implements OnInit {
     protected router: Router,
     protected initUserService: InitUserService,
     private userService: UserService,
+    private appService: AppService,
     private keplrService: KeplrService
   ) {}
 
@@ -96,7 +98,6 @@ export class NgxLoginComponent implements OnInit {
 
   async connectWallet(accountInfo?: AccountInfo): Promise<void> {
     const storeObject = await this.connectKeplr(accountInfo);
-    console.log("storedObject", storeObject);
 
     this.userService
       .getUserBoard(storeObject.address, storeObject.hash)
@@ -107,7 +108,7 @@ export class NgxLoginComponent implements OnInit {
           if (!users || users.length == 0) {
             this.router.navigate(["/auth/register"]);
           } else {
-            console.log("here");
+            this.appService.setUser(users[0]);
             this.router.navigate(["/pages"]);
           }
         },
