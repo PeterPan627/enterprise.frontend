@@ -22,17 +22,32 @@
 
 <div [formGroup]="registerForm" aria-labelledby="title">
   <div class="form-control-group">
-    <label for="input-name">Full Name:</label>
+    <label for="input-first-name">First Name:</label>
     <input  nbInput
             autofocus
             fullWidth
             fieldSize="large"
-            id="input-name"
-            formControlName="fullName"
-            [status]="fullName.dirty ? (fullName.invalid  ? 'danger' : 'success') : ''"
-            [attr.aria-invalid]="fullName.invalid && fullName.touched ? true : null"
-            placeholder="Full name">
-    <ngx-validation-message label="Full name" [showRequired]="fullName?.errors?.required && fullName.touched">
+            id="input-first-name"
+            formControlName="firstName"
+            [status]="firstName.dirty ? (firstName.invalid  ? 'danger' : 'success') : ''"
+            [attr.aria-invalid]="firstName.invalid && firstName.touched ? true : null"
+            placeholder="First Name">
+    <ngx-validation-message label="Full name" [showRequired]="firstName?.errors?.required && firstName.touched">
+    </ngx-validation-message>
+  </div>
+
+  <div class="form-control-group">
+    <label for="input-last-name">Last Name:</label>
+    <input  nbInput
+            autofocus
+            fullWidth
+            fieldSize="large"
+            id="input-last-name"
+            formControlName="lastName"
+            [status]="lastName.dirty ? (lastName.invalid  ? 'danger' : 'success') : ''"
+            [attr.aria-invalid]="lastName.invalid && lastName.touched ? true : null"
+            placeholder="Last Name">
+    <ngx-validation-message label="Full name" [showRequired]="lastName?.errors?.required && lastName.touched">
     </ngx-validation-message>
   </div>
 
@@ -51,79 +66,22 @@
   </div>
 
   <div class="form-control-group">
-    <label for="input-password">Password:</label>
+    <label for="input-entityId">EntityID:</label>
     <input  nbInput
+            autofocus
             fullWidth
             fieldSize="large"
-            id="input-password"
-            formControlName="password"
-            type="password"
-            [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
-            placeholder="Password">
-    <ngx-validation-message label="Password" [showMinLength]="password?.hasError('minlength') && password.touched"
-      [showMaxLength]="password?.hasError('maxlength') && password.touched"
-      [showRequired]="password?.errors?.required && password.touched"
-      [minLength]="minLength"
-      [maxLength]="maxLength"></ngx-validation-message>
+            id="input-entityId"
+            formControlName="entityId"
+            [status]="entityId.dirty ? (entityId.invalid  ? 'danger' : 'success') : ''"
+            [attr.aria-invalid]="entityId.invalid && entityId.touched ? true : null"
+            placeholder="EntityID">
+    <ngx-validation-message label="Full name" [showRequired]="entityId?.errors?.required && entityId.touched">
+    </ngx-validation-message>
   </div>
 
-  <div class="form-control-group">
-    <label for="input-re-password">Confirm Password:</label>
-    <input  nbInput
-            fullWidth
-            fieldSize="large"
-            id="input-re-password"
-            formControlName="confirmPassword"
-            type="password"
-            [status]="confirmPassword.dirty ? (confirmPassword.invalid || password.value != confirmPassword.value  ? 'danger' : 'success') : ''"
-            placeholder="Password">
-    <ngx-validation-message label="Confirm Password"
-      [showMinLength]="confirmPassword?.hasError('minlength') && confirmPassword.touched"
-      [showMaxLength]="confirmPassword?.hasError('maxlength') && confirmPassword.touched"
-      [showRequired]="confirmPassword?.errors?.required && confirmPassword.touched"
-      [minLength]="minLength"
-      [maxLength]="maxLength"></ngx-validation-message>
-    <p class="error-message" *ngIf="password.value != confirmPassword.value">
-        Password and confirm password does not match!
-    </p>
-  </div>
-
-  <div class="form-control-group accept-group" *ngIf="getConfigValue('forms.register.terms')">
-    <nb-checkbox formControlName="terms" [required]="getConfigValue('forms.register.terms')">
-      Agree to <a href="#" target="_blank"><strong>Terms & Conditions</strong></a>
-    </nb-checkbox>
-  </div>
-
-  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted || !registerForm.valid || !terms?.value"
+  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted || !registerForm.valid || !entityId?.value"
     [class.btn-pulse]="submitted" (click)="register()">
     Register
   </button>
 </div>
-
-<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
-  or enter with:
-  <div class="socials">
-    <ng-container *ngFor="let socialLink of socialLinks">
-      <a *ngIf="socialLink.link"
-         [routerLink]="socialLink.link"
-         [attr.target]="socialLink.target"
-         [attr.class]="socialLink.icon"
-         [class.with-icon]="socialLink.icon">
-        <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
-        <ng-template #title>{{ socialLink.title }}</ng-template>
-      </a>
-      <a *ngIf="socialLink.url"
-         [attr.href]="socialLink.url"
-         [attr.target]="socialLink.target"
-         [attr.class]="socialLink.icon"
-         [class.with-icon]="socialLink.icon">
-        <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
-        <ng-template #title>{{ socialLink.title }}</ng-template>
-      </a>
-    </ng-container>
-  </div>
-</section>
-
-<section class="another-action" aria-label="Sign in">
-  Already have an account? <a class="text-link" routerLink="../login">Log in</a>
-</section>

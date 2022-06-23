@@ -5,9 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://enterprise.212crm.com',
+  apiUrl: "https://enterprise.212crm.com",
   // apiUrl: 'https://localhost:5001'
 };
-
-
-

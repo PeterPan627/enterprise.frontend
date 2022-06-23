@@ -1,96 +1,22 @@
-<div *ngIf="tenant.logo; else textWelcome">
-  <img src="{{ tenant.logo }}" style="width: 100%; margin-bottom: 20px;" />
-</div>
-
-<ng-template #textWelcome>
-  <h1 id="title" class="title">
-    {{ tenant.name != "" ? tenant.name : "Login" }}
-  </h1>
-</ng-template>
-<p class="sub-title">Hello! Log in with your email.</p>
-
-<nb-alert
-  *ngIf="showMessages.error && errors?.length && !submitted"
-  outline="danger"
-  role="alert"
->
-  <p class="alert-title"><b>Oh snap!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
-  </ul>
-</nb-alert>
-
-<nb-alert
-  *ngIf="showMessages.success && messages?.length && !submitted"
-  outline="success"
-  role="alert"
->
-  <p class="alert-title"><b>Hooray!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let message of messages" class="alert-message">
-      {{ message }}
-    </li>
-  </ul>
-</nb-alert>
-
-<div [formGroup]="loginForm" aria-labelledby="title">
-  <div class="form-control-group">
-    <label for="input-email">Email address:</label>
-    <input
-      nbInput
-      fullWidth
-      id="input-email"
-      formControlName="email"
-      [status]="email.dirty ? (email.invalid ? 'danger' : 'success') : ''"
-      [attr.aria-invalid]="email.invalid && email.touched ? true : null"
-      placeholder="Email address"
-    />
-    <ngx-validation-message
-      label="Email address"
-      [showPattern]="email?.hasError('pattern') && email.touched"
-      [showRequired]="email?.errors?.required && email.touched"
-    ></ngx-validation-message>
-  </div>
-
-  <div class="form-control-group">
-    <span class="label-with-link">
-      <label class="label" for="input-password">Password:</label>
-      <a class="forgot-password caption-2" routerLink="../request-password"
-        >Forgot Password?</a
-      >
-    </span>
-    <input
-      nbInput
-      fullWidth
-      id="input-password"
-      formControlName="password"
-      type="password"
-      [status]="password.dirty ? (password.invalid ? 'danger' : 'success') : ''"
-      placeholder="Password"
-    />
-    <ngx-validation-message
-      label="Password"
-      [showMinLength]="password?.hasError('minlength') && password.touched"
-      [showMaxLength]="password?.hasError('maxlength') && password.touched"
-      [showRequired]="password?.errors?.required && password.touched"
-      [minLength]="minLength"
-      [maxLength]="maxLength"
-    ></ngx-validation-message>
-  </div>
-
-  <div class="form-control-group accept-group">
-    <nb-checkbox name="rememberMe" *ngIf="rememberMe">Remember me</nb-checkbox>
-  </div>
-
+<div class="login-wrapper" aria-labelledby="title">
   <button
     nbButton
     fullWidth
-    status="primary"
     size="large"
-    (click)="login()"
-    [disabled]="submitted || !loginForm.valid"
-    [class.btn-pulse]="submitted"
+    *ngIf="!account || !username"
+    (click)="connectWallet()"
   >
-    Log In
+    Connect
   </button>
+  <button
+    nbButton
+    fullWidth
+    size="large"
+    *ngIf="account && username"
+    (click)="disconnectWallet()"
+  >
+    Disconnect
+  </button>
+  <span class="description">Connect your wallet to your network to start working!</span>
+  <a>Ground Control</a>
 </div>

@@ -1,22 +1,20 @@
-
-
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpRequest } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgModule, ModuleWithProviders } from "@angular/core";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { HttpRequest } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import {
   NbAuthJWTInterceptor,
   NbAuthModule,
   NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
   NbTokenLocalStorage,
-} from '@nebular/auth';
-import { AuthInterceptor } from './auth.interceptor';
-import { AuthGuard } from './guards/auth.guard';
-import { AdminGuard } from './guards/admin.guard';
-import { AuthPipe } from './auth.pipe';
-import { RoleProvider } from './role.provider';
-import { NbRoleProvider, NbSecurityModule } from '@nebular/security';
+} from "@nebular/auth";
+import { AuthInterceptor } from "./auth.interceptor";
+import { AuthGuard } from "./guards/auth.guard";
+import { AdminGuard } from "./guards/admin.guard";
+import { AuthPipe } from "./auth.pipe";
+import { RoleProvider } from "./role.provider";
+import { NbRoleProvider, NbSecurityModule } from "@nebular/security";
 
 import {
   NgxLoginComponent,
@@ -26,7 +24,7 @@ import {
   NgxRegisterComponent,
   NgxRequestPasswordComponent,
   NgxResetPasswordComponent,
-} from './components';
+} from "./components";
 
 import {
   NbAlertModule,
@@ -36,18 +34,18 @@ import {
   NbCheckboxModule,
   NbInputModule,
   NbButtonModule,
-} from '@nebular/theme';
-import { AuthRoutingModule } from './auth-routing.module';
-import { ComponentsModule } from '../@components/components.module';
-import { authOptions } from './auth.settings';
-import { authSettings } from './access.settings';
-import { UserGuard } from './guards/user.guard';
-import { ManagerGuard } from './guards/manager.guard';
-import { RegionalAdminGuard } from './guards/regional.guard';
-import { LeadershipAdminGuard } from './guards/leadership.guard';
-import { SuperAdminGuard } from './guards/super_admin.guard';
-import { GlobalAdminGuard } from './guards/global_admin.guard';
-import { DevGuard } from './guards/dev.guard';
+} from "@nebular/theme";
+import { AuthRoutingModule } from "./auth-routing.module";
+import { ComponentsModule } from "../@components/components.module";
+import { authOptions } from "./auth.settings";
+import { authSettings } from "./access.settings";
+import { UserGuard } from "./guards/user.guard";
+import { ManagerGuard } from "./guards/manager.guard";
+import { RegionalAdminGuard } from "./guards/regional.guard";
+import { LeadershipAdminGuard } from "./guards/leadership.guard";
+import { SuperAdminGuard } from "./guards/super_admin.guard";
+import { GlobalAdminGuard } from "./guards/global_admin.guard";
+import { DevGuard } from "./guards/dev.guard";
 
 const GUARDS = [
   DevGuard,
@@ -82,8 +80,12 @@ const NB_MODULES = [
 ];
 
 export function filterInterceptorRequest(req: HttpRequest<any>): boolean {
-  return ['/auth/login', '/auth/sign-up', '/auth/request-pass', '/auth/refresh-token']
-    .some(url => req.url.includes(url));
+  return [
+    "/auth/login",
+    "/auth/sign-up",
+    "/auth/request-pass",
+    "/auth/refresh-token",
+  ].some((url) => req.url.includes(url));
 }
 
 @NgModule({
@@ -91,6 +93,7 @@ export function filterInterceptorRequest(req: HttpRequest<any>): boolean {
   imports: [
     AuthRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     CommonModule,
     ComponentsModule,
     ...NB_MODULES,
@@ -102,10 +105,12 @@ export function filterInterceptorRequest(req: HttpRequest<any>): boolean {
       accessControl: authSettings,
     }).providers,
     {
-      provide: NbRoleProvider, useClass: RoleProvider,
+      provide: NbRoleProvider,
+      useClass: RoleProvider,
     },
     {
-      provide: NbTokenLocalStorage, useClass: NbTokenLocalStorage,
+      provide: NbTokenLocalStorage,
+      useClass: NbTokenLocalStorage,
     },
     ...PIPES,
   ],
@@ -115,10 +120,18 @@ export class AuthModule {
     return {
       ngModule: AuthModule,
       providers: [
-        { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: filterInterceptorRequest },
-        { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
+        {
+          provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+          useValue: filterInterceptorRequest,
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: NbAuthJWTInterceptor,
+          multi: true,
+        },
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-        ...GUARDS],
+        ...GUARDS,
+      ],
     };
   }
 }
