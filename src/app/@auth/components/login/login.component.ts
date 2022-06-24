@@ -109,11 +109,17 @@ export class NgxLoginComponent implements OnInit {
           const result = JSON.parse(data);
           const users = result?.users;
           if (!users || users.length == 0) {
+            window.localStorage.setItem(
+              "account-info",
+              JSON.stringify(storeObject)
+            );
             this.router.navigate(["/auth/register"]);
           } else {
             const user = users[0];
             this.appService.setUser(user, storeObject);
-            if (user.isWhiteListed === "true") {
+            const isAdmin = this.appService.getIsAdmin();
+            if (!isAdmin && user.isWhiteListed === "true") {
+              this.router.navigate(["/auth/whitelist"]);
             } else {
               this.appService.setLogged(true);
               this.router.navigate(["/pages"]);

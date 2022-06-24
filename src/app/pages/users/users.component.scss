@@ -3,8 +3,15 @@
  * Licensed under the Single Application / Multi Application License.
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
-:host {
-  .form-group:last-of-type {
-    margin-bottom: 3rem;
+
+@import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card-body {
+    min-height: 500px;
+  }
+
+  nb-card {
+    transform: translate3d(0, 0, 0);
   }
 }

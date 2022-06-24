@@ -9,6 +9,7 @@ export type User = {
   email: string;
   entity_id: string;
   isWhiteListed: string;
+  registered: boolean;
 };
 
 export type MintInfo = {
@@ -35,6 +36,7 @@ export class AppService {
 
   setUser(user: User, walletInfo: AccountInfo): void {
     this.userInfo = user;
+    this.isAdmin = this.mintInfo.owner === this.userInfo?.address;
     window.localStorage.setItem("account-info", JSON.stringify(walletInfo));
   }
 
@@ -57,7 +59,7 @@ export class AppService {
 
   setMintInfo(mintInfo: MintInfo) {
     this.mintInfo = mintInfo;
-    this.isAdmin = mintInfo.owner === this.userInfo?.address;
+    this.isAdmin = this.mintInfo.owner === this.userInfo?.address;
     window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
     window.localStorage.setItem("mint-info", JSON.stringify(mintInfo));
   }

@@ -13,6 +13,7 @@ import {
   NbAuthService,
   NbAuthResult,
 } from "@nebular/auth";
+import { AppService } from "../../../@services/app.service";
 import { AuthService } from "../../../@services/auth.service";
 import { getDeepFromObject } from "../../helpers";
 import { EMAIL_PATTERN } from "../constants";
@@ -55,6 +56,7 @@ export class NgxRegisterComponent implements OnInit {
     protected cd: ChangeDetectorRef,
     private fb: FormBuilder,
     private authService: AuthService,
+    private appService: AppService,
     protected router: Router
   ) {}
 
@@ -115,6 +117,7 @@ export class NgxRegisterComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log("success", data);
+          this.appService.setLogged(true);
           this.router.navigate(["/pages"]);
         },
         error: (err) => {

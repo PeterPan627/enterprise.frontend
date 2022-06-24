@@ -19,11 +19,8 @@ import { NbRoleProvider, NbSecurityModule } from "@nebular/security";
 import {
   NgxLoginComponent,
   NgxAuthComponent,
-  NgxAuthBlockComponent,
-  NgxLogoutComponent,
   NgxRegisterComponent,
-  NgxRequestPasswordComponent,
-  NgxResetPasswordComponent,
+  NgxWhiteListLoginRegisterComponent,
 } from "./components";
 
 import {
@@ -62,11 +59,8 @@ const PIPES = [AuthPipe];
 const COMPONENTS = [
   NgxLoginComponent,
   NgxAuthComponent,
-  NgxLogoutComponent,
   NgxRegisterComponent,
-  NgxRequestPasswordComponent,
-  NgxResetPasswordComponent,
-  NgxAuthBlockComponent,
+  NgxWhiteListLoginRegisterComponent,
 ];
 
 const NB_MODULES = [

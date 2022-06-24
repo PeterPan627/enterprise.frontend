@@ -4,7 +4,7 @@ import { PagesComponent } from "./pages.component";
 import { PagesRoutingModule } from "./pages-routing.module";
 import { ThemeModule } from "../@theme/theme.module";
 import { PagesMenu } from "./pages-menu";
-import { NbMenuModule, NbIconModule } from "@nebular/theme";
+import { NbMenuModule, NbIconModule, NbCardModule } from "@nebular/theme";
 import { AuthModule } from "../@auth/auth.module";
 import { CommonModule } from "@angular/common";
 
@@ -15,6 +15,7 @@ const PAGES_COMPONENTS = [PagesComponent];
     CommonModule,
     PagesRoutingModule,
     NbIconModule,
+    NbCardModule,
     ThemeModule,
     NbMenuModule,
     AuthModule.forRoot(),

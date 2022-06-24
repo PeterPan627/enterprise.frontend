@@ -12,7 +12,6 @@ import { UsersService } from "../@core/backend/common/services/users.service";
 })
 export class PagesComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
-    console.log("init page component");
     this.initMenu();
   }
 

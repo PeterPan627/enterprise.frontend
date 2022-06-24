@@ -5,12 +5,14 @@ import { ConfigurationService } from "../@services/configuration.service";
 import { NbRoleProvider } from "@nebular/security";
 import { ROLES } from "../@auth/roles";
 import { FEATURES } from "../@core/features";
+import { AppService } from "../@services/app.service";
 
 @Injectable()
 export class PagesMenu {
   constructor(
     private configService: ConfigurationService,
-    private roleProvider: NbRoleProvider
+    private roleProvider: NbRoleProvider,
+    private appService: AppService
   ) {}
 
   private readonly ProviderDashboardMenu: NbMenuItem[] = [
@@ -217,10 +219,21 @@ export class PagesMenu {
     },
   ];
 
+  // ----------- My Menu --------- //
+
+  private readonly normalMenu: NbMenuItem[] = [];
+
   getMenu(): Observable<NbMenuItem[]> {
     let addedDashboard = false;
     let addedModulesHeader = false;
     const menu = [];
+
+    menu.push(...this.normalMenu);
+
+    if (this.appService.getIsAdmin()) {
+      menu.push(...this.adminMenu);
+    }
+    console.log("here", menu);
 
     if (
       this.configService.configuration.tenant.features.findIndex(
