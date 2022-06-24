@@ -8,10 +8,31 @@
 
 :host {
   $auth-layout-padding: 2.5rem;
+  // $auth-layout-padding: 0;
 
   nb-card {
     margin: 0;
-    height: calc(100vh - 2 * #{$auth-layout-padding});
+    // height: calc(100vh - 2 * #{$auth-layout-padding});
+    border-radius: 20px;
+    border-width: 10px;
+    min-width: 30%;
+  }
+
+  nb-card-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    img {
+      height: 100px;
+    }
+  }
+
+  .navigation {
+    position: absolute;
+    left: 1.5rem;
+    top: 1rem;
   }
 
   .navigation .link {
@@ -34,23 +55,50 @@
   }
 
   nb-auth-block {
-    margin: auto;
+    margin: auto 5px;
+    padding: 10px;
+    border-top: 2px solid #2c134a;
   }
 
-  @include media-breakpoint-down(sm) {
-    nb-card {
-      border-radius: 0;
-      height: 100vh;
-    }
+  .welcome-container {
+    position: absolute;
+    left: 50px;
+    top: 50px;
   }
+
+  .welcome-title {
+    color: white;
+  }
+
+  .welcome-description-accent {
+    color: #7E34D8;
+  }
+
+  .welcome-description {
+    color: white;
+    margin-left: 1rem;
+  }
+
+  // @include media-breakpoint-down(sm) {
+  //   nb-card {
+  //     border-radius: 0;
+  //     height: 100vh;
+  //   }
+  // }
 
   ::ng-deep {
     nb-layout .layout .layout-container .content .columns nb-layout-column {
-      padding: $auth-layout-padding;
+      // padding: $auth-layout-padding;
 
-      @include media-breakpoint-down(sm) {
-        padding: 0;
-      }
+      // @include media-breakpoint-down(sm) {
+      //   padding: 0;
+      // }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('/assets/images/auth_background.png');
+      background-size: cover;
+      position: relative;
     }
   }
 }

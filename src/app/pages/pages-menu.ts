@@ -1,221 +1,219 @@
-
-
-import { NbMenuItem } from '@nebular/theme';
-import { Observable, of } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { ConfigurationService } from '../@services/configuration.service';
-import { NbRoleProvider } from '@nebular/security';
-import { ROLES } from '../@auth/roles';
-import { FEATURES } from '../@core/features';
+import { NbMenuItem } from "@nebular/theme";
+import { Observable, of } from "rxjs";
+import { Injectable } from "@angular/core";
+import { ConfigurationService } from "../@services/configuration.service";
+import { NbRoleProvider } from "@nebular/security";
+import { ROLES } from "../@auth/roles";
+import { FEATURES } from "../@core/features";
 
 @Injectable()
 export class PagesMenu {
   constructor(
     private configService: ConfigurationService,
-    private roleProvider: NbRoleProvider) {
-  }
+    private roleProvider: NbRoleProvider
+  ) {}
 
   private readonly ProviderDashboardMenu: NbMenuItem[] = [
     {
-      title: 'Dashboard Executive',
-      icon: 'home-outline',
-      link: '/pages/insurance-dashboard',
+      title: "Dashboard Executive",
+      icon: "home-outline",
+      link: "/pages/insurance-dashboard",
       home: true,
       children: undefined,
     },
     {
-      title: 'Dashboard User',
-      icon: 'home-outline',
-      link: '/pages/law-ada-dashboard',
+      title: "Dashboard User",
+      icon: "home-outline",
+      link: "/pages/law-ada-dashboard",
       children: undefined,
     },
   ];
 
   private readonly InsuranceDashboardMenu: NbMenuItem[] = [
     {
-      title: 'Dashboard Executive',
-      icon: 'home-outline',
-      link: '/pages/insurance-dashboard',
+      title: "Dashboard Executive",
+      icon: "home-outline",
+      link: "/pages/insurance-dashboard",
       home: true,
       children: undefined,
     },
     {
-      title: 'Dashboard User',
-      icon: 'home-outline',
-      link: '/pages/law-ada-dashboard',
+      title: "Dashboard User",
+      icon: "home-outline",
+      link: "/pages/law-ada-dashboard",
       children: undefined,
     },
   ];
 
   private readonly MortgageDashboardMenu: NbMenuItem[] = [
     {
-      title: 'Dashboard Executive',
-      icon: 'home-outline',
-      link: '/pages/insurance-dashboard',
+      title: "Dashboard Executive",
+      icon: "home-outline",
+      link: "/pages/insurance-dashboard",
       home: true,
       children: undefined,
     },
     {
-      title: 'Dashboard User',
-      icon: 'home-outline',
-      link: '/pages/law-ada-dashboard',
+      title: "Dashboard User",
+      icon: "home-outline",
+      link: "/pages/law-ada-dashboard",
       children: undefined,
     },
   ];
 
   private readonly LawDashboardMenu: NbMenuItem[] = [
     {
-      title: 'Dashboard Executive',
-      icon: 'home-outline',
-      link: '/pages/insurance-dashboard',
+      title: "Dashboard Executive",
+      icon: "home-outline",
+      link: "/pages/insurance-dashboard",
       home: true,
       children: undefined,
     },
     {
-      title: 'Dashboard User',
-      icon: 'home-outline',
-      link: '/pages/law-ada-dashboard',
+      title: "Dashboard User",
+      icon: "home-outline",
+      link: "/pages/law-ada-dashboard",
       children: undefined,
     },
   ];
 
   private readonly modulesHeader: NbMenuItem[] = [
     {
-      title: 'MODULES',
+      title: "MODULES",
       group: true,
     },
   ];
 
   private readonly providerMenu: NbMenuItem[] = [
     {
-      title: 'Contacts',
+      title: "Contacts",
       icon: {
-        icon: 'id-badge',
-        pack: 'fa',
+        icon: "id-badge",
+        pack: "fa",
       },
-      link: '/pages/crm/list',
+      link: "/pages/crm/list",
     },
     {
-      title: 'Patients',
+      title: "Patients",
       icon: {
-        icon: 'notes-medical',
-        pack: 'fa',
+        icon: "notes-medical",
+        pack: "fa",
       },
-      link: '/pages/patients/list',
+      link: "/pages/patients/list",
     },
   ];
 
   private readonly insuranceAdminMenu: NbMenuItem[] = [
     {
-      title: 'New Clients',
+      title: "New Clients",
       icon: {
-        icon: 'exclamation',
-        pack: 'fa',
+        icon: "exclamation",
+        pack: "fa",
       },
-      link: '/pages/clients/new',
+      link: "/pages/clients/new",
     },
   ];
 
   private readonly insuranceMenu: NbMenuItem[] = [
     {
-      title: 'Clients',
+      title: "Clients",
       icon: {
-        icon: 'id-badge',
-        pack: 'fa',
+        icon: "id-badge",
+        pack: "fa",
       },
-      link: '/pages/clients/list',
+      link: "/pages/clients/list",
     },
     {
-      title: 'Contacts',
+      title: "Contacts",
       icon: {
-        icon: 'address-book',
-        pack: 'fa',
+        icon: "address-book",
+        pack: "fa",
       },
-      link: '/pages/contacts/list',
+      link: "/pages/contacts/list",
     },
     {
-      title: 'Accounts',
+      title: "Accounts",
       icon: {
-        icon: 'building',
-        pack: 'fa',
+        icon: "building",
+        pack: "fa",
       },
-      link: '/pages/accounts/list',
+      link: "/pages/accounts/list",
     },
   ];
 
   private readonly mortgageMenu: NbMenuItem[] = [
     {
-      title: 'Clients',
+      title: "Clients",
       icon: {
-        icon: 'id-badge',
-        pack: 'fa',
+        icon: "id-badge",
+        pack: "fa",
       },
-      link: '/pages/clients/list',
+      link: "/pages/clients/list",
     },
     {
-      title: 'Contacts',
+      title: "Contacts",
       icon: {
-        icon: 'address-book',
-        pack: 'fa',
+        icon: "address-book",
+        pack: "fa",
       },
-      link: '/pages/contacts/list',
+      link: "/pages/contacts/list",
     },
     {
-      title: 'Accounts',
+      title: "Accounts",
       icon: {
-        icon: 'building',
-        pack: 'fa',
+        icon: "building",
+        pack: "fa",
       },
-      link: '/pages/accounts/list',
+      link: "/pages/accounts/list",
     },
   ];
 
   private readonly lawMenu: NbMenuItem[] = [
     {
-      title: 'Clients',
+      title: "Clients",
       icon: {
-        icon: 'id-badge',
-        pack: 'fa',
+        icon: "id-badge",
+        pack: "fa",
       },
-      link: '/pages/clients/list',
+      link: "/pages/clients/list",
     },
     {
-      title: 'Contacts',
+      title: "Contacts",
       icon: {
-        icon: 'address-book',
-        pack: 'fa',
+        icon: "address-book",
+        pack: "fa",
       },
-      link: '/pages/contacts/list',
+      link: "/pages/contacts/list",
     },
     {
-      title: 'Accounts',
+      title: "Accounts",
       icon: {
-        icon: 'building',
-        pack: 'fa',
+        icon: "building",
+        pack: "fa",
       },
-      link: '/pages/accounts/list',
+      link: "/pages/accounts/list",
     },
   ];
 
   private readonly adminMenu: NbMenuItem[] = [
     {
-      title: 'Users',
+      title: "Users",
       icon: {
-        icon: 'user',
-        pack: 'fa',
+        icon: "user",
+        pack: "fa",
       },
-      link: '/pages/users/list',
+      link: "/pages/users/list",
     },
   ];
 
   private readonly salesLibraryMenu: NbMenuItem[] = [
     {
-      title: 'Sales Library',
+      title: "Sales Library",
       icon: {
-        icon: 'folder',
-        pack: 'fa',
+        icon: "folder",
+        pack: "fa",
       },
-      link: '/pages/sales-library/view',
+      link: "/pages/sales-library/view",
     },
   ];
 
@@ -224,7 +222,11 @@ export class PagesMenu {
     let addedModulesHeader = false;
     const menu = [];
 
-    if (this.configService.configuration.tenant.features.findIndex(f => f.name === FEATURES.INSURANCE) !== -1) {
+    if (
+      this.configService.configuration.tenant.features.findIndex(
+        (f) => f.name === FEATURES.INSURANCE
+      ) !== -1
+    ) {
       if (!addedDashboard) {
         menu.push(...this.InsuranceDashboardMenu);
         addedDashboard = true;
@@ -234,13 +236,15 @@ export class PagesMenu {
         addedModulesHeader = true;
       }
 
-      this.roleProvider.getRole().subscribe(r => {
-        if (r.includes(ROLES.ADMIN)
-          || r.includes(ROLES.GLOBAL_ADMIN)
-          || r.includes(ROLES.SUPER_ADMIN)
-          || r.includes(ROLES.LEADERSHIP)
-          || r.includes(ROLES.MANAGER)
-          || r.includes(ROLES.REGIONAL)) {
+      this.roleProvider.getRole().subscribe((r) => {
+        if (
+          r.includes(ROLES.ADMIN) ||
+          r.includes(ROLES.GLOBAL_ADMIN) ||
+          r.includes(ROLES.SUPER_ADMIN) ||
+          r.includes(ROLES.LEADERSHIP) ||
+          r.includes(ROLES.MANAGER) ||
+          r.includes(ROLES.REGIONAL)
+        ) {
           menu.push(...this.insuranceAdminMenu);
         }
       });
@@ -248,7 +252,11 @@ export class PagesMenu {
       menu.push(...this.insuranceMenu);
     }
 
-    if (this.configService.configuration.tenant.features.findIndex(f => f.name === FEATURES.MORTGAGE) !== -1) {
+    if (
+      this.configService.configuration.tenant.features.findIndex(
+        (f) => f.name === FEATURES.MORTGAGE
+      ) !== -1
+    ) {
       if (!addedDashboard) {
         menu.push(...this.MortgageDashboardMenu);
         addedDashboard = true;
@@ -258,13 +266,15 @@ export class PagesMenu {
         addedModulesHeader = true;
       }
 
-      this.roleProvider.getRole().subscribe(r => {
-        if (r.includes(ROLES.ADMIN)
-          || r.includes(ROLES.GLOBAL_ADMIN)
-          || r.includes(ROLES.SUPER_ADMIN)
-          || r.includes(ROLES.LEADERSHIP)
-          || r.includes(ROLES.MANAGER)
-          || r.includes(ROLES.REGIONAL)) {
+      this.roleProvider.getRole().subscribe((r) => {
+        if (
+          r.includes(ROLES.ADMIN) ||
+          r.includes(ROLES.GLOBAL_ADMIN) ||
+          r.includes(ROLES.SUPER_ADMIN) ||
+          r.includes(ROLES.LEADERSHIP) ||
+          r.includes(ROLES.MANAGER) ||
+          r.includes(ROLES.REGIONAL)
+        ) {
           menu.push(...this.insuranceAdminMenu);
         }
       });
@@ -272,7 +282,11 @@ export class PagesMenu {
       menu.push(...this.mortgageMenu);
     }
 
-    if (this.configService.configuration.tenant.features.findIndex(f => f.name === FEATURES.LAW) !== -1) {
+    if (
+      this.configService.configuration.tenant.features.findIndex(
+        (f) => f.name === FEATURES.LAW
+      ) !== -1
+    ) {
       if (!addedDashboard) {
         menu.push(...this.LawDashboardMenu);
         addedDashboard = true;
@@ -282,13 +296,15 @@ export class PagesMenu {
         addedModulesHeader = true;
       }
 
-      this.roleProvider.getRole().subscribe(r => {
-        if (r.includes(ROLES.ADMIN)
-          || r.includes(ROLES.GLOBAL_ADMIN)
-          || r.includes(ROLES.SUPER_ADMIN)
-          || r.includes(ROLES.LEADERSHIP)
-          || r.includes(ROLES.MANAGER)
-          || r.includes(ROLES.REGIONAL)) {
+      this.roleProvider.getRole().subscribe((r) => {
+        if (
+          r.includes(ROLES.ADMIN) ||
+          r.includes(ROLES.GLOBAL_ADMIN) ||
+          r.includes(ROLES.SUPER_ADMIN) ||
+          r.includes(ROLES.LEADERSHIP) ||
+          r.includes(ROLES.MANAGER) ||
+          r.includes(ROLES.REGIONAL)
+        ) {
           menu.push(...this.insuranceAdminMenu);
         }
       });
@@ -296,7 +312,11 @@ export class PagesMenu {
       menu.push(...this.lawMenu);
     }
 
-    if (this.configService.configuration.tenant.features.findIndex(f => f.name === FEATURES.PROVIDER) !== -1) {
+    if (
+      this.configService.configuration.tenant.features.findIndex(
+        (f) => f.name === FEATURES.PROVIDER
+      ) !== -1
+    ) {
       if (!addedDashboard) {
         menu.push(...this.ProviderDashboardMenu);
         addedDashboard = true;
@@ -308,17 +328,23 @@ export class PagesMenu {
       menu.push(...this.providerMenu);
     }
 
-    if (this.configService.configuration.tenant.features.findIndex(f => f.name === FEATURES.SALESLIBRARY) !== -1) {
+    if (
+      this.configService.configuration.tenant.features.findIndex(
+        (f) => f.name === FEATURES.SALESLIBRARY
+      ) !== -1
+    ) {
       menu.push(...this.salesLibraryMenu);
     }
 
-    this.roleProvider.getRole().subscribe(r => {
-      if (r.includes(ROLES.ADMIN)
-        || r.includes(ROLES.GLOBAL_ADMIN)
-        || r.includes(ROLES.SUPER_ADMIN)
-        || r.includes(ROLES.LEADERSHIP)
-        || r.includes(ROLES.MANAGER)
-        || r.includes(ROLES.REGIONAL)) {
+    this.roleProvider.getRole().subscribe((r) => {
+      if (
+        r.includes(ROLES.ADMIN) ||
+        r.includes(ROLES.GLOBAL_ADMIN) ||
+        r.includes(ROLES.SUPER_ADMIN) ||
+        r.includes(ROLES.LEADERSHIP) ||
+        r.includes(ROLES.MANAGER) ||
+        r.includes(ROLES.REGIONAL)
+      ) {
         menu.push(...this.adminMenu);
       }
     });

@@ -1,0 +1,27 @@
+.login-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .description {
+    color: #2c134a;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  a {
+    font-weight: bold;
+    margin-top: 30px;
+    color: #2c134a;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  button {
+    background-color: white !important;
+    border: 20px solid #2c134a !important;
+    border-radius: 50px;
+    text-transform: uppercase;
+  }
+}

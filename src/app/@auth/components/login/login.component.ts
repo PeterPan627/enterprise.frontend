@@ -1,107 +1,131 @@
-
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+} from "@angular/core";
+import { Router } from "@angular/router";
 import {
   NB_AUTH_OPTIONS,
   NbAuthSocialLink,
   NbAuthService,
   NbAuthResult,
-} from '@nebular/auth';
-import { getDeepFromObject } from '../../helpers';
-import { NbThemeService } from '@nebular/theme';
-import { EMAIL_PATTERN } from '../constants';
-import { InitUserService } from '../../../@theme/services/init-user.service';
-import { Tenant } from '../../../@core/interfaces/common/tenant';
-import { ConfigurationService } from '../../../@services/configuration.service';
+} from "@nebular/auth";
+import { getDeepFromObject } from "../../helpers";
+import { NbThemeService } from "@nebular/theme";
+import { EMAIL_PATTERN } from "../constants";
+import { InitUserService } from "../../../@theme/services/init-user.service";
+import { Tenant } from "../../../@core/interfaces/common/tenant";
+import { ConfigurationService } from "../../../@services/configuration.service";
+import { KeplrService } from "../../../@services/keplr.service";
+import { UserService } from "../../../@services/user.service";
+import { contractAddress } from "../../../../environments/config";
+import { AppService } from "../../../@services/app.service";
+
+export interface AccountInfo {
+  address: string;
+  hash: string;
+  name: string;
+}
+
+export const validateAccountInfo = (accountInfo: AccountInfo): boolean => {
+  if (!accountInfo) return false;
+  return Boolean(accountInfo.address && accountInfo.hash && accountInfo.name);
+};
 
 @Component({
-  selector: 'ngx-login',
-  styleUrls: ['./login.component.scss'],
-  templateUrl: './login.component.html',
+  selector: "ngx-login",
+  styleUrls: ["./login.component.scss"],
+  templateUrl: "./login.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class NgxLoginComponent implements OnInit {
-
   public tenant: Tenant;
-  minLength: number = this.getConfigValue('forms.validation.password.minLength');
-  maxLength: number = this.getConfigValue('forms.validation.password.maxLength');
-  redirectDelay: number = this.getConfigValue('forms.login.redirectDelay');
-  showMessages: any = this.getConfigValue('forms.login.showMessages');
-  strategy: string = this.getConfigValue('forms.login.strategy');
-  socialLinks: NbAuthSocialLink[] = this.getConfigValue('forms.login.socialLinks');
-  rememberMe = this.getConfigValue('forms.login.rememberMe');
-  isEmailRequired: boolean = this.getConfigValue('forms.validation.email.required');
-  isPasswordRequired: boolean = this.getConfigValue('forms.validation.password.required');
+  isAdmin = false;
+  username?: string;
+  account: any;
+  strategy: string = this.getConfigValue("forms.login.strategy");
 
-  errors: string[] = [];
-  messages: string[] = [];
-  user: any = {};
-  submitted: boolean = false;
-  loginForm: FormGroup;
-  alive: boolean = true;
-
-  get email() { return this.loginForm.get('email'); }
-  get password() { return this.loginForm.get('password'); }
-
-  constructor(protected service: NbAuthService,
+  constructor(
+    protected service: NbAuthService,
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
     protected themeService: NbThemeService,
-    private fb: FormBuilder,
     protected router: Router,
     protected initUserService: InitUserService,
+    private userService: UserService,
+    private appService: AppService,
     private configuration: ConfigurationService,
-    ) {
-      this.tenant = this.configuration.configuration.tenant;
-    }
-
-  ngOnInit(): void {
-    const emailValidators = [
-      Validators.pattern(EMAIL_PATTERN),
-    ];
-    this.isEmailRequired && emailValidators.push(Validators.required);
-
-    const passwordValidators = [
-      Validators.minLength(this.minLength),
-      Validators.maxLength(this.maxLength),
-    ];
-    this.isPasswordRequired && passwordValidators.push(Validators.required);
-
-    this.loginForm = this.fb.group({
-      email: this.fb.control('', [...emailValidators]),
-      password: this.fb.control('', [...passwordValidators]),
-      rememberMe: this.fb.control(''),
-    });
+    private keplrService: KeplrService
+  ) {
+    this.tenant = this.configuration.configuration.tenant;
   }
 
-  login(): void {
-    this.user = this.loginForm.value;
-    const host = window.location.host;
-    const subdomain = host.split('.')[0];
-    this.user.tenant = subdomain;
-    this.errors = [];
-    this.messages = [];
-    this.submitted = true;
-    this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
-      this.submitted = false;
+  ngOnInit(): void {
+    const storedObjectString = window.localStorage.getItem("account-info");
+    const storedObject: AccountInfo | null = storedObjectString
+      ? JSON.parse(storedObjectString)
+      : null;
+    if (storedObject) {
+      this.connectKeplr(storedObject);
+    }
+  }
 
-      if (result.isSuccess()) {
-        this.messages = result.getMessages();
-        this.initUserService.initCurrentUser().subscribe();
-      } else {
-        this.errors = result.getErrors();
-      }
+  async connectKeplr(accountInfo?: AccountInfo): Promise<AccountInfo> {
+    let storeObject: AccountInfo;
+    if (validateAccountInfo(accountInfo)) {
+      storeObject = accountInfo;
+      this.username = storeObject.name;
+      this.account = storeObject.address;
+    } else {
+      const account = await this.keplrService.getAccount();
+      this.username = account.info.name;
+      this.account = account.address;
 
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
-      this.cd.detectChanges();
+      storeObject = {
+        address: this.account,
+        hash: account.hash,
+        name: this.username,
+      };
+    }
+    window.localStorage.setItem("account-info", JSON.stringify(storeObject));
+
+    const queryResult = await this.keplrService.runQuery(contractAddress, {
+      get_state_info: {},
     });
+    window.localStorage.setItem("mint-info", JSON.stringify(queryResult));
+    this.isAdmin = queryResult.owner === this.account;
+    window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
+
+    return storeObject;
+  }
+
+  async connectWallet(accountInfo?: AccountInfo): Promise<void> {
+    const storeObject = await this.connectKeplr(accountInfo);
+
+    this.userService
+      .getUserBoard(storeObject.address, storeObject.hash)
+      .subscribe({
+        next: (data) => {
+          const result = JSON.parse(data);
+          const users = result?.users;
+          if (!users || users.length == 0) {
+            this.router.navigate(["/auth/register"]);
+          } else {
+            this.appService.setUser(users[0]);
+            this.router.navigate(["/pages"]);
+          }
+        },
+        error: (err) => {},
+      });
+  }
+
+  disconnectWallet() {
+    this.username = "";
+    this.account = "";
+    this.isAdmin = false;
+    window.localStorage.clear();
   }
 
   getConfigValue(key: string): any {
