@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { AccountInfo } from "../@auth/components";
 
 export type User = {
   address: string;
@@ -7,18 +8,39 @@ export type User = {
   last_name: string;
   email: string;
   entity_id: string;
+  isWhiteListed: string;
 };
 
+export type MintInfo = {
+  count: number;
+  denom: string;
+  image_url: string;
+  max_nft: number;
+  nft_address: string;
+  owner: string;
+  price: number;
+  total_nft: number;
+  url: string;
+};
 @Injectable()
 export class AppService {
   userInfo: User;
+  mintInfo: MintInfo;
+  isAdmin: boolean;
+  logged: boolean;
 
   constructor() {
     this.userInfo = null;
   }
 
-  setUser(user: User): void {
+  setUser(user: User, walletInfo: AccountInfo): void {
     this.userInfo = user;
+    window.localStorage.setItem("account-info", JSON.stringify(walletInfo));
+  }
+
+  clearUser() {
+    this.userInfo = null;
+    window.localStorage.clearItem("account-info");
   }
 
   getUser(): User {
@@ -26,13 +48,25 @@ export class AppService {
   }
 
   isLogged(): boolean {
-    return Boolean(
-      this.userInfo?.address &&
-        this.userInfo?.hash &&
-        this.userInfo?.first_name &&
-        this.userInfo?.last_name &&
-        this.userInfo?.entity_id &&
-        this.userInfo?.email
-    );
+    return this.logged;
+  }
+
+  setLogged(logged: boolean) {
+    this.logged = logged;
+  }
+
+  setMintInfo(mintInfo: MintInfo) {
+    this.mintInfo = mintInfo;
+    this.isAdmin = mintInfo.owner === this.userInfo?.address;
+    window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
+    window.localStorage.setItem("mint-info", JSON.stringify(mintInfo));
+  }
+
+  getMintInfo() {
+    return this.mintInfo;
+  }
+
+  getIsAdmin() {
+    return this.isAdmin;
   }
 }

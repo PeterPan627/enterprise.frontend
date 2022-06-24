@@ -24,6 +24,8 @@ import { ConfigurationService } from "./@services/configuration.service";
 import { ConfigurationApi } from "./@core/backend/common/api/configuration.api";
 import { NbAuthService } from "@nebular/auth";
 import { AppService } from "./@services/app.service";
+import { UserService } from "./@services/user.service";
+import { KeplrService } from "./@services/keplr.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +51,8 @@ import { AppService } from "./@services/app.service";
   providers: [
     ConfigurationService,
     AppService,
+    UserService,
+    KeplrService,
     ConfigurationApi,
     NbThemeService,
     NbAuthService,
@@ -56,7 +60,15 @@ import { AppService } from "./@services/app.service";
     {
       provide: APP_INITIALIZER,
       useFactory: initApp,
-      deps: [Injector, ConfigurationApi, ConfigurationService, NbThemeService],
+      deps: [
+        Injector,
+        ConfigurationApi,
+        ConfigurationService,
+        NbThemeService,
+        AppService,
+        UserService,
+        KeplrService,
+      ],
       multi: true,
     },
   ],

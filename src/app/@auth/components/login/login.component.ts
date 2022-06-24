@@ -63,13 +63,8 @@ export class NgxLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const storedObjectString = window.localStorage.getItem("account-info");
-    const storedObject: AccountInfo | null = storedObjectString
-      ? JSON.parse(storedObjectString)
-      : null;
-    if (storedObject) {
-      this.connectKeplr(storedObject);
-    }
+    const isLogged = this.appService.isLogged();
+    if (isLogged) this.router.navigate(["/pages"]);
   }
 
   async connectKeplr(accountInfo?: AccountInfo): Promise<AccountInfo> {
@@ -89,14 +84,17 @@ export class NgxLoginComponent implements OnInit {
         name: this.username,
       };
     }
-    window.localStorage.setItem("account-info", JSON.stringify(storeObject));
 
     const queryResult = await this.keplrService.runQuery(contractAddress, {
       get_state_info: {},
     });
-    window.localStorage.setItem("mint-info", JSON.stringify(queryResult));
-    this.isAdmin = queryResult.owner === this.account;
-    window.localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
+    this.appService.setMintInfo({
+      ...queryResult,
+      count: Number(queryResult.count),
+      max_nft: Number(queryResult.max_nft),
+      price: Number(queryResult.price),
+      total_nft: Number(queryResult.total_nft),
+    });
 
     return storeObject;
   }
@@ -113,8 +111,13 @@ export class NgxLoginComponent implements OnInit {
           if (!users || users.length == 0) {
             this.router.navigate(["/auth/register"]);
           } else {
-            this.appService.setUser(users[0]);
-            this.router.navigate(["/pages"]);
+            const user = users[0];
+            this.appService.setUser(user, storeObject);
+            if (user.isWhiteListed === "true") {
+            } else {
+              this.appService.setLogged(true);
+              this.router.navigate(["/pages"]);
+            }
           }
         },
         error: (err) => {},

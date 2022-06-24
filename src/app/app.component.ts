@@ -4,6 +4,7 @@ import { ConfigurationService } from "./@services/configuration.service";
 import { AnalyticsService } from "./@core/utils/analytics.service";
 import { NbSidebarService, NbLayoutRulerService } from "@nebular/theme";
 import { Router, NavigationEnd } from "@angular/router";
+import { AppService } from "./@services/app.service";
 
 @Component({
   selector: "ngx-app",
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
     private sidebarService: NbSidebarService,
     private rulerService: NbLayoutRulerService,
     private injector: Injector,
-    private router: Router
+    private router: Router,
+    private appService: AppService
   ) {
     this.titleService.setTitle(this.config.configuration.tenant.name);
     this.router.events.subscribe((r) => {
