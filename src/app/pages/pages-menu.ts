@@ -204,7 +204,7 @@ export class PagesMenu {
         icon: "user",
         pack: "fa",
       },
-      link: "/pages/users/list",
+      link: "/pages/user-list",
     },
   ];
 
@@ -233,7 +233,6 @@ export class PagesMenu {
     if (this.appService.getIsAdmin()) {
       menu.push(...this.adminMenu);
     }
-    console.log("here", menu);
 
     if (
       this.configService.configuration.tenant.features.findIndex(

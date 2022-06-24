@@ -8,8 +8,11 @@
 import { Component, OnDestroy } from "@angular/core";
 
 import { NbToastrService } from "@nebular/theme";
-import { Router } from "@angular/router";
+import { Router, Data } from "@angular/router";
 import { DataSource } from "ng2-smart-table/lib/lib/data-source/data-source";
+import { UserService } from "../../@services/user.service";
+import { AppService } from "../../@services/app.service";
+import { AuthService } from "../../@services/auth.service";
 
 @Component({
   selector: "ngx-users",
@@ -19,47 +22,44 @@ import { DataSource } from "ng2-smart-table/lib/lib/data-source/data-source";
 export class UsersComponent implements OnDestroy {
   private alive = true;
 
-  settings = {
-    mode: "external",
-    actions: {
-      add: false,
-      delete: false,
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-    },
-    columns: {
-      firstName: {
-        title: "First Name",
-        type: "string",
-      },
-      lastName: {
-        title: "Last Name",
-        type: "string",
-      },
-      login: {
-        title: "User Name",
-        type: "string",
-      },
-      email: {
-        title: "Email",
-        type: "string",
-      },
-    },
-  };
+  source: any;
 
-  source: DataSource;
+  test: any = [1, 2, 3];
 
-  constructor(private router: Router, private toastrService: NbToastrService) {
+  constructor(
+    private router: Router,
+    private toastrService: NbToastrService,
+    private userService: UserService,
+    private appService: AppService,
+    private authService: AuthService
+  ) {
     this.loadData();
   }
 
   loadData() {
     // this.source = [];
+    this.userService.getAdminBoard().subscribe({
+      next: (data) => {
+        const parsed = JSON.parse(data);
+        let result = [];
+        const owner = this.appService.getMintInfo().owner;
+        parsed.data.forEach((user) => {
+          if (user.address !== owner) result.push(user);
+        });
+        console.log("result", result);
+        this.source = result;
+      },
+      error: (err) => {},
+    });
   }
 
-  onEdit($event: any) {
-    this.router.navigate([`/pages/users/edit/${$event.data.id}`]);
+  addRemoveToWhiteLists(user, isWhiteListed) {
+    this.authService.setWhiteList(user.hash, isWhiteListed).subscribe({
+      next: (data) => {
+        this.loadData();
+      },
+      error: (err) => {},
+    });
   }
 
   ngOnDestroy() {

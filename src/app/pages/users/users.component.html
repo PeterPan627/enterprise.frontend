@@ -4,17 +4,22 @@
   ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
   -->
 
-<nb-card>
-  <nb-card-header>
+<div>
+  <div>
     Users List
-  </nb-card-header>
+  </div>
 
-  <nb-card-body>
-    <ng2-smart-table
-      [settings]="settings"
-      [source]="source"
-      (edit)="onEdit($event)"
-      >
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+  <div>
+    <div class="list-content">
+      <ul class="listitem">
+        <li *ngFor="let user of source; let i = index">
+          <span>{{i+1}}</span>
+          <span class="item">{{user.first_name}} {{user.last_name}}</span>
+          <span class="item">{{user.email}}</span>
+          <button class="add-button" *ngIf="user.isWhiteListed !== '1'" (click)="addRemoveToWhiteLists(user, 'true')">Add to White Lists</button>
+          <button class="add-button" *ngIf="user.isWhiteListed === '1'" (click)="addRemoveToWhiteLists(user, 'false')">Remove from White Lists</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

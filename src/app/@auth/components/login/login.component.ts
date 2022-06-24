@@ -118,7 +118,7 @@ export class NgxLoginComponent implements OnInit {
             const user = users[0];
             this.appService.setUser(user, storeObject);
             const isAdmin = this.appService.getIsAdmin();
-            if (!isAdmin && user.isWhiteListed === "true") {
+            if (!isAdmin && user.isWhiteListed === "1") {
               this.router.navigate(["/auth/whitelist"]);
             } else {
               this.appService.setLogged(true);

@@ -18,6 +18,7 @@ import {
   NbToastrModule,
   NbWindowModule,
   NbThemeService,
+  NbCardModule,
 } from "@nebular/theme";
 import { initApp } from "./@services/onstart.service";
 import { ConfigurationService } from "./@services/configuration.service";
@@ -26,6 +27,7 @@ import { NbAuthService } from "@nebular/auth";
 import { AppService } from "./@services/app.service";
 import { UserService } from "./@services/user.service";
 import { KeplrService } from "./@services/keplr.service";
+import { PagesModule } from "./pages/pages.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,10 +36,12 @@ import { KeplrService } from "./@services/keplr.service";
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    PagesModule,
     ThemeModule.forRoot(),
     AuthModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbCardModule,
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
