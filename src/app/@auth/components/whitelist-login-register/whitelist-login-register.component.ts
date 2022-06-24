@@ -95,7 +95,6 @@ export class NgxWhiteListLoginRegisterComponent implements OnInit {
         confirmPassword: this.fb.control("", [...passwordValidators]),
       }),
     });
-    console.log("register form", this.registerForm);
   }
 
   register(): void {

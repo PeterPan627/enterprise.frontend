@@ -223,16 +223,28 @@ export class PagesMenu {
 
   private readonly normalMenu: NbMenuItem[] = [];
 
+  private readonly whiteListMenu: NbMenuItem[] = [
+    {
+      title: "White List Mint",
+      icon: {
+        icon: "folder",
+        pack: "fa",
+      },
+      link: "",
+    },
+  ];
+
   getMenu(): Observable<NbMenuItem[]> {
     let addedDashboard = false;
     let addedModulesHeader = false;
     const menu = [];
 
     menu.push(...this.normalMenu);
+    const user = this.appService.getUser();
 
-    if (this.appService.getIsAdmin()) {
-      menu.push(...this.adminMenu);
-    }
+    if (this.appService.getIsAdmin()) menu.push(...this.adminMenu);
+
+    if (user.isWhiteListed) menu.push(...this.whiteListMenu);
 
     if (
       this.configService.configuration.tenant.features.findIndex(
