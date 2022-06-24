@@ -13,7 +13,7 @@
   "scripts": {
     "ng": "ng",
     "conventional-changelog": "conventional-changelog",
-    "start": "ng serve --open --port 3000 --disable-host-check",
+    "start": "ng serve --port 3000 --disable-host-check",
     "build": "ng build",
     "build:prod": "npm run build -- --prod --aot",
     "test": "ng test",

@@ -36,4 +36,30 @@ export class AuthService {
       httpOptions
     );
   }
+  registerWhitelist(hash: string, password: string): Observable<any> {
+    if (!password || !hash) return;
+    return this.http.post(
+      API_URL + "set-password",
+      { password, hash },
+      httpOptions
+    );
+  }
+
+  loginWhitelist(hash: string, password: string): Observable<any> {
+    if (!password || !hash) return;
+    return this.http.post(
+      API_URL + "whitelist-login",
+      { password, hash },
+      httpOptions
+    );
+  }
+
+  setWhiteList(hash: string, isWhiteListed: string): Observable<any> {
+    if (!isWhiteListed || !hash) return;
+    return this.http.post(
+      API_URL + "set-whitelist",
+      { isWhiteListed, hash },
+      httpOptions
+    );
+  }
 }

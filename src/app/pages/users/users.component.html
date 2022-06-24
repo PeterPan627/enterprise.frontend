@@ -1,0 +1,25 @@
+<!--
+  ~ Copyright (c) Akveo 2019. All Rights Reserved.
+  ~ Licensed under the Single Application / Multi Application License.
+  ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+  -->
+
+<div>
+  <div>
+    Users List
+  </div>
+
+  <div>
+    <div class="list-content">
+      <ul class="listitem">
+        <li *ngFor="let user of source; let i = index">
+          <span>{{i+1}}</span>
+          <span class="item">{{user.first_name}} {{user.last_name}}</span>
+          <span class="item">{{user.email}}</span>
+          <button class="add-button" *ngIf="user.isWhiteListed !== '1'" (click)="addRemoveToWhiteLists(user, 'true')">Add to White Lists</button>
+          <button class="add-button" *ngIf="user.isWhiteListed === '1'" (click)="addRemoveToWhiteLists(user, 'false')">Remove from White Lists</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

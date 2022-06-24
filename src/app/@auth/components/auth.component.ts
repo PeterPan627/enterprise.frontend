@@ -1,9 +1,11 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Location } from "@angular/common";
 
 import { NbAuthService } from "@nebular/auth";
 import { takeWhile } from "rxjs/operators";
 import { NbThemeService } from "@nebular/theme";
+import { AppService } from "../../@services/app.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ngx-auth",
@@ -47,7 +49,7 @@ import { NbThemeService } from "@nebular/theme";
     </nb-layout>
   `,
 })
-export class NgxAuthComponent implements OnDestroy {
+export class NgxAuthComponent implements OnDestroy, OnInit {
   private alive = true;
 
   subscription: any;
@@ -59,6 +61,8 @@ export class NgxAuthComponent implements OnDestroy {
   constructor(
     protected auth: NbAuthService,
     protected location: Location,
+    protected router: Router,
+    private appService: AppService,
     private themeService: NbThemeService
   ) {
     this.themeService.changeTheme("corporate");
@@ -68,6 +72,10 @@ export class NgxAuthComponent implements OnDestroy {
       .subscribe((authenticated: boolean) => {
         this.authenticated = authenticated;
       });
+  }
+  ngOnInit(): void {
+    const isLogged = this.appService.isLogged();
+    if (isLogged) this.router.navigate(["/pages"]);
   }
 
   back() {

@@ -18,13 +18,16 @@ import {
   NbToastrModule,
   NbWindowModule,
   NbThemeService,
+  NbCardModule,
 } from "@nebular/theme";
 import { initApp } from "./@services/onstart.service";
 import { ConfigurationService } from "./@services/configuration.service";
 import { ConfigurationApi } from "./@core/backend/common/api/configuration.api";
 import { NbAuthService } from "@nebular/auth";
-import { PhoneDeviceService } from "./@services/phone-device.service";
 import { AppService } from "./@services/app.service";
+import { UserService } from "./@services/user.service";
+import { KeplrService } from "./@services/keplr.service";
+import { PagesModule } from "./pages/pages.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,10 +36,12 @@ import { AppService } from "./@services/app.service";
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    PagesModule,
     ThemeModule.forRoot(),
     AuthModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbCardModule,
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
@@ -48,9 +53,10 @@ import { AppService } from "./@services/app.service";
   ],
   bootstrap: [AppComponent],
   providers: [
-    PhoneDeviceService,
     ConfigurationService,
     AppService,
+    UserService,
+    KeplrService,
     ConfigurationApi,
     NbThemeService,
     NbAuthService,
@@ -58,7 +64,15 @@ import { AppService } from "./@services/app.service";
     {
       provide: APP_INITIALIZER,
       useFactory: initApp,
-      deps: [Injector, ConfigurationApi, ConfigurationService, NbThemeService],
+      deps: [
+        Injector,
+        ConfigurationApi,
+        ConfigurationService,
+        NbThemeService,
+        AppService,
+        UserService,
+        KeplrService,
+      ],
       multi: true,
     },
   ],

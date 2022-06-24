@@ -31,6 +31,6 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
-    return this.http.post(API_URL + "get-user", { responseType: "text" });
+    return this.http.get(API_URL + "get-user", { responseType: "text" });
   }
 }
