@@ -1,8 +1,0 @@
-<nb-list>
-  <nb-list-item class="item" *ngFor="let item of frontCardData">
-    <span style="display:inline-block; width:200px">{{ item.company }}</span>
-    <span>{{ item.billed }}</span>
-    <span>{{ item.paid }}</span>
-    <span>{{ getPaidBilledRatio(item.billed, item.paid) }}</span>
-  </nb-list-item>
-</nb-list>

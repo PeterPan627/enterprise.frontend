@@ -4,7 +4,6 @@ import { NbTokenService } from "@nebular/auth";
 import { NbMenuItem, NbIconLibraries } from "@nebular/theme";
 import { PagesMenu } from "./pages-menu";
 import { UsersService } from "../@core/backend/common/services/users.service";
-import { PhoneDeviceService } from "../@services/phone-device.service";
 
 @Component({
   selector: "ngx-pages",
@@ -15,8 +14,6 @@ export class PagesComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     console.log("init page component");
     this.initMenu();
-
-    this.phoneDeviceService.init({});
   }
 
   menu: NbMenuItem[];
@@ -26,8 +23,7 @@ export class PagesComponent implements OnDestroy, OnInit {
     private pagesMenu: PagesMenu,
     private tokenService: NbTokenService,
     private iconsLibrary: NbIconLibraries,
-    protected initUserService: UsersService,
-    private phoneDeviceService: PhoneDeviceService
+    protected initUserService: UsersService
   ) {
     console.log("constructor page component");
     this.iconsLibrary.registerFontPack("fa", {
@@ -54,6 +50,5 @@ export class PagesComponent implements OnDestroy, OnInit {
 
   ngOnDestroy(): void {
     this.alive = false;
-    this.phoneDeviceService.destroy();
   }
 }

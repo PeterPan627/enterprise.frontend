@@ -1,25 +1,27 @@
+import { Component, OnDestroy, OnInit, AfterViewInit } from "@angular/core";
+import {
+  NbMediaBreakpointsService,
+  NbMenuService,
+  NbSidebarService,
+  NbThemeService,
+} from "@nebular/theme";
 
-
-import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
-
-import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject, Observable, of } from 'rxjs';
-import { UserStore } from '../../../@core/stores/user.store';
-import { ConfigurationService } from '../../../@services/configuration.service';
-import { Tenant } from '../../../@core/interfaces/common/tenant';
-import { HttpClient } from '@angular/common/http';
-import { AuthPipe } from '../../../@auth/auth.pipe';
-import { NbAuthService } from '@nebular/auth';
+import { LayoutService } from "../../../@core/utils";
+import { map, takeUntil } from "rxjs/operators";
+import { Subject, Observable, of } from "rxjs";
+import { ConfigurationService } from "../../../@services/configuration.service";
+import { Tenant } from "../../../@core/interfaces/common/tenant";
+import { HttpClient } from "@angular/common/http";
+import { AuthPipe } from "../../../@auth/auth.pipe";
+import { NbAuthService } from "@nebular/auth";
+import { AppService } from "../../../@services/app.service";
 
 @Component({
-  selector: 'ngx-header',
-  styleUrls: ['./header.component.scss'],
-  templateUrl: './header.component.html',
+  selector: "ngx-header",
+  styleUrls: ["./header.component.scss"],
+  templateUrl: "./header.component.html",
 })
 export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
-
   public tenant: Tenant;
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
@@ -29,66 +31,71 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   themes = [
     {
-      value: 'default',
-      name: 'Light',
+      value: "default",
+      name: "Light",
     },
     {
-      value: 'dark',
-      name: 'Dark',
+      value: "dark",
+      name: "Dark",
     },
     {
-      value: 'cosmic',
-      name: 'Cosmic',
+      value: "cosmic",
+      name: "Cosmic",
     },
     {
-      value: 'corporate',
-      name: 'Corporate',
+      value: "corporate",
+      name: "Corporate",
     },
   ];
 
-  currentTheme = 'default';
+  currentTheme = "default";
 
   userMenu = this.getMenuItems();
 
-  constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService,
-              private themeService: NbThemeService,
-              private userStore: UserStore,
-              private layoutService: LayoutService,
-              private configurationService: ConfigurationService,
-              private breakpointService: NbMediaBreakpointsService) {
-                this.tenant = this.configurationService.configuration.tenant;
+  constructor(
+    private sidebarService: NbSidebarService,
+    private menuService: NbMenuService,
+    private themeService: NbThemeService,
+    private layoutService: LayoutService,
+    private appService: AppService,
+    private configurationService: ConfigurationService,
+    private breakpointService: NbMediaBreakpointsService
+  ) {
+    this.tenant = this.configurationService.configuration.tenant;
   }
 
   getMenuItems() {
-    const userLink = this.user ?  '/pages/users/current/' : '';
+    const userLink = this.user ? "/pages/users/current/" : "";
     return [
-      { title: 'Profile', link: userLink, queryParams: { profile: true } },
-      { title: 'Log out', link: '/auth/logout' },
+      { title: "Profile", link: userLink, queryParams: { profile: true } },
+      { title: "Log out", link: "/auth/logout" },
     ];
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
-    this.user = this.userStore.getUser();
-    this.userPhoto = this.userStore.getUserPhoto();
+    this.user = this.appService.getUser();
     this.userMenu = this.getMenuItems();
     this.companyName = this.configurationService.configuration.tenant.name;
     const { xl } = this.breakpointService.getBreakpointsMap();
-    this.themeService.onMediaQueryChange()
+    this.themeService
+      .onMediaQueryChange()
       .pipe(
         map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
-        takeUntil(this.destroy$),
+        takeUntil(this.destroy$)
       )
-      .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
+      .subscribe(
+        (isLessThanXl: boolean) => (this.userPictureOnly = isLessThanXl)
+      );
 
-    this.themeService.onThemeChange()
+    this.themeService
+      .onThemeChange()
       .pipe(
         map(({ name }) => name),
-        takeUntil(this.destroy$),
+        takeUntil(this.destroy$)
       )
-      .subscribe(themeName => this.currentTheme = themeName);
+      .subscribe((themeName) => (this.currentTheme = themeName));
   }
 
   ngAfterViewInit(): void {
@@ -96,7 +103,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getUserName(): string {
-    return this.user ? this.user.firstName + ' ' + this.user.lastName : '';
+    return this.user ? this.user.firstName + " " + this.user.lastName : "";
   }
 
   ngOnDestroy() {
@@ -105,15 +112,11 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   changeTheme(themeName: string) {
-    this.userStore.setSetting(themeName)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe();
-
     this.themeService.changeTheme(themeName);
   }
 
   toggleSidebar(): boolean {
-    this.sidebarService.toggle(true, 'menu-sidebar');
+    this.sidebarService.toggle(true, "menu-sidebar");
     this.layoutService.changeLayoutSize();
 
     return false;

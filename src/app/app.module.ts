@@ -23,7 +23,6 @@ import { initApp } from "./@services/onstart.service";
 import { ConfigurationService } from "./@services/configuration.service";
 import { ConfigurationApi } from "./@core/backend/common/api/configuration.api";
 import { NbAuthService } from "@nebular/auth";
-import { PhoneDeviceService } from "./@services/phone-device.service";
 import { AppService } from "./@services/app.service";
 
 @NgModule({
@@ -48,7 +47,6 @@ import { AppService } from "./@services/app.service";
   ],
   bootstrap: [AppComponent],
   providers: [
-    PhoneDeviceService,
     ConfigurationService,
     AppService,
     ConfigurationApi,
