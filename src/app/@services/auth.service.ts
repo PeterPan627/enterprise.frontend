@@ -54,12 +54,39 @@ export class AuthService {
     );
   }
 
-  setWhiteList(hash: string, isWhiteListed: string): Observable<any> {
-    if (!isWhiteListed || !hash) return;
+  setWhiteList(
+    hash: string,
+    accountHash,
+    isWhiteListed: string
+  ): Observable<any> {
+    if (!isWhiteListed || !hash || !accountHash) return;
     return this.http.post(
       API_URL + "set-whitelist",
       { isWhiteListed, hash },
-      httpOptions
+      {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json",
+          account: accountHash,
+        }),
+      }
+    );
+  }
+
+  setAdmin(
+    hash: string,
+    accountHash: string,
+    isAdmin: string
+  ): Observable<any> {
+    if (!hash || !accountHash || !isAdmin) return;
+    return this.http.post(
+      API_URL + "set-admin",
+      { hash, isAdmin },
+      {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json",
+          account: accountHash,
+        }),
+      }
     );
   }
 }

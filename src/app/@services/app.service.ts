@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { AccountInfo } from "../@auth/components";
 
 export type User = {
+  isAdmin: boolean;
   address: string;
   hash: string;
   first_name: string;
@@ -42,7 +43,8 @@ export class AppService {
 
   clearUser() {
     this.userInfo = null;
-    window.localStorage.clearItem("account-info");
+    this.logged = false;
+    window.localStorage.clear();
   }
 
   getUser(): User {

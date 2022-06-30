@@ -15,6 +15,7 @@ import {
 } from "@nebular/auth";
 import { AppService } from "../../../@services/app.service";
 import { AuthService } from "../../../@services/auth.service";
+import { UserService } from "../../../@services/user.service";
 import { getDeepFromObject } from "../../helpers";
 import { EMAIL_PATTERN } from "../constants";
 
@@ -57,6 +58,7 @@ export class NgxRegisterComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private appService: AppService,
+    private userService: UserService,
     protected router: Router
   ) {}
 
@@ -117,6 +119,35 @@ export class NgxRegisterComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log("success", data);
+          const storedObject = JSON.parse(
+            window.localStorage.getItem("account-info")
+          );
+          this.userService
+            .getUserBoard(storedObject.address, storedObject.hash)
+            .subscribe({
+              next: (data) => {
+                const result = JSON.parse(data);
+                const users = result?.users;
+                if (!users || users.length == 0) {
+                  window.localStorage.setItem(
+                    "account-info",
+                    JSON.stringify(storedObject)
+                  );
+                  this.router.navigate(["/auth/register"]);
+                } else {
+                  const user = users[0];
+                  this.appService.setUser(user, storedObject);
+                  const isAdmin = this.appService.getIsAdmin();
+                  if (!isAdmin && !!user.isWhiteListed) {
+                    this.router.navigate(["/auth/whitelist"]);
+                  } else {
+                    this.appService.setLogged(true);
+                    this.router.navigate(["/pages"]);
+                  }
+                }
+              },
+              error: (err) => {},
+            });
           this.appService.setLogged(true);
           this.router.navigate(["/pages"]);
         },

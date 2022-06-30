@@ -23,6 +23,8 @@ export class UsersComponent implements OnDestroy {
   private alive = true;
 
   source: any;
+  isAdmin: boolean;
+  myHash: string;
 
   test: any = [1, 2, 3];
 
@@ -33,20 +35,27 @@ export class UsersComponent implements OnDestroy {
     private appService: AppService,
     private authService: AuthService
   ) {
+    this.isAdmin = this.appService.getIsAdmin();
+    this.myHash = this.appService.getUser().hash;
     this.loadData();
   }
 
   loadData() {
     // this.source = [];
+    const account = this.appService.getUser();
     this.userService.getAdminBoard().subscribe({
       next: (data) => {
         const parsed = JSON.parse(data);
         let result = [];
-        const owner = this.appService.getMintInfo().owner;
         parsed.data.forEach((user) => {
-          if (user.address !== owner) result.push(user);
+          if (account.address !== user.address) {
+            if (this.isAdmin) {
+              result.push(user);
+            } else if (!user.isAdmin) {
+              result.push(user);
+            }
+          }
         });
-        console.log("result", result);
         this.source = result;
       },
       error: (err) => {},
@@ -54,7 +63,20 @@ export class UsersComponent implements OnDestroy {
   }
 
   addRemoveToWhiteLists(user, isWhiteListed) {
-    this.authService.setWhiteList(user.hash, isWhiteListed).subscribe({
+    const account = this.appService.getUser();
+    this.authService
+      .setWhiteList(user.hash, account.hash, isWhiteListed)
+      .subscribe({
+        next: (data) => {
+          this.loadData();
+        },
+        error: (err) => {},
+      });
+  }
+
+  setRemoveAdmin(user, isAdmin) {
+    const account = this.appService.getUser();
+    this.authService.setAdmin(user.hash, account.hash, isAdmin).subscribe({
       next: (data) => {
         this.loadData();
       },
