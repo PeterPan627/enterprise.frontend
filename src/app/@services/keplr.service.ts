@@ -10,6 +10,7 @@ import {
   BroadcastTxResult,
   StdFee,
   coins,
+  assertIsBroadcastTxSuccess,
 } from "@cosmjs/launchpad";
 import { CosmWasmClient, MsgExecuteContract } from "@cosmjs/cosmwasm";
 import config from "../../environments/config";
@@ -263,5 +264,52 @@ export class KeplrService {
           )
         : undefined
     );
+  }
+
+  async sendToken(amount: number, recipient: string): Promise<any> {
+    if (!amount || !recipient) return;
+    const offlineSigner = window.getOfflineSigner(config.chainId);
+    const accounts = await offlineSigner.getAccounts();
+    const client = await SigningCosmWasmClient.connectWithSigner(
+      config.rpcEndpoint,
+      offlineSigner,
+      {
+        gasPrice: GasPrice.fromString(
+          `${config["gasPrice"]}${config["microDenom"]}`
+        ),
+      }
+    );
+    const result = await client.sendTokens(
+      accounts[0].address,
+      recipient,
+      coins(
+        toMicroAmount("" + amount, config["coinDecimals"]),
+        config["microDenom"]
+      ),
+      "auto",
+      ""
+    );
+    assertIsBroadcastTxSuccess({
+      transactionHash: result.transactionHash,
+      height: result.height,
+      code: result.code,
+      rawLog: result.rawLog || "",
+    });
+  }
+
+  async getBalance(address): Promise<any> {
+    const offlineSigner = window.getOfflineSigner(config.chainId);
+    const accounts = await offlineSigner.getAccounts();
+
+    const client = await SigningCosmWasmClient.connectWithSigner(
+      config.rpcEndpoint,
+      offlineSigner,
+      {
+        gasPrice: GasPrice.fromString(
+          `${config["gasPrice"]}${config["microDenom"]}`
+        ),
+      }
+    );
+    return client.getBalance(address, config["microDenom"]);
   }
 }

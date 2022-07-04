@@ -20,6 +20,15 @@
           <td *ngIf="!!user.isWhiteListed"><button *ngIf="isAdmin || user.whiteListBy === myHash" class="add-button"  (click)="addRemoveToWhiteLists(user, 'false')">Remove from White Lists</button></td>
           <td *ngIf="isAdmin && !user.isAdmin"><button class="add-button"  (click)="setRemoveAdmin(user, 'true')">Set as admin</button></td>
           <td *ngIf="isAdmin && !!user.isAdmin"><button class="add-button"  (click)="setRemoveAdmin(user, 'false')">Remove from admin</button></td>
+          <td *ngIf="isAdmin">{{user.balance}}</td>
+          <td *ngIf="isAdmin">
+            <input id={{user.sendId}} class='amount-input'/>
+            <button class="add-button" (click)="sendToken(user)">Send Token</button>
+          </td>
+          <td *ngIf="isAdmin">
+            <input id={{user.getId}} class='amount-input'/>
+            <button class="add-button" (click)="getToken(user)">Get Token</button>
+          </td>
         </tr>
       </table>
     </div>
