@@ -15,6 +15,7 @@ import { HttpClient } from "@angular/common/http";
 import { AuthPipe } from "../../../@auth/auth.pipe";
 import { NbAuthService } from "@nebular/auth";
 import { AppService } from "../../../@services/app.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ngx-header",
@@ -59,6 +60,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     private layoutService: LayoutService,
     private appService: AppService,
     private configurationService: ConfigurationService,
+    protected router: Router,
     private breakpointService: NbMediaBreakpointsService
   ) {
     this.tenant = this.configurationService.configuration.tenant;
@@ -128,6 +130,11 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getUserPhoto() {
-    this.userPhoto = this.user.picture;
+    this.userPhoto = "";
+  }
+
+  logout() {
+    this.appService.clearUser();
+    this.router.navigate(["/auth/login"]);
   }
 }

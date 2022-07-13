@@ -23,6 +23,10 @@
     height: auto;
     display: flex;
     align-content: center;
+    svg {
+      width: 30px;
+      cursor: pointer;
+    }
   }
 
   nb-user {
@@ -61,7 +65,7 @@
   @include media-breakpoint-down(sm) {
     .control-item {
       display: none;
-      
+
     }
 
 

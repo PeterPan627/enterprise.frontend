@@ -11,15 +11,26 @@
 
   <div>
     <div class="list-content">
-      <ul class="listitem">
-        <li *ngFor="let user of source; let i = index">
-          <span>{{i+1}}</span>
-          <span class="item">{{user.first_name}} {{user.last_name}}</span>
-          <span class="item">{{user.email}}</span>
-          <button class="add-button" *ngIf="user.isWhiteListed !== '1'" (click)="addRemoveToWhiteLists(user, 'true')">Add to White Lists</button>
-          <button class="add-button" *ngIf="user.isWhiteListed === '1'" (click)="addRemoveToWhiteLists(user, 'false')">Remove from White Lists</button>
-        </li>
-      </ul>
+      <table class="listitem">
+        <tr *ngFor="let user of source; let i = index">
+          <td>{{i+1}}</td>
+          <td><span class="item">{{user.first_name}} {{user.last_name}}</span></td>
+          <td><span class="item">{{user.email}}</span></td>
+          <td *ngIf="!user.isWhiteListed"><button class="add-button"  (click)="addRemoveToWhiteLists(user, 'true')">Add to White Lists</button></td>
+          <td *ngIf="!!user.isWhiteListed"><button *ngIf="isAdmin || user.whiteListBy === myHash" class="add-button"  (click)="addRemoveToWhiteLists(user, 'false')">Remove from White Lists</button></td>
+          <td *ngIf="isAdmin && !user.isAdmin"><button class="add-button"  (click)="setRemoveAdmin(user, 'true')">Set as admin</button></td>
+          <td *ngIf="isAdmin && !!user.isAdmin"><button class="add-button"  (click)="setRemoveAdmin(user, 'false')">Remove from admin</button></td>
+          <td *ngIf="isAdmin">{{user.balance}}</td>
+          <td *ngIf="isAdmin">
+            <input id={{user.sendId}} class='amount-input'/>
+            <button class="add-button" (click)="sendToken(user)">Send Token</button>
+          </td>
+          <td *ngIf="isAdmin">
+            <input id={{user.getId}} class='amount-input'/>
+            <button class="add-button" (click)="getToken(user)">Get Token</button>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

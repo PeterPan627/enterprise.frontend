@@ -242,9 +242,10 @@ export class PagesMenu {
     menu.push(...this.normalMenu);
     const user = this.appService.getUser();
 
-    if (this.appService.getIsAdmin()) menu.push(...this.adminMenu);
+    if (this.appService.getIsAdmin() || user?.isAdmin)
+      menu.push(...this.adminMenu);
 
-    if (user.isWhiteListed) menu.push(...this.whiteListMenu);
+    if (user?.isWhiteListed) menu.push(...this.whiteListMenu);
 
     if (
       this.configService.configuration.tenant.features.findIndex(

@@ -24,7 +24,6 @@ export class PagesComponent implements OnDestroy, OnInit {
     private iconsLibrary: NbIconLibraries,
     protected initUserService: UsersService
   ) {
-    console.log("constructor page component");
     this.iconsLibrary.registerFontPack("fa", {
       packClass: "fa",
       iconClassPrefix: "fa",

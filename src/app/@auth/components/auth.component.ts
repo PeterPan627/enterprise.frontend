@@ -16,14 +16,6 @@ import { Router } from "@angular/router";
         <div class="welcome-container">
           <h4 class="welcome-title">Welcome to the</h4>
           <h1 class="welcome-title">dERP Launchpad</h1>
-          <h5>
-            <span class="welcome-description-accent">Work</span
-            ><span class="welcome-description">efficiently</span>
-          </h5>
-          <h5>
-            <span class="welcome-description-accent">Earn</span
-            ><span class="welcome-description">securely</span>
-          </h5>
         </div>
         <nb-card>
           <nb-card-header>
